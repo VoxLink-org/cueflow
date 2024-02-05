@@ -1,0 +1,26 @@
+{% macro renderMenu(items) %}
+  <ul>
+    {% for item in items %}
+      <li x-data="{ open: {{ 'true' if page.url.startsWith(item.url) else 'false' }} }">
+        <div class="cursor-pointer link{{ ' bg-neutral-100 dark:bg-neutral-850' if item.url == page.url }}">
+          <a href="{{ item.url }}" class="w-full p-2 ml-auto py-1.5 px-3 lg:py-2 lg:px-4 -my-1.5 -ml-3 lg:-my-2 lg:-ml-4">
+            {{ item.title }}
+          </a>
+          {% if item.children.length %}
+            <button class="text-neutral-400 dark:text-neutral-500 hover:text-neutral-950 dark:hover:text-white transition-colors ml-auto p-2.5 lg:p-3 -my-2.5 -mr-2.5 lg:-my-3 lg:-mr-3 rounded-r-xl" @click="open = !open">
+              <template x-if="open">{% lucide "chevron-down", { "class" : "h-4 w-4 stroke-2 shrink-0" } %}</template>
+              <template x-if="!open">{% lucide "chevron-right", { "class" : "h-4 w-4 stroke-2 shrink-0" } %}</template>
+            </button>
+          {% endif %}
+        </div>
+        <div class="max-h-0 overflow-hidden transition-all" :style="open ? 'max-height: ' + $el.scrollHeight + 'px' : ''" style="{{ 'max-height: 100%;' if page.url.startsWith(item.url) }}">
+          {% if item.children %}
+            {{ renderMenu(item.children) }}
+          {% endif %}
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+{{ renderMenu(collections.menu) }}

@@ -1,0 +1,39 @@
+---
+layout: layouts/base.njk
+---
+<div class="flex max-md:flex-col max-w-7xl mx-auto px-8 my-12 lg:my-16">
+  <div class="md:w-80 max-md:mb-4">
+    <div class="navigation md:pr-8 md:mr-8 md:border-r border-neutral-200 dark:border-neutral-750" x-data="{ showNav: false }">
+      <button @click="showNav = !showNav" class="btn w-full md:hidden mb-2">
+        <span x-text="showNav ? 'Hide navigation' : 'Show navigation'"></span>
+        {# <Icon name="ChevronsUpDown" class="h-4 w-4 stroke-2 shrink-0 -mr-1 lg:-mr-1.5"/> #}
+        <template x-if="!showNav">{% lucide "chevrons-up-down", { "class" : "ml-auto h-4 w-4" } %}</template>
+        <template x-if="showNav">{% lucide "chevrons-down-up", { "class" : "ml-auto h-4 w-4" } %}</template>
+      </button>
+      <div class="max-md:max-h-0 overflow-hidden transition-all" :style="showNav ? 'max-height: ' + $refs.navigation.offsetHeight + 'px' : ''">
+        <div x-ref="navigation">
+        {% include "partials/docs/navigation.njk" %}
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="w-full">
+    <div class="prose">
+      <h1 class="!mb-8">{{ title }}</h1>
+      {{ content | safe }}
+    </div>
+    {% include "partials/docs/footer.njk" %}
+  </div>
+  
+  <div class="w-72 max-lg:hidden">
+    <div class="sticky top-4 ml-8">
+      <h2 class="font-semibold track-tight">On this page</h2>
+      {{ content | toc | safe }}
+    </div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/yaml.min.js"></script>
+<script>hljs.highlightAll();</script>

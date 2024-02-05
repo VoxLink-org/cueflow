@@ -1,0 +1,22 @@
+[
+  {
+    "question": "Is Pages CMS free",
+    "answer": "Yes, Pages CMS is 100% free, including the online version. This is possible mostly because it runs as a simple front-end app with very limited backend capabilities (for the free plan). We host everything on Cloudflare Pages. It’s also Open Source, with an MIT license. You can self-host it on Cloudflare yourself (for free)."
+  },
+  {
+    "question": "Do you only support GitHub?",
+    "answer": "For now, yes. But we’ll be adding GitLab and Bitbucket support pretty soon. If you feel like giving me a hand, hop on GitHub or leave me a message XXX."
+  },
+  {
+    "question": "Do I have to use Cloudflare Pages?",
+    "answer": "For now ,yes. Cloudflare has a generous free tier which should allow you to host everything for free. The main dependency I would need to resolve to support other hosting options (e.g. AWS, Vercel, …) are the functions. If you want to help, send me a PR."
+  },
+  {
+    "question": "Why do you have a Pro plan?",
+    "answer": "First; we’re still working on the Pro plan. If you’re interested, sign up and we’ll let you know as soon as it’s ready. Second; all of the features that are part of the Pro plan are geared towards professionals and larger teams. It requires actual backend capabilities and thus cost us."
+  },
+  {
+    "question": "Who made this? It sucks!",
+    "answer": "Well yeah… On the wojak bell curve I’d probably be on the left. So if you consider yourself a javascript jedi master, maybe you could go to GitHub and help me make it suck less."
+  }
+]

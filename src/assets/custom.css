@@ -1,0 +1,58 @@
+/* FAQ */
+
+.faq a {
+  @apply underline hover:decoration-neutral-400 dark:hover:decoration-neutral-500 transition-colors;
+}
+
+
+/* Docs: Navigation */
+
+.navigation li {
+  @apply my-1;
+}
+
+.navigation ul ul {
+  @apply pl-6;
+}
+
+/* Docs: Table of contents */
+
+.toc ol ol {
+  @apply pl-4;
+}
+
+.toc li {
+  @apply my-2;
+}
+
+.toc a {
+  @apply underline hover:decoration-neutral-400 dark:hover:decoration-neutral-500 transition-colors;
+}
+
+/* Sidebar */
+
+.sidebar-trigger {
+  @apply fixed bottom-4 left-4 z-100 p-3 text-white bg-neutral-950 hover:bg-neutral-700 dark:text-neutral-950 dark:bg-white dark:hover:bg-neutral-300 rounded-full cursor-pointer transition-all custom-shadow lg:hidden;
+}
+
+.sidebar-overlay {
+  @apply invisible opacity-0 z-50 lg:z-10 fixed inset-0 bg-neutral-950 bg-opacity-20 dark:bg-opacity-60 overflow-y-auto h-screen w-screen z-100 transition-all;
+}
+
+.sidebar-active .sidebar-overlay {
+  @apply visible opacity-100 lg:opacity-0 lg:invisible;
+}
+
+.sidebar-content {
+  @apply fixed inset-y-0 z-10 w-72 flex flex-col invisible opacity-0 z-150 custom-shadow -translate-x-full lg:visible lg:opacity-100 lg:z-auto lg:translate-x-0 lg:shadow-none	transition-all bg-white dark:bg-neutral-950 border-r border-neutral-200 dark:border-neutral-750;
+}
+
+.sidebar-active .sidebar-content {
+  @apply visible opacity-100 translate-x-0;
+}
+
+/* Misc */
+
+.prose table td:first-child strong code {
+  @apply text-purple-800 dark:text-purple-200;
+}

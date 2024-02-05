@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  x-data="{ darkMode: localStorage.getItem('dark') === 'true'}"
+  x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
+  x-bind:class="{ 'dark': darkMode }">
+<head>
+  <meta charset="UTF-8"/>
+  <title>{{ title }}</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="description" content=""/>
+  <link rel="stylesheet" type="text/css" href="/assets/styles.css"/>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta property="og:title" content=""/>
+  <meta property="og:description" content=""/>
+  <meta property="og:image" content=""/>
+  <meta name="twitter:card" content=""/>
+  <meta name="twitter:site" content=""/>
+  <meta name="twitter:title" content=""/>
+  <meta name="twitter:description" content=""/>
+  <meta name="twitter:image" content=""/>
+  <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+<body>
+  {% include "partials/header.njk" %}
+  {{ content | safe }}
+  {% include "partials/footer.njk" %}
+</body>
+</html>
