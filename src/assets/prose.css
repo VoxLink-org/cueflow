@@ -19,15 +19,15 @@
 }
 
 .prose h1 {
-  @apply text-5xl;
+  @apply text-4xl lg:text-5xl;
 }
 
 .prose h2 {
-  @apply text-3xl;
+  @apply text-2xl lg:text-3xl;
 }
 
 .prose h3 {
-  @apply text-xl;
+  @apply text-lg lg:text-xl;
 }
 
 .prose h4,
