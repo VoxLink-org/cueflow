@@ -3,10 +3,10 @@
     transform: translateX(0);
   }
   to {
-    transform: translateX(-100%);
+    transform: translateX(-720px);
   }
 }
 
 .infinite-scroll {
-  animation: scroll 35s linear infinite;
+  animation: scroll 20s linear infinite;
 }

@@ -44,11 +44,11 @@
 }
 
 .prose code {
-  @apply text-sm bg-neutral-100 text-neutral-500 dark:bg-neutral-850 dark:text-neutral-400 rounded-lg p-1;
+  @apply text-sm bg-neutral-100 text-neutral-500 dark:bg-neutral-850 dark:text-neutral-400 rounded-lg py-1 px-1.5;
 }
 
 .prose pre code {
-  @apply p-2 block break-words whitespace-pre-wrap;
+  @apply p-3 block break-words whitespace-pre-wrap;
 }
 
 .prose ul,

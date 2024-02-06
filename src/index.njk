@@ -73,7 +73,8 @@ faq:
   </div>
 
   <button class="rounded-2xl overflow-hidden max-w-6xl mx-auto block relative group bg-neutral-950 mb-12" x-data="{ some: false }" @click="alert('sdf');">
-    <img class="w-full group-hover:opacity-90 transition-opacity" src="/media/screenshots/collection-light@2x.png"/>
+    <img class="w-full group-hover:opacity-90 transition-opacity block dark:hidden" src="/media/screenshots/edit-light@2x.png"/>
+    <img class="w-full group-hover:opacity-90 transition-opacity hidden dark:block" src="/media/screenshots/edit-dark@2x.png"/>
     <div class="btn-primary absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 !rounded-full !px-4 lg:!px-5 group-hover:scale-105 duration-1000 !transition-transform">
       {% lucide "play-circle", { "class" : "h-4 w-4 shrink-0" } %}
       <span class="max-sm:hidden">Watch the demo</span>
@@ -81,41 +82,41 @@ faq:
     </div>
   </button>
 
-  <div class="max-w-2xl mx-auto text-center mb-24 mt-12 lg:mb-28 lg:mt-16">
+  <div class="text-center mb-24 mt-12 lg:mb-28 lg:mt-16">
     <h2 class="mb-8 text-neutral-400 dark:text-neutral-500">Works with all popular static site generators</h2>
-     <div class="mx-auto relative overflow-hidden flex gap-x-10">
-      <div class="inline-flex gap-x-10 h-8 infinite-scroll">
-        {% include "icons/docusaurus.svg" %}
-        {% include "icons/jekyll.svg" %}
-        {% include "icons/nuxtdotjs.svg" %}
-        {% include "icons/nextdotjs.svg" %}
-        {% include "icons/astro.svg" %}
-        {% include "icons/eleventy.svg" %}
-        {% include "icons/hugo.svg" %}
-        {% include "icons/gatsby.svg" %}
-        {% include "icons/gridsome.svg" %}
-        {% include "icons/pelican.svg" %}
-        {% include "icons/vuedotjs.svg" %}
-      </div>
-      <div class="inline-flex gap-x-10 h-8 infinite-scroll">
-        {% include "icons/docusaurus.svg" %}
-        {% include "icons/jekyll.svg" %}
-        {% include "icons/nuxtdotjs.svg" %}
-        {% include "icons/nextdotjs.svg" %}
-        {% include "icons/astro.svg" %}
-        {% include "icons/eleventy.svg" %}
-        {% include "icons/hugo.svg" %}
-        {% include "icons/gatsby.svg" %}
-        {% include "icons/gridsome.svg" %}
-        {% include "icons/pelican.svg" %}
-        {% include "icons/vuedotjs.svg" %}
+    <div class="mx-auto overflow-hidden relative w-full max-w-[720px]">
+      <div class="w-full flex infinite-scroll">
+        <ul class="inline-flex h-10">
+          <li class="mx-4 w-10 h-10">{% include "icons/jekyll.svg" %}</li>
+          <li class="mx-4 w-10 h-10">{% include "icons/nuxtdotjs.svg" %}</li>
+          <li class="mx-4 w-10 h-10">{% include "icons/nextdotjs.svg" %}</li>
+          <li class="mx-4 w-10 h-10">{% include "icons/astro.svg" %}</li>
+          <li class="mx-4 w-10 h-10">{% include "icons/eleventy.svg" %}</li>
+          <li class="mx-4 w-10 h-10">{% include "icons/hugo.svg" %}</li>
+          <li class="mx-4 w-10 h-10">{% include "icons/vuedotjs.svg" %}</li>
+          <li class="mx-4 w-10 h-10">{% include "icons/gatsby.svg" %}</li>
+          <li class="mx-4 w-10 h-10">{% include "icons/docusaurus.svg" %}</li>
+          <li class="mx-4 w-10 h-10">{% include "icons/pelican.svg" %}</li>
+        </ul>
+        <ul class="inline-flex h-10">
+          <li class="mx-4 w-10 h-10">{% include "icons/jekyll.svg" %}</li>
+          <li class="mx-4 w-10 h-10">{% include "icons/nuxtdotjs.svg" %}</li>
+          <li class="mx-4 w-10 h-10">{% include "icons/nextdotjs.svg" %}</li>
+          <li class="mx-4 w-10 h-10">{% include "icons/astro.svg" %}</li>
+          <li class="mx-4 w-10 h-10">{% include "icons/eleventy.svg" %}</li>
+          <li class="mx-4 w-10 h-10">{% include "icons/hugo.svg" %}</li>
+          <li class="mx-4 w-10 h-10">{% include "icons/vuedotjs.svg" %}</li>
+          <li class="mx-4 w-10 h-10">{% include "icons/gatsby.svg" %}</li>
+          <li class="mx-4 w-10 h-10">{% include "icons/docusaurus.svg" %}</li>
+          <li class="mx-4 w-10 h-10">{% include "icons/pelican.svg" %}</li>
+        </ul>
       </div>
       <div class="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white dark:from-neutral-950 to-transparent"></div>
       <div class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white dark:from-neutral-950 to-transparent"></div>
     </div>
   </div>
 
-  <div class="max-w-4xl mx-auto my-24 lg:my-28">
+  <div class="max-w-5xl mx-auto my-24 lg:my-28">
     <h2 class="font-semibold tracking-tight text-3xl lg:text-4xl mb-12 text-center">{{ features.title }}</h2>
     <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
       {% for feature in features.entries %}
@@ -134,7 +135,7 @@ faq:
     <h2 class="font-semibold tracking-tight text-3xl lg:text-4xl mb-8">Zero cost, zero geek-speak: give your team a user-friendly CMS.</h2>
     <div class="flex gap-x-4 justify-center">
       <a class="btn-primary btn-lg" href="https://app.pagescms.org">Sign in</a>
-      <a class="btn btn-lg" href="https://github.com/pages-cms/pages-cms" target="_blank">Get the source code</a>
+      <a class="btn btn-lg" href="https://github.com/pages-cms/pages-cms" target="_blank">Source code</a>
     </div>
   </div>
 

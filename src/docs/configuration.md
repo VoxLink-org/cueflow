@@ -3,23 +3,20 @@ title: Configuration
 order: 2
 ---
 
-To configure Pages CMS for your website, you must add a `.pages.yml` file to its repo/branch. If your repository/branch doesn't have such a file, you will be presented with a link to add one via the Pages CMS interface.
+## The .pages.yml file
 
-![Config file missing](/media/screenshots/missing-config-dark.png)
+To configure Pages CMS you just need to add a `.pages.yml` file to the repository (and branch) that hosts your content and media. If this file isn't there when you open your repository/branch in Pages CMS, you will be be presented with a link to add one via the Pages CMS interface.
 
 You can have different configuration files on separate branches. The Pages CMS interface allows you to navigate between them (click on the name of repository at the top of the sidebar and then select the branch in the dropdown menu).
 
 The `.pages.yml` file contains mainly 2 sections:
 
-| Key | Type | Description |
-| - | - | - |
-| **`media`** | `string` or `object` | The settings for media (images, videos, etc). [See the "Media" section below](#media). |
-| **`content`** | `array` | An array defining the content types. [See the "Content" section below](#content). |
+- **media**: the settings for media (images, videos, etc). [See the "Media" section below](#media).
+- **content**: an array defining the content types. [See the "Content" section below](#content).
 
 ## Media
 
-Media refers to the files that can be embedded in or associated with the content: attachments, thumbnails, inline images... The 
-media folder is made available in certain fields (e.g. insert image in rich-text).
+With media, you can configure how to handle the files that can be embedded in or associated with the content: attachments, thumbnails, inline images...
 
 ### Keys
 
@@ -27,16 +24,18 @@ media folder is made available in certain fields (e.g. insert image in rich-text
 | - | - | - |
 | **`input`**| `string` | The path to the media folder relative to the root of the repo (e.g. `src/files/media`). This path is what allows us to find the files in Pages CMS to manage content and media. |
 | **`output`** | `string` | The path to the media folder relative to the root of the website (e.g. `files/media`). This path will prefix all media saved in our content, which will be used by your static site generator. |
-| **`path`** | `string` | The path to the media folder relative to the root of the website (e.g. `files/media`). This path will prefix all media saved in our content, which will be used by your static site generator. |
-| **`extensions`** | `string` | The path to the media folder relative to the root of the website (e.g. `files/media`). This path will prefix all media saved in our content, which will be used by your static site generator. |
-| **`categories`** | `string` | The path to the media folder relative to the root of the website (e.g. `files/media`). This path will prefix all media saved in our content, which will be used by your static site generator. |
+| **`path`** | `string` | The default path to present the user (e.g. when opening the media browser on an [Image Field](/docs/configuration/image-field)). |
+| **`extensions`** | `string` | An array of file extensions that should be displayed. If provided, any file with an extension not included in this list will not be shown to the user. |
+| **`categories`** | `string` | Similar to `media.extensions`, but using categories of files: `image` (`jpg`, `jpeg`, `png`, `gif`, `svg`, `bmp`, `tif`, `tiff`), `document` (`pdf`, `doc`, `docx`, `ppt`, `pptx`, `vxls`, `xlsx`, `txt`, `rtf`), `video` (`mp4`, `avi`, `mov`, `wmv`, `flv`), `audio` (`mp3`, `wav`, `aac`, `ogg`, `flac`) and `compressed` (`zip`, `rar`, `7z`, `tar`, `gz`, `tgz`). If both `media.extensions` and `media.categories` are provided, `media.categories` will be ignored. |
 
-If `media` is set to a `string`, it is equivalent to settings both `media.input` and `media.output` to that value. For example, `media: files/media` would be the equaivalent of:
+If `media` is set to a `string`, it is equivalent to settings both `media.input` and `media.output` to that value, prefixed with `/` for `media.output`.
+
+For example, `media: files/media` would be equivalent to:
 
 ```yaml
 media:
   input: files/media
-  output: files/media
+  output: /files/media
 ```
 
 ### Examples
@@ -47,7 +46,7 @@ Let's assume the content for my website is at the root of my repo:
 media: files/media
 ```
 
-Now, if the content for this website was in a `src/` subfolder, it would look like this:
+Now, if the content for this website was in a `src/` subfolder, it could look like this:
 
 ```yaml
 media:
@@ -65,7 +64,7 @@ media:
 
 ## Content
 
-Content refers to all of the entries that can be managed by editors: collections (e.g. blog posts) and single types (e.g. the home page). The `content` key should be set as an array of content entries, each using the keys specificed below.
+Content managed by the users: collections (e.g. blog posts) and single types (e.g. the home page). The `content` key should be set as an array of content entries.
 
 ### Keys
 
@@ -78,35 +77,23 @@ Each content entry can define the following keys:
 | **`type`**| `string` | **Required**. `collection` or `single`, depending on whether the content entry is a collection of files with an identical schema (e.g. blog posts) or a single file (e.g. home page). |
 | **`path`** | `string` | **Required**. Path to the folder where the files are stored if it's a collection (e.g. `path: src/posts`, otherwise the path to the single file (e.g. `path: src/index.md`). |
 | **`fields`** | `string` | The list of fields defining the schema of the content entry (e.g. title, date, author, body, etc). [See the "Fields" section below](#fields). |
-| **`filename`** | `string` | The pattern to generate the filename when creating a new file. You can use the value of any field (e.g. `fields.title`) including nested values (e.g. `fields.tags[0].label`). You can also use a few date tokens (`{year}`, `{month}`, `{day}`) and time (`{hour}`, `{minute}`, `{second}`) and `{primary}` for the primary field as defined in the `view` key. By default this is set to `'{year}-{month}-{day}-{hour}-{primary}.md'`. |
+| **`filename`** | `string` | The pattern to generate the filename when creating a new file. You can use the value of any field (e.g. `fields.title`) including nested values (e.g. `fields.tags[0].label`). You can also use a few date tokens (`{year}`, `{month}`, `{day}`) and time (`{hour}`, `{minute}`, `{second}`) and `{primary}` for the primary field as defined in the `view` key. By default this is set to `'{year}-{month}-{day}-{primary}.md'`. |
 | **`view`** | `object` | **Only valid for collections**. This object defines the various options for the collection view; visible fields, sorting options and defaults, fields indexed for the search... [See the "View" section below](#view). |
-| **`editor`** | `string` | The type of editor that should be used to edit the content: `yfm`, `yaml`, `json`, `datagrid`, `code` or `raw`. In most cases, you can let Pages CMS pick it. |
-**subfolder** ??
+| **`editor`** | `string` | The type of editor that should be used to edit the content: `yfm`, `yaml`, `json`, `datagrid`, `code` or `raw`. It defaults to yaml-front-matter |
+| **`subfolders`** | `boolean` | Whether or not the collection should display subfolders. Default to `true`. Set to `false` if you want to force the collection of files to be "flat". |
 
 ### Examples
 
-For a collection
+Let's assume we have a simple collection of blog posts all saved in the `src/_posts` folder:
 
 ```yaml
 content:
   name: posts
   label: Posts
-  path: src/posts
-  fields: 
+  path: src/_posts
+  fields:
+    (...)
 ```
-
-```yaml
-content:
-  name: posts
-  label: Posts
-  
-  default:
-    search: ''
-    sort: title
-    order: desc
-```
-
-Check the [examples page](/docs/examples) for more complex use cases.
 
 ## View
 
@@ -163,13 +150,11 @@ The `author:Patricia` syntax [comes from lunr.js](https://lunrjs.com/guides/sear
 
 ## Fields
 
-Each field defines a widget that the user can interact with to 
-
 ### Keys
 
 | Key | Type | Description |
 | - | - | - |
-| **`name`** | `string` | **Required and must be unique across the fields array**. Machine name for the field. |
+| **`name`** | `string` | **Required and must be unique across the fields array**. Machine name for the field. **`body` is reserved for the body of the file when deal with a frontmatter file (e.g. YAML frontmatter)**. |
 | **`label`** | `string` | Display name for the field. This is what is displayed in the edit form. |
 | **`description`** | `string` | Default value. |
 | **`type`** | `string` | Defines the type of field: **[boolean](#boolean-field)**, **[code](#code-field)**, **[date](#date-field)**, **[image](#image-field)**, **[number](#number-field)**, **[object](#object-field)**, **[rich-text](#rich-text-field)**, **[select](#select-field)**, **[string](#string-field)** or **[text](#text-field)**. If undefined or set to a field that doesn't exist, it defaults to `text`. |
@@ -194,8 +179,8 @@ Will allow the user to save multiple image paths:
 
 ```yaml
 images:
-- media/image-1.png
-- media/image-2.png
+  - media/image-1.png
+  - media/image-2.png
 ```
 
 `list` can be an object with `min`, `max` and `default` keys. `min` and `max` define the minimum and maximum number of entries in the array. For example:
@@ -212,7 +197,3 @@ list:
 This will force the user to enter at least 1 image and at most 4.
 
 <!-- Certain fields (e.g. `type: image`) implement their own list logic. If you want to use the default list widget, you may set `default` to true. -->
-
-### Examples
-
-Check [the full configuration examples](/docs/examples).
