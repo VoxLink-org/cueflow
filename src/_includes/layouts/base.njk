@@ -17,11 +17,11 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta property="og:title" content="{{ title }}"/>
   <meta property="og:description" content="{{ description or site.description }}"/>
-  <meta property="og:url" content="{{ site.url }}{{ page.url }}"/>
+  <meta property="og:url" content="{{ site.url + page.url }}"/>
   <meta property="og:image" content="{{ site.url }}/cover@2x.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:site" content="@pagescms"/>
-  <meta name="twitter:url" content="{{ site.url }}{{ page.url }}"/>
+  <meta name="twitter:url" content="{{ site.url + page.url }}"/>
   <meta name="twitter:title" content="{{ title }}"/>
   <meta name="twitter:description" content="{{ description or site.description }}"/>
   <meta name="twitter:image" content="{{ site.url }}/cover@2x.png"/>
