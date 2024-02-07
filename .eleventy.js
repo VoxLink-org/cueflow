@@ -6,9 +6,8 @@ const lucideIcons = require("@grimlink/eleventy-plugin-lucide-icons");
 const md = new markdownIt({ html: true });
 
 module.exports = function(eleventyConfig) {
-  eleventyConfig.addPassthroughCopy({ "src/media": "media" });
-  eleventyConfig.addPassthroughCopy({ "src/assets/favicon": "/" });
-  eleventyConfig.addPassthroughCopy({ "src/assets/cover@2x.png": "/assets" });
+  eleventyConfig.addPassthroughCopy({ "src/media": "/media" });
+  eleventyConfig.addPassthroughCopy({ "src/assets": "/" });
 
   eleventyConfig.addPlugin(lucideIcons);
 

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf _site",
-    "dev": "eleventy --serve & npx tailwindcss -i ./src/assets/styles.css -o ./_site/assets/styles.css --watch",
-    "build": "ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production npx tailwindcss -i ./src/input.css -o ./_site/assets/styles.css --minify"
+    "dev": "eleventy --serve & npx tailwindcss -i ./src/styles/main.css -o ./_site/styles.css --watch",
+    "build": "ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production npx tailwindcss -i ./src/styles/main.css -o ./_site/styles.css --minify"
   },
   "repository": {
     "type": "git"
