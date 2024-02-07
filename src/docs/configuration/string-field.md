@@ -2,21 +2,21 @@
 title: String field
 ---
 
+Single line text.
+
 ## Options
 
 | Option | Type | Description |
 | - | - | - |
-| **`minlength`** | `integer` | If set, defines the minimum length in characters.  |
-| **`maxlength`** | `integer` | If set, defines the maximum length in characters.  |
-| **`pattern`** | `string` or `array` |  |
+| **`minlength`** | `integer` | If defined, sets the minimum length in characters.  |
+| **`maxlength`** | `integer` | If defined, sets the maximum length in characters.  |
 
 ## Examples
 
 ```yaml
-- name: fullname
-  label: 
+- name: description
+  label: Description
   options:
-    minlength:
-    maxlength:
-    pattern: 
+    minlength: 20
+    maxlength: 160
 ```

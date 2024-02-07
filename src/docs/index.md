@@ -17,14 +17,14 @@ INCLUDE VIDEO TOUR
 
 ### Use the online version
 
-The easiest way to get started is to use [the online version of Pages CMS](https://app.pagescms.org). You'll simply need to log in with your GitHub and configure your website.
+The easiest way to get started is to use [the online version of Pages CMS](https://app.pagescms.org). You'll simply need to log in with your GitHub and [configure your website](/docs/configuration).
 
 This online version runs the latest version from [the public repository](https://github.com/pages-cms/pages-cms). Additionally, we do not keep any information in the backend (OAuth tokens are saved on the client side and the app directly talks to the GitHub API).
 
-<p><a href="https://app.pagescms.org" class="btn !no-underline	">Sign in with GitHub</a></p>
+<p><a href="https://app.pagescms.org" class="btn-primary !no-underline	">Sign in with GitHub</a></p>
 
 ### Install or deploy your own version
 
 If you'd like to owever, you can install your own version locally or deploy it (for free) on Cloudflare following the steps below.
 
-<p><a href="https://github.com/pages-cms/pages-cms" class="btn !no-underline	">Get the source code oin GitHub</a></p>
+<p><a href="https://github.com/pages-cms/pages-cms" class="btn-primary !no-underline	">Get the source code oin GitHub</a></p>

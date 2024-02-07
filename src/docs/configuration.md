@@ -14,9 +14,13 @@ The `.pages.yml` file contains mainly 2 sections:
 - **media**: the settings for media (images, videos, etc). [See the "Media" section below](#media).
 - **content**: an array defining the content types. [See the "Content" section below](#content).
 
+![Media](/media/screenshots/settings-light@2x.png)
+
 ## Media
 
 With media, you can configure how to handle the files that can be embedded in or associated with the content: attachments, thumbnails, inline images...
+
+![Media](/media/screenshots/media-light@2x.png)
 
 ### Keys
 
@@ -66,6 +70,8 @@ media:
 
 Content managed by the users: collections (e.g. blog posts) and single types (e.g. the home page). The `content` key should be set as an array of content entries.
 
+![Collection view](/media/screenshots/collection-view-light@2x.png)
+
 ### Keys
 
 Each content entry can define the following keys:
@@ -88,20 +94,25 @@ Let's assume we have a simple collection of blog posts all saved in the `src/_po
 
 ```yaml
 content:
-  name: posts
-  label: Posts
-  path: src/_posts
-  fields:
-    (...)
+  - name: posts
+    label: Posts
+    path: src/_posts
+    type: collection
+    fields:
+      (...)
+  - name: authors
+    label: Authors
+    path: src/_data/authors.json
+    type: single
+    fields:
+      (...)
 ```
 
-## View
+### View
 
-The `view` object is only read for `type: collection` content entries. It defines the configuration for the collection view, aka the page that lists the entries for a collection which is accessed from the main menu under a specific repo/branch (e.g. `https://app.pagescms.org/pages-cms/template-nextjs/content/posts/`).
+The `view` object is only valid for `type: collection` content entries. It defines the configuration for the collection view, aka the page that lists the entries for a collection which is accessed from the main menu under a specific repo/branch (e.g. `https://app.pagescms.org/pages-cms/template-nextjs/content/posts/`).
 
-![Collection view](/media/screenshots/collection-dark.png)
-
-### Keys
+#### Keys
 
 | Key | Type | Description |
 | - | - | - |
@@ -111,7 +122,7 @@ The `view` object is only read for `type: collection` content entries. It define
 | **`search`** | `array` | The list of fields that should be indexed for search. By default, all fields are indexed. |
 | **`default`** | `object` | Define the default values for search and sorting: `{ search: 'My keywords', sort: title, order: asc }`). `default.order` can be `asc` or `desc`. By default, `default.search` is empty, `default.sort` is the first field in the `sort` array and `default.order` is set to `desc`. |
 
-### Examples
+#### Examples
 
 Assuming you have a `date` field and `title` is the primary field, your default configuration would look like:
 
@@ -147,24 +158,23 @@ view:
 
 The `author:Patricia` syntax [comes from lunr.js](https://lunrjs.com/guides/searching.html#fields), the search library used by Pages CMS under the hood. Other syntax will work too (wildcards, boosts, fuzzy matches and term presence).
 
+### Fields
 
-## Fields
-
-### Keys
+#### Keys
 
 | Key | Type | Description |
 | - | - | - |
 | **`name`** | `string` | **Required and must be unique across the fields array**. Machine name for the field. **`body` is reserved for the body of the file when deal with a frontmatter file (e.g. YAML frontmatter)**. |
 | **`label`** | `string` | Display name for the field. This is what is displayed in the edit form. |
 | **`description`** | `string` | Default value. |
-| **`type`** | `string` | Defines the type of field: **[boolean](#boolean-field)**, **[code](#code-field)**, **[date](#date-field)**, **[image](#image-field)**, **[number](#number-field)**, **[object](#object-field)**, **[rich-text](#rich-text-field)**, **[select](#select-field)**, **[string](#string-field)** or **[text](#text-field)**. If undefined or set to a field that doesn't exist, it defaults to `text`. |
+| **`type`** | `string` | Defines the type of field: **[boolean](/docs/configuration/boolean-field)**, **[code](/docs/configuration/code-field)**, **[date](/docs/configuration/date-field)**, **[image](/docs/configuration/image-field)**, **[number](/docs/configuration/number-field)**, **[object](/docs/configuration/object-field)**, **[rich-text](/docs/configuration/rich-text-field)**, **[select](/docs/configuration/select-field)**, **[string](/docs/configuration/string-field)** or **[text](/docs/configuration/text-field)**. If undefined or set to a field that doesn't exist, it defaults to `text`. |
 | **`default`** | | Default value. |
 | **`list`** | `boolean` or `object` | If truthy, the field is an array of values (of the type defined for the field). [See the "View" section below](#view). |
 | **`hidden`** | `boolean` | If `true`, the field will not be displayed in the form but will be saved. It is usually used with `default` to set a required field that shouldn't be edited by users, like for example the language of a post (`lang: en-US`). |
 | **`fields`** | `array` | **Only valid for object fields**. List of the fields in that object. |
 | **`options`** | `object` | Options for that field. Refer to the field specific details below. |
 
-### List
+#### List
 
 Any field with a truthy `list` key will be stored as an array of that field type. For example:
 
@@ -196,4 +206,17 @@ list:
 
 This will force the user to enter at least 1 image and at most 4.
 
-<!-- Certain fields (e.g. `type: image`) implement their own list logic. If you want to use the default list widget, you may set `default` to true. -->
+Certain fields (e.g. the [image field(/docs/configuration/image-field)]) implement their own list logic. If you want to use the default list widget, you may set `default` to true.
+
+#### Types
+
+- [Boolean field](/docs/configuration/boolean-field)
+- [Code field](/docs/configuration/code-field)
+- [Date field](/docs/configuration/date-field)
+- [Image field](/docs/configuration/image-field)
+- [Number field](/docs/configuration/number-field)
+- [Object field](/docs/configuration/object-field)
+- [Rich-text field](/docs/configuration/rich-text-field)
+- [Select field](/docs/configuration/select-field)
+- [String field](/docs/configuration/string-field)
+- [Text field](/docs/configuration/text-field)

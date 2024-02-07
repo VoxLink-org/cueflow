@@ -2,7 +2,7 @@
 title: Select field
 ---
 
-A simple dropdown field.
+Dropdown field.
 
 ## Options
 

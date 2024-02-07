@@ -2,7 +2,7 @@
 title: Code field
 ---
 
-A code editor with syntax highlighting using [Codemirror](https://codemirror.net/).
+Code editor with syntax highlighting using [Codemirror](https://codemirror.net/).
 
 ## Options
 
