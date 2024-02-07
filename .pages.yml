@@ -3,6 +3,7 @@ content:
   - name: docs
     label: Documentation
     type: collection
+    path: src/docs
     fields:
       - name: title
         label: Title
