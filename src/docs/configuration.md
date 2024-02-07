@@ -171,6 +171,8 @@ The `author:Patricia` syntax [comes from lunr.js](https://lunrjs.com/guides/sear
 | **`default`** | | Default value. |
 | **`list`** | `boolean` or `object` | If truthy, the field is an array of values (of the type defined for the field). [See the "View" section below](#view). |
 | **`hidden`** | `boolean` | If `true`, the field will not be displayed in the form but will be saved. It is usually used with `default` to set a required field that shouldn't be edited by users, like for example the language of a post (`lang: en-US`). |
+| **`required`** | `boolean` | If `true`, the field can't be empty. |
+| **`pattern`** | `string` or `object` | A regular expression to validate the field. A custom message for the error can be provided by defining an object with `regex` and `message` attributes (e.g. `pattern: { regex: 'This must be a valid email address (e.g. hello@example.com).', message: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$' }`) |
 | **`fields`** | `array` | **Only valid for object fields**. List of the fields in that object. |
 | **`options`** | `object` | Options for that field. Refer to the field specific details below. |
 

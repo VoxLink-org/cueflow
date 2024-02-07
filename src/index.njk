@@ -69,7 +69,10 @@ faq:
   <div class="max-w-xl mx-auto my-24 lg:my-28 text-center">
     <h1 class="font-semibold tracking-tight text-4xl lg:text-6xl lg:text-6xl mb-8">{{ title }}</h1>
     <p class="mb-12 text-xl">{{ description }}</p>
-    <a class="btn-primary btn-lg" href="https://app.pagescms.org">Sign in with GitHub</a>
+    <div class="flex max-md:flex-col md:gap-x-4 max-md:gap-y-4 justify-center">
+      <a class="btn-primary btn-lg justify-center" href="https://app.pagescms.org">Sign in with GitHub</a>
+      <a class="btn btn-lg justify-center" href="https://github.com/pages-cms/pages-cms" target="_blank">Get the source code</a>
+    </div>
   </div>
 
   <button class="rounded-2xl overflow-hidden max-w-6xl mx-auto block relative group bg-neutral-950 mb-12" x-data="{ some: false }" @click="alert('sdf');">
@@ -133,10 +136,7 @@ faq:
 
   <div class="max-w-2xl mx-auto my-24 lg:my-28 text-center">
     <h2 class="font-semibold tracking-tight text-3xl lg:text-4xl mb-8">Zero cost, zero geek-speak: give your team a user-friendly CMS.</h2>
-    <div class="flex gap-x-4 justify-center">
-      <a class="btn-primary btn-lg" href="https://app.pagescms.org">Sign in</a>
-      <a class="btn btn-lg" href="https://github.com/pages-cms/pages-cms" target="_blank">Source code</a>
-    </div>
+    <a class="btn-primary btn-lg" href="https://app.pagescms.org">Sign in with GitHub</a>
   </div>
 
   <div class="max-w-2xl mx-auto my-24 lg:my-28">
