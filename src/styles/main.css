@@ -2,6 +2,7 @@
 @import './highlightjs.css';
 @import './custom.css';
 @import './carousel.css';
+@import './modal.css';
 
 @tailwind base;
 @tailwind components;
