@@ -11,8 +11,6 @@ It allows you to edit your website's content directly on GitHub (and soon GitLab
 
 To use it, you just need to add [a simple configuration file](/docs/configuration) that describes the structure of your content and media.
 
-INCLUDE VIDEO TOUR
-
 ## How to use Pages CMS?
 
 ### Use the online version
