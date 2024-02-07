@@ -75,34 +75,16 @@ faq:
     </div>
   </div>
 
-  <div x-data="{ showModal: false }">
-    <div class="rounded-2xl overflow-hidden max-w-6xl mx-auto block relative group bg-neutral-950 mb-12 cursor-pointer" @click="showModal = true; $refs.video.play();">
-      <img class="w-full group-hover:opacity-90 transition-opacity block dark:hidden" src="/media/screenshots/collection-light@2x.png"/>
-      <img class="w-full group-hover:opacity-90 transition-opacity hidden dark:block" src="/media/screenshots/collection-dark@2x.png"/>
-      <div class="btn-primary absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 !rounded-full !px-4 lg:!px-5 group-hover:scale-105 duration-1000 !transition-transform">
-        {% lucide "play-circle", { "class" : "h-4 w-4 shrink-0" } %}
-        <span class="max-sm:hidden">Watch the intro</span>
-        <span class="sm:hidden">Intro</span>
-      </div>
+  
+  <a href="https://youtu.be/rJ69qJVl-uA" target="_blank" class="rounded-2xl overflow-hidden max-w-6xl mx-auto block relative group bg-neutral-950 mb-12 cursor-pointer">
+    <img class="w-full group-hover:opacity-90 transition-opacity block dark:hidden" src="/media/screenshots/collection-light@2x.png"/>
+    <img class="w-full group-hover:opacity-90 transition-opacity hidden dark:block" src="/media/screenshots/collection-dark@2x.png"/>
+    <div class="btn-primary absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 !rounded-full !px-4 lg:!px-5 group-hover:scale-105 duration-1000 !transition-transform">
+      {% lucide "play-circle", { "class" : "h-4 w-4 shrink-0" } %}
+      <span class="max-sm:hidden">Watch the intro</span>
+      <span class="sm:hidden">Intro</span>
     </div>
-
-    <div class="modal-overlay" @click="showModal = false; $refs.video.pause();" x-bind:class="showModal ? 'modal-active' : ''">
-      <div class="modal-wrapper">
-        <div class="modal-box adjust-dark w-[calc(100vw-14rem)]" @click.stop>
-          <header class="modal-header">
-            <div class="modal-title">Watch the intro</div>
-            <button @click="showModal = false; $refs.video.pause();" class="modal-close">{% lucide "X", { "class" : "h-4 w-4 stroke-2 shrink-0" } %}</button>
-          </header>
-          <div class="modal-body">
-            <video x-ref="video" controls class="w-7xl">
-              <source src="/media/intro-v1.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  </a>
 
   <div class="text-center mb-24 mt-12 lg:mb-28 lg:mt-16">
     <h2 class="mb-8 text-neutral-400 dark:text-neutral-500">Works with all popular static site generators</h2>
