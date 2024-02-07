@@ -1,0 +1,57 @@
+media: media
+content:
+  - name: docs
+    label: Documentation
+    type: collection
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Description
+        type: string
+        maxlength: 160
+      - name: order
+        label: Order
+        type: number
+      - name: body
+        label: Body
+        type: rich-text
+  - name: home
+    label: Home page
+    type: single
+    fields:
+      - { name: layout, type: string, hidden: true, default: layouts/base.njk }
+      - { name: title, label: Title, type: string, required: true }
+      - { name: description, label: Description, type: string, maxlength: 160 }
+      - name: features
+        label: Features
+        type: object
+        fields:
+          - { name: title, label: Title, type: string }
+          - name: entries
+            label: Entries
+            type: object
+            list: true
+            fields:
+              - { name: title, label: Title, type: string }
+              - { name: description, label: Description, type: string }
+              - { name: icon, label: Icon, type: string }
+      - name: faq
+        label: FAQ
+        type: object
+        fields:
+          - { name: title, label: Title, type: string }
+          - name: entries
+            label: Entries
+            type: object
+            list: true
+            fields:
+              - { name: question, label: Question, type: string }
+              - { name: answer, label: Answer, type: string }
+      - name: body
+        label: Body
+        type: code
+        options:
+          format: html
