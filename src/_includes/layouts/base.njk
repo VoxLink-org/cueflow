@@ -18,14 +18,14 @@
   <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta property="og:type" content="{{ type or 'website' }}"/>
-  <meta property="og:title" content="{{ title }}"/>
+  <meta property="og:title" content="{{ site.title + ": " + title if page.url === "/" else title + " - " + site.title }}"/>
   <meta property="og:description" content="{{ description or site.description }}"/>
   <meta property="og:url" content="{{ site.url + page.url }}"/>
   <meta property="og:image" content="{{ site.url }}/cover@2x.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:site" content="@pagescms"/>
   <meta name="twitter:url" content="{{ site.url + page.url }}"/>
-  <meta name="twitter:title" content="{{ title }}"/>
+  <meta name="twitter:title" content="{{ site.title + ": " + title if page.url === "/" else title + " - " + site.title }}"/>
   <meta name="twitter:description" content="{{ description or site.description }}"/>
   <meta name="twitter:image" content="{{ site.url }}/cover@2x.png"/>
   <script src="//unpkg.com/alpinejs" defer></script>
