@@ -8,7 +8,11 @@ content:
     path: src/docs
     view:
       fields: [ title, order ]
+      primary: title
+      sort: [ order, title ]
       default:
+        sort: order
+        order: desc
     fields:
       - { name: title, label: Title, type: string, required: true }
       - { name: description, label: Description, type: string, maxlength: 160 }
