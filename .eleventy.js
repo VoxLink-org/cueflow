@@ -6,8 +6,13 @@ const lucideIcons = require("@grimlink/eleventy-plugin-lucide-icons");
 const md = new markdownIt({ html: true });
 
 module.exports = function(eleventyConfig) {
-  eleventyConfig.addPassthroughCopy({ "src/media": "/media" });
-  eleventyConfig.addPassthroughCopy({ "src/assets": "/" });
+  eleventyConfig.addPassthroughCopy({
+     "src/media": "/media",
+     "src/assets": "/",
+     "node_modules/alpinejs/dist/cdn.min.js": "js/alpine.js",
+     "node_modules/htmx.org/dist/htmx.min.js": "js/htmx.js",
+     "node_modules/htmx.org/dist/ext/preload.js": "js/htmx-preload.js"
+  });
 
   eleventyConfig.addPlugin(lucideIcons);
 

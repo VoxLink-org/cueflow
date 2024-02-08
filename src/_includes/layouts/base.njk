@@ -28,9 +28,11 @@
   <meta name="twitter:title" content="{{ site.title + ": " + title if page.url === "/" else title + " - " + site.title }}"/>
   <meta name="twitter:description" content="{{ description or site.description }}"/>
   <meta name="twitter:image" content="{{ site.url }}/cover@2x.png"/>
-  <script src="//unpkg.com/alpinejs" defer></script>
+  <script src="/js/alpine.js" defer></script>
+  <script src="/js/htmx.js"></script>
+  <script src="/js/htmx-preload.js"></script>
 </head>
-<body>
+<body hx-boost="true" hx-ext="preload">>
   {% include "partials/header.njk" %}
   {{ content | safe }}
   {% include "partials/footer.njk" %}
