@@ -6,21 +6,14 @@ content:
     label: Documentation
     type: collection
     path: src/docs
+    view:
+      fields: [ title, order ]
+      default:
     fields:
-      - name: title
-        label: Title
-        type: string
-        required: true
-      - name: description
-        label: Description
-        type: string
-        maxlength: 160
-      - name: order
-        label: Order
-        type: number
-      - name: body
-        label: Body
-        type: rich-text
+      - { name: title, label: Title, type: string, required: true }
+      - { name: description, label: Description, type: string, maxlength: 160 }
+      - { name: order, label: Order, type: number }
+      - { name: body, label: Body, type: rich-text }
   - name: home
     label: Home page
     type: single
@@ -54,8 +47,4 @@ content:
             fields:
               - { name: question, label: Question, type: string }
               - { name: answer, label: Answer, type: string }
-      - name: body
-        label: Body
-        type: code
-        options:
-          format: html
+      - { name: body, label: Body, type: code, options: { format: html} }
