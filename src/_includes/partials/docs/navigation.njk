@@ -2,7 +2,7 @@
   <ul>
     {% for item in items %}
       <li x-data="{ open: {{ 'true' if page.url.startsWith(item.url) else 'false' }} }" class="relative">
-        <a href="{{ item.url }}" class="link{{ ' bg-neutral-100 dark:bg-neutral-850' if item.url == page.url }}" preload>
+        <a href="{{ item.url }}" class="link{{ ' bg-neutral-100 dark:bg-neutral-850' if item.url == page.url }}">
           {{ item.title }}
         </a>
         {% if item.children.length %}

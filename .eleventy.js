@@ -11,7 +11,7 @@ module.exports = function(eleventyConfig) {
      "src/assets": "/",
      "node_modules/alpinejs/dist/cdn.min.js": "js/alpine.js",
      "node_modules/htmx.org/dist/htmx.min.js": "js/htmx.js",
-     "node_modules/htmx.org/dist/ext/preload.js": "js/htmx-preload.js"
+    //  "node_modules/htmx.org/dist/ext/preload.js": "js/htmx-preload.js"
   });
 
   eleventyConfig.addPlugin(lucideIcons);
