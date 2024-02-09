@@ -1,68 +1,111 @@
 ---
 layout: layouts/base.njk
 title: The No-Hassle CMS for Static Sites
-description: Updating content on your Next.js, Astro, Nuxt, or Hugo website can be a headache for you and your team. Ditch the Git and YAML nonsense, get a modern CMS that's easy to use for anybody.
+description: >-
+  Updating content on your Next.js, Astro, Nuxt, or Hugo website can be a
+  headache for you and your team. Ditch the Git and YAML nonsense, get a modern
+  CMS that's easy to use for anybody.
 features:
   title: Packed with features...
-  entries: 
-  - title: Configurable
-    description: Customize content types, views, search, and more.
-    icon: settings
-  - title: Visual editor
-    description: Rich-text, syntax highlighting, and more.
-    icon: pencil
-  - title: Media manager
-    description: Drag and drop upload, multi-file selection, and more.
-    icon: folder-tree
-  - title: Search
-    description: Fast, full-text and faceted search across your content.
-    icon: search
-  - title: Github
-    description: Manage any website or app hosted on GitHub directly.
-    icon: github
-  - title: Gitlab & Bitbucket
-    description: Manage sites and apps hosted on GitLab or Bitbucket.
-    icon: git-branch
-    soon: true
-  - title: Email invites
-    description: Invite users via email, no other account needed.
-    icon: mail-open
-    pro: true
-  - title: File storage
-    description: Connect with AWS S3, Cloudflare R2, and more.
-    icon: cloud
-    pro: true
-  - title: Scheduling
-    description: Easily schedule one-off or recurring content updates.
-    icon: calendar-clock
-    pro: true
-  - title: Permissions
-    description: Granular access control for different content types.
-    icon: sliders
-    pro: true
-  - title: Analytics
-    description: Integrate with GA, Cloudflare Analytics, and more.
-    icon: bar-chart-4
-    pro: true
-  - title: Team collaboration
-    description: Real-time content editing and inline commnents.
-    icon: users
-    pro: true
+  entries:
+    - title: Configurable
+      description: Customize content types, views, search, and more.
+      icon: settings
+    - title: Visual editor
+      description: Rich-text, syntax highlighting, and more.
+      icon: pencil
+    - title: Media manager
+      description: Drag and drop upload, multi-file selection, and more.
+      icon: folder-tree
+    - title: Search
+      description: Fast, full-text and faceted search across your content.
+      icon: search
+    - title: Github
+      description: Manage any website or app hosted on GitHub directly.
+      icon: github
+    - title: Gitlab & Bitbucket
+      description: Manage sites and apps hosted on GitLab or Bitbucket.
+      icon: git-branch
+      soon: true
+    - title: Email invites
+      description: Invite users via email, no other account needed.
+      icon: mail-open
+      pro: true
+    - title: File storage
+      description: Connect with AWS S3, Cloudflare R2, and more.
+      icon: cloud
+      pro: true
+    - title: Scheduling
+      description: Easily schedule one-off or recurring content updates.
+      icon: calendar-clock
+      pro: true
+    - title: Permissions
+      description: Granular access control for different content types.
+      icon: sliders
+      pro: true
+    - title: Analytics
+      description: Integrate with GA, Cloudflare Analytics, and more.
+      icon: bar-chart-4
+      pro: true
+    - title: Team collaboration
+      description: Real-time content editing and inline commnents.
+      icon: users
+      pro: true
 faq:
   title: Frequently asked questions
   entries:
-  - question: Is Pages CMS free?
-    answer: Yes, Pages CMS is 100% free, whether you want to use the online version or self-host it. It is a simple front-end app with very limited backend capabilities, which can run on [Cloudflare Pages](https://pages.cloudflare.com/) for free. The open-source version is MIT licensed; you can host it on your own Cloudflare account for free as well.
-  - question: Do you only support GitHub?
-    answer: "For now, yes. But I've already started looking into adding GitLab and Bitbucket. Pull requests and issues are welcome: [github.com/pages-cms/pages-cms](https://github.com/pages-cms/pages-cms)."
-  - question: Do I have to host Pages CMS on Cloudflare Pages?
-    answer: "Not necessarily: Pages CMS is a single-page app with a handful of serverless functions to facilitate the OAuth dance with GitHub. You could easily run it on Netlify, Vercel, AWS, Render... You would just need to make these 3 functions work on your platform of choice: [github.com/pages-cms/pages-cms/tree/main/functions/auth](https://github.com/pages-cms/pages-cms/tree/main/functions/auth). With that being said, Cloudflare has a generous free tier which works great in this case."
-  - question: Why yet another CMS?
-    answer: "I hear you, but I needed Pages CMS to exist. I love static site generators, and while YAML front matter and Markdown aren't terribly complicated, editing content and uploading images using GitHub.com or Git isn't really user-friendly, especially if you're updating the site with a whole team. For that reason, a lot of teams use a headless CMS like Contentful, Sanity, or Strapi. That works, but it's one more dependency and is overkill in most cases. You could also use something like Decap CMS (formerly Netlify CMS). Really cool project, but I've never been a fan of the user experience. And most importantly, I wanted something as simple as possible. Back in 2018, I had built a lightweight CMS ([Jekyll+](https://github.com/hunvreus/jekyllplus)) with the idea of getting the CMS set up with a single configuration file. Pages CMS is the next iteration of that idea."
-  - question: What's the "Pro" plan?
-    answer: "I haven't completely figured it out, but there are a few features I'm working on that I believe would only be relevant to larger teams or professional use. Things like real-time collaboration, advanced media management (e.g., image manipulation), or S3 integration. This not only requires a lot more work but also hosting costs. If you're interested, drop me a line: [hunvreus@gmail.com](mailto:hunvreus@gmail.com) ([@hunvreus](https://x.com/hunvreus))."
-  - question: Who made this? It sucks!
-    answer: "I did: [Ronan Berder](https://ronanberder.com) ([@hunvreus](https://x.com/hunvreus)). I'm a half-decent developer, but I sure could use some help to make this suck less: [github.com/pages-cms/pages-cms](https://github.com/pages-cms/pages-cms)."
+    - question: Is Pages CMS free?
+      answer: >-
+        Yes, Pages CMS is 100% free, whether you want to use the online version
+        or self-host it. It is a simple front-end app with very limited backend
+        capabilities, which can run on [Cloudflare
+        Pages](https://pages.cloudflare.com/) for free. The open-source version
+        is MIT licensed; you can host it on your own Cloudflare account for free
+        as well.
+    - question: Do you only support GitHub?
+      answer: >-
+        For now, yes. But I've already started looking into adding GitLab and
+        Bitbucket. Pull requests and issues are welcome:
+        [github.com/pages-cms/pages-cms](https://github.com/pages-cms/pages-cms).
+    - question: Do I have to host Pages CMS on Cloudflare Pages?
+      answer: >-
+        Not necessarily: Pages CMS is a single-page app with a handful of
+        serverless functions to facilitate the OAuth dance with GitHub. You
+        could easily run it on Netlify, Vercel, AWS, Render... You would just
+        need to make these 3 functions work on your platform of choice:
+        [github.com/pages-cms/pages-cms/tree/main/functions/auth](https://github.com/pages-cms/pages-cms/tree/main/functions/auth).
+        With that being said, Cloudflare has a generous free tier which works
+        great in this case.
+    - question: Why yet another CMS?
+      answer: >-
+        I hear you, but I needed Pages CMS to exist. I love static site
+        generators, and while YAML front matter and Markdown aren't terribly
+        complicated, editing content and uploading images using GitHub.com or
+        Git isn't really user-friendly, especially if you're updating the site
+        with a whole team. For that reason, a lot of teams use a headless CMS
+        like Contentful, Sanity, or Strapi. That works, but it's one more
+        dependency and is overkill in most cases. You could also use something
+        like Decap CMS (formerly Netlify CMS). Really cool project, but I've
+        never been a fan of the user experience. And most importantly, I wanted
+        something as simple as possible. Back in 2018, I had built a lightweight
+        CMS ([Jekyll+](https://github.com/hunvreus/jekyllplus)) with the idea of
+        getting the CMS set up with a single configuration file. Pages CMS is
+        the next iteration of that idea.
+    - question: What's the "Pro" plan?
+      answer: >-
+        I haven't completely figured it out, but there are a few features I'm
+        working on that I believe would only be relevant to larger teams or
+        professional use. Things like real-time collaboration, advanced media
+        management (e.g., image manipulation), or S3 integration. This not only
+        requires a lot more work but also hosting costs. If you're interested,
+        drop me a line: [hunvreus@gmail.com](mailto:hunvreus@gmail.com)
+        ([@hunvreus](https://x.com/hunvreus)).
+    - question: Who made this? It sucks!
+      answer: >-
+        I did: [Ronan Berder](https://ronanberder.com)
+        ([@hunvreus](https://x.com/hunvreus)). I'm a half-decent developer, but
+        I sure could use some help to make this suck less:
+        [github.com/pages-cms/pages-cms](https://github.com/pages-cms/pages-cms).
 ---
 
 <div class="px-4 lg:px-8">
@@ -76,7 +119,7 @@ faq:
   </div>
 
   
-  <a href="https://youtu.be/rJ69qJVl-uA" target="_blank" class="rounded-2xl overflow-hidden max-w-6xl mx-auto block relative group bg-neutral-950 mb-12 cursor-pointer">
+  <a href="https://youtu.be/-EYrzjJ7Olo" target="_blank" class="rounded-2xl overflow-hidden max-w-6xl mx-auto block relative group bg-neutral-950 mb-12 cursor-pointer">
     <img class="w-full group-hover:opacity-90 transition-opacity block dark:hidden" src="/media/screenshots/collection-light@2x.png" alt="Screenshot (light mode)"/>
     <img class="w-full group-hover:opacity-90 transition-opacity hidden dark:block" src="/media/screenshots/collection-dark@2x.png" alt="Screenshot (dark mode)"/>
     <div class="btn-primary absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 !rounded-full !px-4 lg:!px-5 group-hover:scale-105 duration-1000 !transition-transform">
