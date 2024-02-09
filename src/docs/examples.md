@@ -1,5 +1,5 @@
 ---
-title: Examples
+title: Configuration examples
 order: 3
 ---
 
