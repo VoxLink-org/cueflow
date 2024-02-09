@@ -13,6 +13,8 @@ module.exports = function(eleventyConfig) {
      "node_modules/htmx.org/dist/htmx.min.js": "js/htmx.js"
   });
 
+  eleventyConfig.addShortcode("now", () => `${Date.now()}`);
+
   eleventyConfig.addPlugin(lucideIcons);
 
   eleventyConfig.setLibrary("md", markdownIt({ html: true }).use(markdownItAnchor, { tabIndex: false }));
