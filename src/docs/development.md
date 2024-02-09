@@ -16,9 +16,9 @@ To get a local version up and running:
 1. **Run it**: `npm run dev`. This should [run the app locally with Wrangler](https://developers.cloudflare.com/pages/functions/local-development/) (allowing us to run the serverless functions locally).
 1. **Visit [localhost:8788](http://localhost:8788)**.
 
-<div class="aspect-video">
+<p class="aspect-video">
   <iframe class="h-full w-full rounded-lg" src="https://youtube.com/embed/IPEV2dCKD_k" width="100%" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+</p>
 
 ## Deploy on Cloudflare
 
@@ -39,6 +39,6 @@ To get a local version up and running:
 
 Cloudflare has very generous free tiers and can also host your actual website. It's a great alternative to GitHub Pages, Netlify or Vercel.
 
-<div class="aspect-video">
+<p class="aspect-video">
   <iframe class="h-full w-full rounded-lg" src="https://youtube.com/embed/SGF1S2wl5x0" width="100%" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+</p>
