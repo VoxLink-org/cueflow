@@ -14,7 +14,7 @@ To use it, you just need to add [a simple configuration file](/docs/configuratio
 
 ### Use the online version
 
-The easiest way to get started is to use [the online version of Pages CMS](https://app.pagescms.org). You'll simply need to log in with your GitHub and [configure your website](/docs/configuration).
+The easiest way to get started is to use [the online version of Pages CMS](https://app.pagescms.org). You'll simply need to log in with your GitHub account and [configure your website](/docs/configuration).
 
 This online version runs the latest version from [the public repository](https://github.com/pages-cms/pages-cms). Additionally, we do not keep any information in the backend (OAuth tokens are saved on the client side and the app directly talks to the GitHub API).
 
