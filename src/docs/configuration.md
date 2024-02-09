@@ -14,7 +14,9 @@ The `.pages.yml` file contains mainly 2 sections:
 - **media**: the settings for media (images, videos, etc). [See the "Media" section below](#media).
 - **content**: an array defining the content types. [See the "Content" section below](#content).
 
-![Media](/media/screenshots/settings-light@2x.png)
+<div class="aspect-video">
+  <iframe class="h-full w-full rounded-lg" src="https://youtube.com/embed/KtoapCOT1j4" width="100%" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ## Media
 

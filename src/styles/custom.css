@@ -51,7 +51,7 @@
   @apply visible opacity-100 translate-x-0;
 }
 
-/* Misc */
+/* Docs: Options tables */
 
 .prose table td:first-child strong code {
   @apply text-purple-800 dark:text-purple-200;
