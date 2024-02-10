@@ -50,5 +50,5 @@ content:
             list: true
             fields:
               - { name: question, label: Question, type: string }
-              - { name: answer, label: Answer, type: string }
+              - { name: answer, label: Answer, type: text }
       - { name: body, label: Body, type: code, options: { format: html} }
