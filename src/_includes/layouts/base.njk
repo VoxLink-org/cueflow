@@ -29,9 +29,9 @@
   <meta name="twitter:description" content="{{ description or site.description }}"/>
   <meta name="twitter:image" content="{{ site.url }}/cover@2x.png"/>
   <script src="/js/alpine.js" defer></script>
-  <script src="/js/htmx.js"></script>
+  {# <script src="/js/htmx.js"></script> #}
 </head>
-<body hx-boost="true">
+<body>
   {% include "partials/header.njk" %}
   {{ content | safe }}
   {% include "partials/footer.njk" %}
