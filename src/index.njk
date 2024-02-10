@@ -87,8 +87,8 @@ faq:
         - It's a lot more complicated and would require us to store and
         orchestrate a lot more in the backend.
 
-        - If we need to impersonate users (which we want to for things like
-        commits), we anyway meed to request user tokens, which technically would
+        - Since we need to impersonate users (for things like
+        commits), we anyway need to request user tokens, which technically would
         give us the same access as with the OAuth App flow.
 
 
@@ -99,12 +99,12 @@ faq:
         communicate with the GitHub API.
 
 
-        And if you still don't trust the online version, you can deploy your own
-        version for free in less than 10 minutes our Cloudflare Pages.
+        And if you still don't trust the online version, [you can deploy your own
+        version for free in less than 10 minutes our Cloudflare Pages](/docs/development#deploy-on-cloudflare).
 
 
-        [Do let me know if I got some of this wrong](mailto:hunvreus@gmail.com),
-        and feel free to [suggestions improvement in the issue
+        [Do let me know if I got some of this wrong](mailto:hunvreus@gmail.com) ([@hunvreus](https://x.com/hunvreus)),
+        and feel free to [suggest improvemens in the issue
         queue](https://github.com/pages-cms/pages-cms/issues).
     - question: Why yet another CMS?
       answer: >-
@@ -223,7 +223,7 @@ faq:
             <span class="text-neutral-400 dark:text-neutral-500 group-hover:text-inherit transition-transform transition-colors" :class="open ? 'rotate-45' : ''">{% lucide "plus", { "class" : "h-4" } %}</span>
           </dt>
           <dd class="max-h-0 overflow-hidden transition-all" :style="open ? 'max-height: ' + $refs.answer{{ loop.index }}.offsetHeight + 'px' : ''">
-            <div class="px-4 pb-4" x-ref="answer{{ loop.index }}">{{ entry.answer | markdown | safe }}</div>
+            <div class="px-4 inline-block prose" x-ref="answer{{ loop.index }}">{{ entry.answer | markdown | safe }}</div>
           </dd>
         </div>
       {% endfor %}
