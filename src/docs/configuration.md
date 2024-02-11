@@ -87,7 +87,7 @@ Each content entry can define the following keys:
 | **`fields`** | `string` | The list of fields defining the schema of the content entry (e.g. title, date, author, body, etc). [See the "Fields" section below](#fields). |
 | **`filename`** | `string` | The pattern to generate the filename when creating a new file. You can use the value of any field (e.g. `fields.title`) including nested values (e.g. `fields.tags[0].label`). You can also use a few date tokens (`{year}`, `{month}`, `{day}`) and time (`{hour}`, `{minute}`, `{second}`) and `{primary}` for the primary field as defined in the `view` key. By default this is set to `'{year}-{month}-{day}-{primary}.md'`. |
 | **`view`** | `object` | **Only valid for collections**. This object defines the various options for the collection view; visible fields, sorting options and defaults, fields indexed for the search... [See the "View" section below](#view). |
-| **`editor`** | `string` | The type of editor that should be used to edit the content: `yfm`, `yaml`, `json`, `datagrid`, `code` or `raw`. It defaults to yaml-front-matter |
+| **`format`** | `string` | The format of the file, used to set up the editor to edit the content: `yfm` (YAML frontmatter), `yaml`, `json`, `datagrid`, `code` or `raw`. It defaults to `yfm`. |
 | **`subfolders`** | `boolean` | Whether or not the collection should display subfolders. Default to `true`. Set to `false` if you want to force the collection of files to be "flat". |
 
 ### Examples
