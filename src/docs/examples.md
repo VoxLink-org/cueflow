@@ -35,7 +35,7 @@ content:
   - name: config
     label: Jekyll config
     path: _config.yml
-    type: single
+    type: file
     fields:
       - name: title
         label: Website title
@@ -86,7 +86,7 @@ content:
   - name: site
     label: Site settings
     path: src/_data/site.json
-    type: single
+    type: file
     fields:
       - name: title
         label: Website title

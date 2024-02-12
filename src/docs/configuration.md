@@ -70,7 +70,7 @@ media:
 
 ## Content
 
-Content managed by the users: collections (e.g. blog posts) and single types (e.g. the home page). The `content` key should be set as an array of content entries.
+Content managed by the users: collections (e.g. blog posts) and file types (e.g. the home page). The `content` key should be set as an array of content entries.
 
 ![Collection view](/media/screenshots/collection-view-light@2x.png)
 
@@ -82,7 +82,7 @@ Each content entry can define the following keys:
 | - | - | - |
 | **`name`** | `string` | **Required and must be unique across the content array**. Machine name for the content entry. |
 | **`label`** | `string` | Display name for the collection or single file. This will be displayed in the main menu. |
-| **`type`**| `string` | **Required**. `collection` or `single`, depending on whether the content entry is a collection of files with an identical schema (e.g. blog posts) or a single file (e.g. home page). |
+| **`type`**| `string` | **Required**. `collection` or `file`, depending on whether the content entry is a collection of files with an identical schema (e.g. blog posts) or a single file (e.g. home page). |
 | **`path`** | `string` | **Required**. Path to the folder where the files are stored if it's a collection (e.g. `path: src/posts`, otherwise the path to the single file (e.g. `path: src/index.md`). |
 | **`fields`** | `string` | The list of fields defining the schema of the content entry (e.g. title, date, author, body, etc). [See the "Fields" section below](#fields). |
 | **`filename`** | `string` | The pattern to generate the filename when creating a new file. You can use the value of any field (e.g. `fields.title`) including nested values (e.g. `fields.tags[0].label`). You can also use a few date tokens (`{year}`, `{month}`, `{day}`) and time (`{hour}`, `{minute}`, `{second}`) and `{primary}` for the primary field as defined in the `view` key. By default this is set to `'{year}-{month}-{day}-{primary}.md'`. |
@@ -105,7 +105,7 @@ content:
   - name: authors
     label: Authors
     path: src/_data/authors.json
-    type: single
+    type: file
     fields:
       (...)
 ```
