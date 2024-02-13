@@ -21,6 +21,7 @@ content:
       - { name: body, label: Body, type: rich-text }
   - label: Home page
     path: src/index.njk
+    newProp: something
     fields:
       - { name: layout, type: string, hidden: true, default: layouts/base.njk }
       - { name: title, label: Title, type: string, required: true }
