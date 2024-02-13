@@ -21,7 +21,7 @@ content:
       - { name: body, label: Body, type: rich-text }
   - label: Home page
     path: src/index.njk
-    name: home$page
+    name: homepage
     type: file
     fields:
       - { name: layout, type: string, hidden: true, default: layouts/base.njk }
