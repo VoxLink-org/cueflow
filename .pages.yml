@@ -18,7 +18,7 @@ content:
       - { name: title, label: Title, type: string, required: true }
       - { name: description, label: Description, type: string, options: { maxlength: 160 }}
       - { name: order, label: Order, type: number }
-      - { name: body, label: Body, type: rich-text, yo: new }
+      - { name: body, label: Body, type: rich-text }
   - label: Home page
     path: src/index.njk
     newProp: something
