@@ -19,8 +19,7 @@ content:
       - { name: description, label: Description, type: string, options: { maxlength: 160 }}
       - { name: order, label: Order, type: number }
       - { name: body, label: Body, type: rich-text }
-  - name: home
-    label: Home page
+  - label: Home page
     path: src/index.njk
     fields:
       - { name: layout, type: string, hidden: true, default: layouts/base.njk }
