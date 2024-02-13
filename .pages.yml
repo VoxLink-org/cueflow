@@ -23,7 +23,6 @@ content:
     path: src/index.njk
     name: home$page
     type: file
-    newProp: something
     fields:
       - { name: layout, type: string, hidden: true, default: layouts/base.njk }
       - { name: title, label: Title, type: string, required: true }
