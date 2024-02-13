@@ -14,7 +14,7 @@ content:
         sort: order
         order: asc
     fields:
-      - { name: title, label: Title, type: string, required: true }
+      - { name: title, label: Title, type: yop, required: true }
       - { name: title, label: Title, type: string, required: true }
       - { name: description, label: Description, type: string, options: { maxlength: 160 }}
       - { name: order, label: Order, type: number }
