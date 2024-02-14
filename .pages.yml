@@ -1,5 +1,4 @@
-media: sdf
-  indented: again
+media: files
 content:
   - name: docs
     label: Documentation
