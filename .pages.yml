@@ -1,6 +1,4 @@
-media:
-  input:src/media
-  output: /media
+media:sdf
 content:
   - name: docs
     label: Documentation
