@@ -22,7 +22,7 @@ content:
   - label: Home page
     path: src/index.njk
     name: homepage
-    type: files
+    type: file
     fields:
       - { name: layout, type: string, hidden: true, default: layouts/base.njk }
       - { name: title, label: Title, type: string, required: true }
