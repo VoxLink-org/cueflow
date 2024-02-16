@@ -1,4 +1,4 @@
-media: files
+media: src/media
 content:
   - name: docs
     label: Documentation
