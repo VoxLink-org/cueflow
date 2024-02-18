@@ -8,7 +8,7 @@ Either a date or a date and time field, similar to the [date](ttps://developer.m
 
 | Option | Type | Description |
 | - | - | - |
-| **`format`** | `string` | The date (or datetime) format (e.g. `DD/MM/YYYY`). This should be a valid [Moment.js format string](https://momentjs.com/docs/#/displaying/format/). Default to `YYYY-MM-DD`, or `YYYY-MM-DDTHH:mm` if `time` is `true` (see below). |
+| **`format`** | `string` | The date (or datetime) format (e.g. `DD/MM/YYYY`). This should be a valid [Day.js format string](https://day.js.org/docs/en/parse/string-format#list-of-all-available-parsing-tokens). Default to `YYYY-MM-DD`, or `YYYY-MM-DDTHH:mm` if `time` is `true` (see below). |
 | **`time`** | `string` | If `true`, the field will allow the user to pick a date and a time using a `<datetime>` field. Default is `false`. |
 | **`min`** | `string` | The earliest date to accept. If undefined, there is no min date. **This must be formatted as defined in the `format` option**. |
 | **`max`** | `string` | The latest date to accept. If undefined, there is no max date. **This must be formatted as defined in the `format` option**. |
