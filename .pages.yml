@@ -38,6 +38,8 @@ content:
               - { name: title, label: Title, type: string }
               - { name: description, label: Description, type: string }
               - { name: icon, label: Icon, type: string }
+              - { name: pro, label: Pro, type: boolean }
+              - { name: soon, label: Soon, type: boolean }
       - name: faq
         label: FAQ
         type: object
