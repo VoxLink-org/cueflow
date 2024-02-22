@@ -24,7 +24,7 @@ content:
     fields:
       - { name: layout, type: string, hidden: true, default: layouts/base.njk }
       - { name: title, label: Title, type: string, required: true }
-      - { name: description, label: Description, type: string, options: { maxlength: 180 } }
+      - { name: description, label: Description, type: string }
       - name: features
         label: Features
         type: object
