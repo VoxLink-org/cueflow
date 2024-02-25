@@ -167,7 +167,7 @@ The `author:Patricia` syntax [comes from lunr.js](https://lunrjs.com/guides/sear
 
 | Key | Type | Description |
 | - | - | - |
-| **`name`** | `string` | **Required and must be unique across the fields array**. Machine name for the field. **`body` is reserved for the body of the file when deal with a frontmatter file (e.g. YAML frontmatter)**. |
+| **`name`** | `string` | **Required and must be unique across the fields array**. Machine name for the field. **`body` is reserved for the body of the file when dealing with a frontmatter file (e.g. YAML frontmatter)**. |
 | **`label`** | `string` | Display name for the field. This is what is displayed in the edit form. |
 | **`description`** | `string` | Default value. |
 | **`type`** | `string` | Defines the type of field: **[boolean](/docs/configuration/boolean-field)**, **[code](/docs/configuration/code-field)**, **[date](/docs/configuration/date-field)**, **[image](/docs/configuration/image-field)**, **[number](/docs/configuration/number-field)**, **[object](/docs/configuration/object-field)**, **[rich-text](/docs/configuration/rich-text-field)**, **[select](/docs/configuration/select-field)**, **[string](/docs/configuration/string-field)** or **[text](/docs/configuration/text-field)**. If undefined or set to a field that doesn't exist, it defaults to `text`. |
