@@ -88,7 +88,7 @@ Each content entry can define the following keys:
 | **`extension`** | `string` | The extension for the files that should be considered part of the collection. If you have define a `filename` (see below), you should probably mmatch it with the extension of your filename. Default is `md`. |
 | **`filename`** | `string` | The pattern to generate the filename when creating a new file. You can use the value of any field (e.g. `fields.title`) including nested values (e.g. `fields.tags[0].label`). You can also use a few date tokens (`{year}`, `{month}`, `{day}`) and time (`{hour}`, `{minute}`, `{second}`) and `{primary}` for the primary field as defined in the `view` key. By default this is set to `'{year}-{month}-{day}-{primary}.md'`. |
 | **`view`** | `object` | **Only valid for collections**. This object defines the various options for the collection view; visible fields, sorting options and defaults, fields indexed for the search... [See the "View" section below](#view). |
-| **`format`** | `string` | The format of the file, used to set up the editor to edit the content: `yfm` (YAML frontmatter), `yaml`, `json`, `datagrid`, `code` or `raw`. It defaults to `yfm`. |
+| **`format`** | `string` | The format of the file, used to set up the editor to edit the content: `yaml-frontmatter`, `json-frontmatter`, `toml-frontmatter`, `yaml`, `json`, `toml`, `datagrid`, `code` or `raw`. It defaults to `yaml-frontmatter`. |
 | **`subfolders`** | `boolean` | Whether or not the collection should display subfolders. Default to `true`. Set to `false` if you want to force the collection of files to be "flat". |
 
 ### Examples
