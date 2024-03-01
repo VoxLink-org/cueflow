@@ -13,7 +13,6 @@ content:
         order: asc
     fields:
       - { name: title, label: Title, type: string, required: true }
-      - { name: title, label: Title, type: string, required: true }
       - { name: description, label: Description, type: string, options: { maxlength: 180 }}
       - { name: order, label: Order, type: number }
       - { name: body, label: Body, type: rich-text }
