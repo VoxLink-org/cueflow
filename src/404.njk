@@ -1,0 +1,21 @@
+---
+layout: layouts/base.njk
+title: This page doesn't exist
+description: >-
+  I'm told it's called a "404"... damn nerds. This page may not exist but Pages CMS does: it's a user-friendly CMS for static sites. Give it a try!
+image: "/media/sorry.gif"
+permalink: "404.html"
+---
+
+<div class="max-w-xl mx-auto px-4 my-16 lg:px-8 lg:my-24">
+  <div class="prose text-center">
+    <img src="{{ image }}" width="100%">
+    <h1>{{ title }}</h1>
+    <p>{{ description }}</p>
+  </div>
+  <div class="flex max-md:flex-col md:gap-x-4 max-md:gap-y-4 justify-center">
+    <a class="btn-primary justify-center" href="/">Take me out of here!</a>
+  </div>
+</div>
+
+
