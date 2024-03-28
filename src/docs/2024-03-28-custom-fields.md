@@ -10,7 +10,7 @@ Pages CMS comes with a few built-in fields, but you can also add your own custom
 
 All fields are saved in the `src/fields` folder:
 
-```
+```Plaintext
 src/
 ├─ fields/
 │  ├─ core/
@@ -38,7 +38,7 @@ Let's look at what is sitting at the root of `src/fields`:
 
 Let's have a look at the `src/fields/core/boolean` folder, which defines boolean fields:
 
-```
+```Plaintext
 src/
 ├─ fields/
 │  ├─ core/
@@ -55,8 +55,8 @@ src/
 
 In the case of the boolean field, it is a simple toggle switch:
 
-```
-<template>
+```javascript
+{% raw %}<template>
   <div>
     <label class="relative inline-flex items-center cursor-pointer">
       <input
@@ -68,7 +68,6 @@ In the case of the boolean field, it is a simple toggle switch:
       <div class="w-11 h-6 bg-neutral-200 dark:bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white dark:peer-checked:after:border-neutral-950 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white dark:after:bg-neutral-950 after:border-neutral-100 dark:after:border-neutral-800 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-neutral-950 dark:peer-checked:bg-white transition-all"></div>
     </label>
   </div>
-  
 </template>
 
 <script setup>
@@ -76,7 +75,7 @@ const props = defineProps({
   field: Object,
   modelValue: Boolean
 });
-</script>
+</script>{% endraw %}
 ```
 
 The only requirement is that you must have exactly 2 props:
@@ -94,8 +93,8 @@ Make sure to emit the updated modelValue with `update:modelValue` if needed.
 
 For boolean fields, we displayed colored chips with the labels "True" or "False" depending on whether the value is truthy or falsy (which includes `undefined` and `null`):
 
-```
-<template>  
+```javascript
+{% raw %}<template>
   <div class="!inline" :class="props.value ? 'chip-primary' : 'chip-secondary'">{{ props.value ? 'True' : 'False' }}</div>
 </template>
 
@@ -104,7 +103,7 @@ const props = defineProps({
   field: Object,
   value: [String, Number, Boolean, Array, Object],
 });
-</script>
+</script>{% endraw %}
 ```
 
 The only requirement is that you must have exactly 2 props:
