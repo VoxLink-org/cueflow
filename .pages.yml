@@ -6,7 +6,7 @@ content:
     label: Documentation
     type: collection
     path: src/docs
-    filename: {primary}.md
+    filename: "{primary}.md"
     view:
       fields: [ title, order ]
       primary: title
