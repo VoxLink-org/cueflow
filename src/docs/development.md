@@ -1,8 +1,7 @@
 ---
 title: Install & Deploy
-order: 4
+order: 5
 ---
-
 ## Install locally
 
 To get a local version up and running:
