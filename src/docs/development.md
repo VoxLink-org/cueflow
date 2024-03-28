@@ -1,5 +1,6 @@
 ---
 title: Install & Deploy
+order: 5
 ---
 ## Install locally
 
