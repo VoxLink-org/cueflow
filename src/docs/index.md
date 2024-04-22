@@ -1,5 +1,5 @@
 ---
-title: Getting started (new)
+title: Getting started
 order: 1
 ---
 ## What is Pages CMS?
