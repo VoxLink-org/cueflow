@@ -1,5 +1,5 @@
 ---
-title: Install & Deploy
+title: Install & Deploy (new)
 order: 5
 ---
 ## Install locally
