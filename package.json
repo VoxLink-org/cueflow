@@ -27,7 +27,7 @@
     "tailwindcss": "^3.4.0"
   },
   "dependencies": {
-    "@grimlink/eleventy-plugin-lucide-icons": "^2.0.0",
+    "@grimlink/eleventy-plugin-lucide-icons": "^2.0.2",
     "eleventy-plugin-toc": "^1.1.5"
   }
 }
