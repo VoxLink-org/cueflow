@@ -83,18 +83,30 @@ faq:
         instead, but:
 
 
-        - It's a lot more complicated and would require us to store and orchestrate a lot more in the backend.
+        - It's a lot more complicated and would require us to store and
+        orchestrate a lot more in the backend.
 
-        - Since we need to impersonate users (for things like commits), we anyway need to request user tokens, which technically would give us the same access as with the OAuth App flow.
-
-
-        **However, we do not store your GitHub OAuth tokens in the backend**. [The serverless functions used to facilitate the OAuth login](https://github.com/pages-cms/pages-cms/tree/main/functions/auth) pass the OAuth token to the front-end, allowing it to directly communicate with the GitHub API.
-
-
-        And if you still don't trust the online version, [you can deploy your own version for free in less than 10 minutes our Cloudflare Pages](/docs/development#deploy-on-cloudflare).
+        - Since we need to impersonate users (for things like commits), we
+        anyway need to request user tokens, which technically would give us the
+        same access as with the OAuth App flow.
 
 
-        [Do let me know if I got some of this wrong](mailto:hunvreus@gmail.com) ([@hunvreus](https://x.com/hunvreus)), and feel free to [suggest improvemens in the issue queue](https://github.com/pages-cms/pages-cms/issues).
+        **However, we do not store your GitHub OAuth tokens in the backend**.
+        [The serverless functions used to facilitate the OAuth
+        login](https://github.com/pages-cms/pages-cms/tree/main/functions/auth)
+        pass the OAuth token to the front-end, allowing it to directly
+        communicate with the GitHub API.
+
+
+        And if you still don't trust the online version, [you can deploy your
+        own version for free in less than 10 minutes our Cloudflare
+        Pages](/docs/development#deploy-on-cloudflare).
+
+
+        [Do let me know if I got some of this wrong](mailto:hunvreus@gmail.com)
+        ([@hunvreus](https://x.com/hunvreus)), and feel free to [suggest
+        improvemens in the issue
+        queue](https://github.com/pages-cms/pages-cms/issues).
     - question: Why yet another CMS?
       answer: I hear you, but I needed Pages CMS to exist. I love static site
         generators, and while YAML front matter and Markdown aren't terribly
@@ -135,7 +147,7 @@ faq:
   </div>
 
   
-  <a href="https://youtu.be/-EYrzjJ7Olo" target="_blank" class="rounded-2xl overflow-hidden max-w-6xl mx-auto block relative group bg-neutral-950 mb-12 cursor-pointer">
+  <a href="https://youtu.be/xwF42zoE21g" target="_blank" class="rounded-2xl overflow-hidden max-w-6xl mx-auto block relative group bg-neutral-950 mb-12 cursor-pointer">
     <img class="w-full group-hover:opacity-90 transition-opacity block dark:hidden" src="/media/screenshots/collection-light@2x.png" alt="Screenshot (light mode)"/>
     <img class="w-full group-hover:opacity-90 transition-opacity hidden dark:block" src="/media/screenshots/collection-dark@2x.png" alt="Screenshot (dark mode)"/>
     <div class="btn-primary absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 !rounded-full !px-4 lg:!px-5 group-hover:scale-105 duration-1000 !transition-transform">
