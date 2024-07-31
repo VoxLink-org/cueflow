@@ -3,7 +3,7 @@
     {% for item in items %}
       <li x-data="{ open: {{ 'true' if page.url.startsWith(item.url) else 'false' }} }">
         <div class="flex gap-x-2 items-center">
-          <a href="{{ item.url }}" class="flex items-center rounded-lg font-medium text-sm text-muted-foreground hover:text-primary outline-none{{ ' text-primary' if item.url == page.url }}">
+          <a href="{{ item.url }}" class="flex items-center rounded-lg font-mdedium text-sm text-muted-foreground hover:text-primary outline-none{{ ' text-primary font-medium' if item.url == page.url }}">
             {{ item.title }}
           </a>
           {% if item.children.length %}
