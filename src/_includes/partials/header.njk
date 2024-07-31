@@ -1,11 +1,12 @@
 <header class="border-b flex items-center gap-x-4 py-2 px-4 lg:py-3 lg:px-6 mx-auto sticky top-0 w-full bg-background z-50">
-  <a class="inline-flex gap-x-2 items-center font-semibold" href="/">
+  <a class="inline-flex items-center" href="/">
     <svg class="max-sm:h-4 max-sm:w-4 h-5 w-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 4.8C0 2.14903 2.14903 0 4.8 0H12.0118C13.2848 0 14.5057 0.505713 15.4059 1.40589L22.5941 8.59411C23.4943 9.49429 24 10.7152 24 11.9882V19.2C24 21.851 21.851 24 19.2 24H4.8C2.14903 24 0 21.851 0 19.2V4.8Z"/>
-    </svg>      
+    </svg>
+    <span class="hidden sm:inline-block ml-2 text-sm font-semibold">Pages CMS</span>
   </a>
-  <a class="text-sm font-medium text-muted-foreground hover:text-primary {{ '!text-primary' if page.url == '/' }}" href="/">
-    Home
+  <a class="ml-auto text-sm font-medium text-muted-foreground hover:text-primary {{ '!text-primary' if page.url == '/' }}" href="/">
+    About
   </a>
   <a class="text-sm font-medium text-muted-foreground hover:text-primary {{ '!text-primary' if '/docs' in page.url }}" href="/docs">
     Docs
@@ -14,11 +15,7 @@
     GitHub
     {% lucide "arrow-up-right", { "class" : "h-3 w-3" } %}
   </a>
-  <a class="ml-auto button-outline !h-8" href="https://app.pagescms.org">
+  <a class="button-outline !h-8" href="https://app.pagescms.org">
     Sign in
   </a>
-  <button @click="darkMode = !darkMode">
-    <template x-if="darkMode">{% lucide "sun", { "class" : "h-4 w-4" } %}</template>
-    <template x-if="!darkMode">{% lucide "moon", { "class" : "h-4 w-4" } %}</template>
-  </button>
 </header>

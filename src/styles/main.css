@@ -1,5 +1,6 @@
-/* @import './prose.css';
-@import './highlightjs.css';
+@import './prose.css';
+@import './carousel.css';
+/* @import './highlightjs.css';
 @import './custom.css';
 @import './carousel.css';
 @import './modal.css'; */
@@ -70,4 +71,16 @@
 
 .button-outline {
   @apply inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2;
+}
+
+.navigation ul ul {
+  @apply pl-4 pt-4;
+}
+
+.toc li {
+  @apply mt-2;
+}
+
+.toc a {
+  @apply text-primary underline hover:decoration-muted-foreground	 underline-offset-2;
 }

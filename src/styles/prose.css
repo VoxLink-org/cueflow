@@ -1,5 +1,5 @@
 .prose > * {
-  @apply first:!mt-0;
+  @apply first:!mt-0 last:!mb-0;
 }
 
 .prose h1,
@@ -8,25 +8,25 @@
 .prose h4,
 .prose h5,
 .prose h6 {
-  @apply font-semibold tracking-tight;
+  @apply font-semibold tracking-tight scroll-m-16;
 }
 
 .prose h1,
 .prose h2,
 .prose h3 {
-  @apply mt-12 mb-4;
+  @apply my-6;
 }
 
 .prose h1 {
-  @apply text-4xl lg:text-5xl;
+  @apply text-3xl lg:text-4xl;
 }
 
 .prose h2 {
-  @apply text-2xl lg:text-3xl;
+  @apply text-xl lg:text-2xl;
 }
 
 .prose h3 {
-  @apply text-lg lg:text-xl;
+  @apply text-base lg:text-lg;
 }
 
 .prose h4,
@@ -39,15 +39,15 @@
 .prose blockquote,
 .prose ul,
 .prose ol {
-  @apply my-4 first:mt-0;
+  @apply my-6 first:mt-0;
 }
 
 .prose code {
-  @apply text-sm bg-neutral-100 text-neutral-500 dark:bg-neutral-850 dark:text-neutral-400 rounded-lg py-1 px-1.5;
+  @apply text-[90%] bg-muted rounded-sm py-1 px-1.5;
 }
 
 .prose pre code {
-  @apply p-3 block break-words whitespace-pre-wrap;
+  @apply p-2 block break-words whitespace-pre-wrap;
 }
 
 .prose ul,
@@ -81,21 +81,11 @@
 }
 
 .prose a {
-  @apply underline hover:decoration-neutral-400 dark:hover:decoration-neutral-500 transition-colors;
-}
-
-.prose strong,
-.prose b {
-  @apply font-medium;
-}
-
-.prose p > img + .ProseMirror-separator,
-.prose p > img + .ProseMirror-separator + .ProseMirror-trailingBreak {
-  @apply !hidden;
+  @apply text-primary underline hover:decoration-muted-foreground	 underline-offset-2;
 }
 
 .prose blockquote {
-  @apply pl-4 ml-1 border-l-2 border-l-neutral-300 dark:border-l-neutral-600;
+  @apply pl-4 ml-1 border-l-2;
 }
 
 .prose img,
@@ -110,5 +100,25 @@
 }
 
 .prose table {
-  @apply table;
+  @apply table text-sm;
+}
+
+.prose table tr {
+  @apply border-b;
+}
+
+.prose table th {
+  @apply text-muted-foreground text-xs font-medium text-left align-middle px-3 first:pl-0 last:pr-0 h-12;
+}
+
+.prose table td {
+  @apply align-middle px-3 py-3 first:pl-0 last:pr-0;
+}
+
+.prose table td strong code {
+  @apply font-medium text-[#005cc5];
+}
+
+html.dark .prose table td strong code {
+  @apply font-medium text-[#79c0ff];
 }

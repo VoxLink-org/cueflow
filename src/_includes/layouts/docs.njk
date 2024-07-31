@@ -3,16 +3,15 @@ layout: layouts/base.njk
 ---
 <div class="flex max-md:flex-col max-w-7xl mx-auto px-4 my-8 lg:px-8 lg:my-12 gap-x-8">
   <div class="md:w-96 max-md:mb-4">
-    <div class="navigation md:pr-8 md:border-r border-neutral-200 dark:border-neutral-750" x-data="{ showNav: false }">
-      <button @click="showNav = !showNav" class="btn w-full md:hidden mb-2">
+    <div class="navigation md:pr-8 md:border-r" x-data="{ showNav: false }">
+      <button @click="showNav = !showNav" class="button-outline flex items-center gap-x-2 w-full md:hidden mb-2">
         <span x-text="showNav ? 'Hide navigation' : 'Show navigation'"></span>
-        {# <Icon name="ChevronsUpDown" class="h-4 w-4 stroke-2 shrink-0 -mr-1 lg:-mr-1.5"/> #}
         <template x-if="!showNav">{% lucide "chevrons-up-down", { "class" : "ml-auto h-4 w-4" } %}</template>
         <template x-if="showNav">{% lucide "chevrons-down-up", { "class" : "ml-auto h-4 w-4" } %}</template>
       </button>
-      <div class="max-md:max-h-0 overflow-hidden transition-all" :style="showNav ? 'max-height: ' + $refs.navigation.offsetHeight + 'px' : ''">
-        <div x-ref="navigation">
-        {% include "partials/docs/navigation.njk" %}
+      <div class="max-md:max-h-0 overflow-hidden duration-200 transition-all" :style="showNav ? 'max-height: ' + $refs.navigation.offsetHeight + 'px' : ''">
+        <div x-ref="navigation" class="max-md:border max-md:rounded-md max-md:p-4 max-md:text-sm">
+          {% include "partials/docs/navigation.njk" %}
         </div>
       </div>
     </div>
@@ -27,13 +26,14 @@ layout: layouts/base.njk
   </div>
   
   <div class="w-64 max-lg:hidden">
-    <div class="sticky top-4 text-sm">
+    <div class="sticky top-16 text-sm">
       <h2 class="font-semibold track-tight">On this page</h2>
       {{ content | toc | safe }}
     </div>
   </div>
 </div>
 
+<link x-bind:href="darkMode ? 'https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/github-dark.min.css' : 'https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/github.min.css'" rel="stylesheet">
 <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
 <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/yaml.min.js"></script>
 <script>document.addEventListener('DOMContentLoaded', function() { hljs.highlightAll(); });</script>

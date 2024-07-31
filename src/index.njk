@@ -49,7 +49,6 @@ features:
     - title: Comments
       description: Let your team leave inline comments on any part of your content.
       icon: git-branch
-      soon: false
       pro: true
 faq:
   title: Frequently asked questions
@@ -146,7 +145,6 @@ faq:
     </div>
   </div>
 
-  
   <a href="https://youtu.be/xwF42zoE21g" target="_blank" class="rounded-2xl overflow-hidden max-w-6xl mx-auto block relative group bg-neutral-950 mb-12 cursor-pointer">
     <img class="w-full group-hover:opacity-90 transition-opacity block dark:hidden" src="/media/screenshots/collection-light@2x.png" alt="Screenshot (light mode)"/>
     <img class="w-full group-hover:opacity-90 transition-opacity hidden dark:block" src="/media/screenshots/collection-dark@2x.png" alt="Screenshot (dark mode)"/>
@@ -158,7 +156,7 @@ faq:
   </a>
 
   <div class="text-center mb-24 mt-12 lg:mb-28 lg:mt-16">
-    <h2 class="mb-8 text-neutral-400 dark:text-neutral-500">Works with all popular static site generators</h2>
+    <h2 class="mb-8 text-muted-foreground font-normal">Works with all popular static site generators</h2>
     <div class="mx-auto overflow-hidden relative w-full max-w-[720px]">
       <div class="w-full flex infinite-scroll">
         <ul class="inline-flex h-10">
@@ -195,11 +193,12 @@ faq:
     <h2 class="font-semibold tracking-tight text-3xl lg:text-4xl mb-12 text-center">{{ features.title }}</h2>
     <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
       {% for feature in features.entries %}
-        <li class="bg-neutral-100 dark:bg-neutral-850 rounded-xl p-6">
-          {% if feature.pro %}<span class="chip-primary float-right">Pro</span>{% endif %}
-          {% if feature.soon %}<span class="chip bg-white dark:bg-neutral-950 float-right">Soon</span>{% endif %}
-          {% lucide feature.icon, { "class" : "mb-4"} %}
-          <h3 class="font-semibold">{{ feature.title }}</h3>
+        <li class="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
+          <div class="flex items-center gap-x-2">
+            {% lucide feature.icon, { "class" : "h-5 w-5 stroke-[1.5]"} %}
+            {% if feature.pro %}<span class="ml-auto bg-muted text-xs font-medium text-opacity-0 h-6 flex items-center px-3 rounded-full float-right">Pro plan</span>{% endif %}
+          </div>
+          <h3 class="font-medium mt-4">{{ feature.title }}</h3>
           <p class="mt-1">{{ feature.description }}</p>
         </li>
       {% endfor %}
@@ -208,20 +207,20 @@ faq:
 
   <div class="max-w-2xl mx-auto my-24 lg:my-28 text-center">
     <h2 class="font-semibold tracking-tight text-3xl lg:text-4xl mb-8">Zero cost, zero geek-speak: give your team a user-friendly CMS.</h2>
-    <a class="btn-primary btn-lg" href="https://app.pagescms.org">Sign in with GitHub</a>
+    <a class="button !text-base !h-12 !px-8" href="https://app.pagescms.org">Sign in with GitHub</a>
   </div>
 
   <div class="max-w-2xl mx-auto my-24 lg:my-28">
     <h2 class="font-semibold tracking-tight text-3xl lg:text-4xl mb-12 text-center">{{ faq.title }}</h2>
-    <dl class="faq">
+    <dl class="border-b">
       {% for entry in faq.entries %}
-        <div class="bg-neutral-100 dark:bg-neutral-850 rounded-xl mb-4" x-data="{ open: false }">
-          <dt class="flex font-medium cursor-pointer group p-4 items-center" @click="open = !open">
-            <span class="mr-auto">{{ entry.question }}</span>
-            <span class="text-neutral-400 dark:text-neutral-500 group-hover:text-inherit transition-transform transition-colors" :class="open ? 'rotate-45' : ''">{% lucide "plus", { "class" : "h-4" } %}</span>
+        <div class="border-t py-4" x-data="{ open: false }">
+          <dt class="flex font-medium cursor-pointer group items-center" @click="open = !open">
+            <span class="text-base lg:text-lg">{{ entry.question }}</span>
+            <span class="ml-auto text-muted-foreground group-hover:text-inherit transition-all duration-200" :class="open ? 'rotate-180' : ''">{% lucide "chevron-down", { "class" : "h-4" } %}</span>
           </dt>
-          <dd class="max-h-0 overflow-hidden transition-all" :style="open ? 'max-height: ' + $refs.answer{{ loop.index }}.offsetHeight + 'px' : ''">
-            <div class="px-4 inline-block prose" x-ref="answer{{ loop.index }}">{{ entry.answer | markdown | safe }}</div>
+          <dd class="max-h-0 overflow-hidden transition-all duration-200" :style="open ? 'max-height: ' + $refs.answer{{ loop.index }}.offsetHeight + 'px' : ''">
+            <div class="pt-6 inline-block prose" x-ref="answer{{ loop.index }}">{{ entry.answer | markdown | safe }}</div>
           </dd>
         </div>
       {% endfor %}
