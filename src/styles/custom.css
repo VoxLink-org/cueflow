@@ -4,7 +4,6 @@
   @apply underline hover:decoration-neutral-400 dark:hover:decoration-neutral-500 transition-colors;
 }
 
-
 /* Docs: Navigation */
 
 .navigation li {

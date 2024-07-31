@@ -29,9 +29,9 @@
   <meta name="twitter:description" content="{{ description or site.description }}"/>
   <meta name="twitter:image" content="{{ site.url }}/cover@2x.png"/>
   <script src="/js/alpine.js" defer></script>
-  {# <script src="/js/htmx.js"></script> #}
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="bg-background antialiased font-inter">
   {% include "partials/header.njk" %}
   {{ content | safe }}
   {% include "partials/footer.njk" %}
