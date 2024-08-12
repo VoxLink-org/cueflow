@@ -24,7 +24,7 @@ A simple example for a date that must be be December 24, 2023 or after:
   type: date
   options:
     format: dd-MM-yyyy
-    min: 2023-24-12 # Must be on or after December 24, 2023. Notice it uses the format defined above.
+    min: 2023-12-24 # Must be on or after December 24, 2023. Notice it uses the format defined above.
 ```
 
 Another example with time:
