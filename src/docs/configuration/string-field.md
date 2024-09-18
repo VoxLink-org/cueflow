@@ -16,6 +16,7 @@ Single line text.
 ```yaml
 - name: description
   label: Description
+  type: string
   options:
     minlength: 20
     maxlength: 160
