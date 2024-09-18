@@ -21,6 +21,7 @@ Assuming that the media folder is set to `src/media` and we want to let the user
 ```yaml
 - name: cover
   label: Cover
+  type: image
   list: true
   options:
     path: src/media/screenshots
