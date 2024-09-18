@@ -23,6 +23,7 @@ Let's assume we want to have a rich-text editor for the body of our blog posts a
 ```yaml
 - name: body
   label: Body
+  type: rich-text
   options:
     image:
       path: src/media/posts
