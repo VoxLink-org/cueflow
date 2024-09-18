@@ -17,6 +17,7 @@ A simple select box to pick a tag for the entry:
 ```yaml
 - name: tag
   label: Tag
+  type: select
   options:
     values: [ Tech, News, Sports ]
 ```
