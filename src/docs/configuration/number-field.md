@@ -17,6 +17,7 @@ A field for numerical values (anya valid floating point number).
 ```yaml
 - name: age
   label: Age
+  type: number
   options:
     min: 21
 ```
