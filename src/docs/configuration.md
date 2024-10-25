@@ -10,10 +10,12 @@ You can have different configuration files on separate branches. The Pages CMS i
 
 The `.pages.yml` file contains mainly 2 sections:
 
-*   **media**: the settings for media (images, videos, etc). [See the "Media" section below](#media).
-    
-*   **content**: an array defining the content types. [See the "Content" section below](#content).
-    
+- **media**: the settings for media (images, videos, etc). [See the "Media" section below](#media).
+- **content**: an array defining the content types. [See the "Content" section below](#content).
+
+<p class="aspect-video">
+  <iframe class="h-full w-full rounded-lg" src="https://youtube.com/embed/KtoapCOT1j4" width="100%" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
 
 ## Media
 
@@ -24,12 +26,12 @@ With media, you can configure how to handle the files that can be embedded in or
 ### Keys
 
 | Key | Type | Description |
-| --- | --- | --- |
-| `input` | `string` | The path to the media folder relative to the root of the repo (e.g. `src/files/media`). This path is what allows us to find the files in Pages CMS to manage content and media. |
-| `output` | `string` | The path to the media folder relative to the root of the website (e.g. `files/media`). This path will prefix all media saved in our content, which will be used by your static site generator. |
-| `path` | `string` | The default path to present the user (e.g. when opening the media browser on an [Image Field](/docs/configuration/image-field)). |
-| `extensions` | `string` | An array of file extensions that should be displayed. If provided, any file with an extension not included in this list will not be shown to the user. |
-| `categories` | `string` | Similar to `media.extensions`, but using categories of files: `image` (`jpg`, `jpeg`, `png`, `gif`, `svg`, `bmp`, `tif`, `tiff`), `document` (`pdf`, `doc`, `docx`, `ppt`, `pptx`, `vxls`, `xlsx`, `txt`, `rtf`), `video` (`mp4`, `avi`, `mov`, `wmv`, `flv`), `audio` (`mp3`, `wav`, `aac`, `ogg`, `flac`) and `compressed` (`zip`, `rar`, `7z`, `tar`, `gz`, `tgz`). If both `media.extensions` and `media.categories` are provided, `media.categories` will be ignored. |
+| - | - | - |
+| **`input`**| `string` | The path to the media folder relative to the root of the repo (e.g. `src/files/media`). This path is what allows us to find the files in Pages CMS to manage content and media. |
+| **`output`** | `string` | The path to the media folder relative to the root of the website (e.g. `files/media`). This path will prefix all media saved in our content, which will be used by your static site generator. |
+| **`path`** | `string` | The default path to present the user (e.g. when opening the media browser on an [Image Field](/docs/configuration/image-field)). |
+| **`extensions`** | `string` | An array of file extensions that should be displayed. If provided, any file with an extension not included in this list will not be shown to the user. |
+| **`categories`** | `string` | Similar to `media.extensions`, but using categories of files: `image` (`jpg`, `jpeg`, `png`, `gif`, `svg`, `bmp`, `tif`, `tiff`), `document` (`pdf`, `doc`, `docx`, `ppt`, `pptx`, `vxls`, `xlsx`, `txt`, `rtf`), `video` (`mp4`, `avi`, `mov`, `wmv`, `flv`), `audio` (`mp3`, `wav`, `aac`, `ogg`, `flac`) and `compressed` (`zip`, `rar`, `7z`, `tar`, `gz`, `tgz`). If both `media.extensions` and `media.categories` are provided, `media.categories` will be ignored. |
 
 If `media` is set to a `string`, it is equivalent to settings both `media.input` and `media.output` to that value, prefixed with `/` for `media.output`.
 
@@ -76,18 +78,18 @@ Content managed by the users: collections (e.g. blog posts) and file types (e.g.
 Each content entry can define the following keys:
 
 | Key | Type | Description |
-| --- | --- | --- |
-| `name` | `string` | **Required and must be unique across the content array**. Machine name for the content entry. |
-| `label` | `string` | Display name for the collection or single file. This will be displayed in the main menu. |
-| `type` | `string` | **Required**. `collection` or `file`, depending on whether the content entry is a collection of files with an identical schema (e.g. blog posts) or a single file (e.g. home page). |
-| `path` | `string` | **Required**. Path to the folder where the files are stored if it's a collection (e.g. `path: src/posts`, otherwise the path to the single file (e.g. `path: src/index.md`). |
-| `icon` | `string` | Name of a [Lucide icon](https://lucide.dev/icons/) to display in the main navigation (e.g. `map-pinned`). You can use Kebab, Pascal or Camel case (e.g. `map-pinned`, `MapPinned` or `mapPinned`). |
-| `fields` | `string` | The list of fields defining the schema of the content entry (e.g. title, date, author, body, etc). [See the "Fields" section below](#fields). |
-| `filename` | `string` | The pattern to generate the filename when creating a new file. You can use the value of any field (e.g. `fields.title`) including nested values (e.g. `fields.tags[0].label`). You can also use a few date tokens (`{year}`, `{month}`, `{day}`) and time (`{hour}`, `{minute}`, `{second}`) and `{primary}` for the primary field as defined in the `view` key. By default this is set to `'{year}-{month}-{day}-{primary}.md'`. |
-| `exclude` | `array` | An array of files to exclude from the collection (e.g. `[ README.md ]`). This is only valid for collections. |
-| `view` | `object` | **Only valid for collections**. This object defines the various options for the collection view; visible fields, sorting options and defaults, fields indexed for the search... [See the "View" section below](#view). |
-| `format` | `string` | The format of the file, used to set up the editor to edit the content: `yaml-frontmatter`, `json-frontmatter`, `toml-frontmatter`, `yaml`, `json`, `toml`, `datagrid`, `code` or `raw`. It defaults to `yaml-frontmatter`. |
-| `subfolders` | `boolean` | Whether or not the collection should display subfolders. Default to `true`. Set to `false` if you want to force the collection of files to be "flat". |
+| - | - | - |
+| **`name`** | `string` | **Required and must be unique across the content array**. Machine name for the content entry. |
+| **`label`** | `string` | Display name for the collection or single file. This will be displayed in the main menu. |
+| **`type`**| `string` | **Required**. `collection` or `file`, depending on whether the content entry is a collection of files with an identical schema (e.g. blog posts) or a single file (e.g. home page). |
+| **`path`** | `string` | **Required**. Path to the folder where the files are stored if it's a collection (e.g. `path: src/posts`, otherwise the path to the single file (e.g. `path: src/index.md`). |
+| **`icon`** | `string` | Name of a [Lucide icon](https://lucide.dev/icons/) to display in the main navigation (e.g. `map-pinned`). You can use Kebab, Pascal or Camel case (e.g. `map-pinned`, `MapPinned` or `mapPinned`). |
+| **`fields`** | `string` | The list of fields defining the schema of the content entry (e.g. title, date, author, body, etc). [See the "Fields" section below](#fields). |
+| **`filename`** | `string` | The pattern to generate the filename when creating a new file. You can use the value of any field (e.g. `fields.title`) including nested values (e.g. `fields.tags[0].label`). You can also use a few date tokens (`{year}`, `{month}`, `{day}`) and time (`{hour}`, `{minute}`, `{second}`) and `{primary}` for the primary field as defined in the `view` key. By default this is set to `'{year}-{month}-{day}-{primary}.md'`. |
+| **`exclude`** | `array` | An array of files to exclude from the collection (e.g. `[ README.md ]`). This is only valid for collections.
+| **`view`** | `object` | **Only valid for collections**. This object defines the various options for the collection view; visible fields, sorting options and defaults, fields indexed for the search... [See the "View" section below](#view). |
+| **`format`** | `string` | The format of the file, used to set up the editor to edit the content: `yaml-frontmatter`, `json-frontmatter`, `toml-frontmatter`, `yaml`, `json`, `toml`, `datagrid`, `code` or `raw`. It defaults to `yaml-frontmatter`. |
+| **`subfolders`** | `boolean` | Whether or not the collection should display subfolders. Default to `true`. Set to `false` if you want to force the collection of files to be "flat". |
 
 ### Examples
 
@@ -116,12 +118,12 @@ The `view` object is only valid for `type: collection` content entries. It defin
 #### Keys
 
 | Key | Type | Description |
-| --- | --- | --- |
-| `fields` | `array` | List of the fields to be displayed in the collection view (e.g. `fields: [ title, published, author ]`). This can include nested fields and values (e.g. `fields: [ title, published, "tags[0]", author.name ]`). If not defined, it defaults to just the primary field (see below). The order of the fields is kept in the collection view. |
-| `primary` | `string` | The name of the field that should be used as the primary field (e.g. `primary: title`). If undefined, it will be set to the `title` field if it exists, otherwise the first field define in the content entry (e.g. `content.posts.fields[0].name`). |
-| `sort` | `array` | The list of fields that the collection can be sorted by (e.g. `sort: [ date, title ]`). By default, it is set to the date (if any) and the primary field. |
-| `search` | `array` | The list of fields that should be indexed for search. By default, all fields are indexed. |
-| `default` | `object` | Define the default values for search and sorting: `{ search: 'My keywords', sort: title, order: asc }`). `default.order` can be `asc` or `desc`. By default, `default.search` is empty, `default.sort` is the first field in the `sort` array and `default.order` is set to `desc`. |
+| - | - | - |
+| **`fields`** | `array` | List of the fields to be displayed in the collection view (e.g. `fields: [ title, published, author ]`). This can include nested fields and values (e.g. `fields: [ title, published, "tags[0]", author.name ]`). If not defined, it defaults to just the primary field (see below). The order of the fields is kept in the collection view. |
+| **`primary`** | `string` | The name of the field that should be used as the primary field (e.g. `primary: title`). If undefined, it will be set to the `title` field if it exists, otherwise the first field define in the content entry (e.g. `content.posts.fields[0].name`). |
+| **`sort`** | `array` | The list of fields that the collection can be sorted by (e.g. `sort: [ date, title ]`). By default, it is set to the date (if any) and the primary field. |
+| **`search`** | `array` | The list of fields that should be indexed for search. By default, all fields are indexed. |
+| **`default`** | `object` | Define the default values for search and sorting: `{ search: 'My keywords', sort: title, order: asc }`). `default.order` can be `asc` or `desc`. By default, `default.search` is empty, `default.sort` is the first field in the `sort` array and `default.order` is set to `desc`. |
 
 #### Examples
 
@@ -142,10 +144,8 @@ This would display the title of each post and sort them by title in descendant o
 
 Let's assume we also have the following:
 
-*   `published`, a boolean that defines whether or not the post is published,
-    
-*   `author`, a string set to the name of the author.
-    
+- `published`, a boolean that defines whether or not the post is published,
+- `author`, a string set to the name of the author.
 
 Let's set the view to only display the posts from `Patricia`, display title, date and the published state with the newer posts first:
 
@@ -166,18 +166,18 @@ The `author:Patricia` syntax [comes from lunr.js](https://lunrjs.com/guides/sear
 #### Keys
 
 | Key | Type | Description |
-| --- | --- | --- |
-| `name` | `string` | **Required and must be unique across the fields array**. Machine name for the field. `body` **is reserved for the body of the file when dealing with a frontmatter file (e.g. YAML frontmatter)**. |
-| `label` | `string` | Display name for the field. This is what is displayed in the edit form. |
-| `description` | `string` | Default value. |
-| `type` | `string` | Defines the type of field: [**boolean**](/docs/configuration/boolean-field), [**code**](/docs/configuration/code-field), [**date**](/docs/configuration/date-field), [**image**](/docs/configuration/image-field), [**number**](/docs/configuration/number-field), [**object**](/docs/configuration/object-field), [**rich-text**](/docs/configuration/rich-text-field), [**select**](/docs/configuration/select-field), [**string**](/docs/configuration/string-field) or [**text**](/docs/configuration/text-field). If undefined or set to a field that doesn't exist, it defaults to `text`. |
-| `default` |     | Default value. |
-| `list` | `boolean` or `object` | If truthy, the field is an array of values (of the type defined for the field). [See the "View" section below](#view). |
-| `hidden` | `boolean` | If `true`, the field will not be displayed in the form but will be saved. It is usually used with `default` to set a required field that shouldn't be edited by users, like for example the language of a post (`lang: en-US`). |
-| `required` | `boolean` | If `true`, the field can't be empty. |
-| `pattern` | `string` or `object` | A regular expression to validate the field. A custom message for the error can be provided by defining an object with `regex` and `message` attributes (e.g. `pattern: { regex: 'This must be a valid email address (e.g. hello@example.com).', message: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$' }`) |
-| `fields` | `array` | **Only valid for object fields**. List of the fields in that object. |
-| `options` | `object` | Options for that field. Refer to the field specific details below. |
+| - | - | - |
+| **`name`** | `string` | **Required and must be unique across the fields array**. Machine name for the field. **`body` is reserved for the body of the file when dealing with a frontmatter file (e.g. YAML frontmatter)**. |
+| **`label`** | `string` | Display name for the field. This is what is displayed in the edit form. |
+| **`description`** | `string` | Default value. |
+| **`type`** | `string` | Defines the type of field: **[boolean](/docs/configuration/boolean-field)**, **[code](/docs/configuration/code-field)**, **[date](/docs/configuration/date-field)**, **[image](/docs/configuration/image-field)**, **[number](/docs/configuration/number-field)**, **[object](/docs/configuration/object-field)**, **[rich-text](/docs/configuration/rich-text-field)**, **[select](/docs/configuration/select-field)**, **[string](/docs/configuration/string-field)** or **[text](/docs/configuration/text-field)**. If undefined or set to a field that doesn't exist, it defaults to `text`. |
+| **`default`** | | Default value. |
+| **`list`** | `boolean` or `object` | If truthy, the field is an array of values (of the type defined for the field). [See the "View" section below](#view). |
+| **`hidden`** | `boolean` | If `true`, the field will not be displayed in the form but will be saved. It is usually used with `default` to set a required field that shouldn't be edited by users, like for example the language of a post (`lang: en-US`). |
+| **`required`** | `boolean` | If `true`, the field can't be empty. |
+| **`pattern`** | `string` or `object` | A regular expression to validate the field. A custom message for the error can be provided by defining an object with `regex` and `message` attributes (e.g. `pattern: { regex: 'This must be a valid email address (e.g. hello@example.com).', message: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$' }`) |
+| **`fields`** | `array` | **Only valid for object fields**. List of the fields in that object. |
+| **`options`** | `object` | Options for that field. Refer to the field specific details below. |
 
 #### List
 
@@ -211,26 +211,17 @@ list:
 
 This will force the user to enter at least 1 image and at most 4.
 
-Certain fields (e.g. the \[image field(/docs/configuration/image-field)\]) implement their own list logic. If you want to use the default list widget, you may set `default` to true.
+Certain fields (e.g. the [image field(/docs/configuration/image-field)]) implement their own list logic. If you want to use the default list widget, you may set `default` to true.
 
 #### Types
 
-*   [Boolean field](/docs/configuration/boolean-field)
-    
-*   [Code field](/docs/configuration/code-field)
-    
-*   [Date field](/docs/configuration/date-field)
-    
-*   [Image field](/docs/configuration/image-field)
-    
-*   [Number field](/docs/configuration/number-field)
-    
-*   [Object field](/docs/configuration/object-field)
-    
-*   [Rich-text field](/docs/configuration/rich-text-field)
-    
-*   [Select field](/docs/configuration/select-field)
-    
-*   [String field](/docs/configuration/string-field)
-    
-*   [Text field](/docs/configuration/text-field)
+- [Boolean field](/docs/configuration/boolean-field)
+- [Code field](/docs/configuration/code-field)
+- [Date field](/docs/configuration/date-field)
+- [Image field](/docs/configuration/image-field)
+- [Number field](/docs/configuration/number-field)
+- [Object field](/docs/configuration/object-field)
+- [Rich-text field](/docs/configuration/rich-text-field)
+- [Select field](/docs/configuration/select-field)
+- [String field](/docs/configuration/string-field)
+- [Text field](/docs/configuration/text-field)
