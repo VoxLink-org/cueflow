@@ -94,38 +94,6 @@ faq:
         b.com/pages-cms/pages-cms/tree/main/functions/auth). With that being
         said, Cloudflare has a generous free tier which works great in this
         case."
-    - question: Why do you need full access to all of my GitHub repositories?
-      answer: >-
-        Well, the GitHub API kinda sucks when it comes to OAuth scoping. Pages
-        CMS relies on the OAuth App flow, which doesn't allow for granular
-        permissions. The alternative would be to use the GitHub App flow
-        instead, but:
-
-
-        - It's a lot more complicated and would require us to store and
-        orchestrate a lot more in the backend.
-
-        - Since we need to impersonate users (for things like commits), we
-        anyway need to request user tokens, which technically would give us the
-        same access as with the OAuth App flow.
-
-
-        **However, we do not store your GitHub OAuth tokens in the backend**.
-        [The serverless functions used to facilitate the OAuth
-        login](https://github.com/pages-cms/pages-cms/tree/main/functions/auth)
-        pass the OAuth token to the front-end, allowing it to directly
-        communicate with the GitHub API.
-
-
-        And if you still don't trust the online version, [you can deploy your
-        own version for free in less than 10 minutes our Cloudflare
-        Pages](/docs/development#deploy-on-cloudflare).
-
-
-        [Do let me know if I got some of this wrong](mailto:hunvreus@gmail.com)
-        ([@hunvreus](https://x.com/hunvreus)), and feel free to [suggest
-        improvemens in the issue
-        queue](https://github.com/pages-cms/pages-cms/issues).
     - question: Why yet another CMS?
       answer: I hear you, but I needed Pages CMS to exist. I love static site
         generators, and while YAML front matter and Markdown aren't terribly
