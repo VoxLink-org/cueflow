@@ -45,7 +45,6 @@ Each field folder (e.g. `fields/core/boolean`) should include an `index.ts` or `
 Let's have a look at the `fields/core/boolean` folder, which defines boolean fields:
 
 ```Plaintext
-
 fields/
 ├─ core/
 │  ├─ boolean/
