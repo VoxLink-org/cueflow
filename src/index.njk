@@ -35,90 +35,42 @@ features:
     - title: Email invites
       description: Invite users via email, no other account needed.
       icon: mail-open
-      pro: true
       soon: false
     - title: File storage
       description: Connect with AWS S3, Cloudflare R2, and more.
       icon: cloud
-      pro: true
-      soon: false
+      soon: true
     - title: Scheduling
       description: Easily schedule one-off or recurring content updates.
       icon: calendar-clock
-      pro: true
-      soon: false
+      soon: true
     - title: Permissions
       description: Granular access control for different content types.
       icon: sliders-vertical
-      pro: true
-      soon: false
+      soon: true
     - title: Analytics
       description: Integrate with GA, Cloudflare Analytics, and more.
       icon: chart-column-increasing
-      pro: true
-      soon: false
+      soon: true
     - title: Collaborative editing
       description: Real-time content editing with other team members.
       icon: users
-      pro: true
-      soon: false
+      soon: true
     - title: Comments
       description: Let your team leave inline comments on any part of your content.
       icon: git-branch
-      pro: true
-      soon: false
+      soon: true
 faq:
   title: Frequently asked questions
   entries:
     - question: Is Pages CMS free?
-      answer: Yes, Pages CMS is 100% free, whether you want to use the online version
-        or self-host it. It is a simple front-end app with very limited backend
-        capabilities, which can run on [Cloudflare
-        Pages](https://pages.cloudflare.com/) for free. The open-source version
-        is MIT licensed; you can host it on your own Cloudflare account for free
-        as well.
+      answer: Yes, Pages CMS is 100% free, whether you want to use [the online version](https://app.pagescms.org), deploy it for free on [Vercel](https://vercel.com/), or self-host it. It's MIT licensed through and through, feel free to extend it as you see fit.
     - question: Do you only support GitHub?
-      answer: "For now, yes. But I've already started looking into adding GitLab and
-        Bitbucket. Pull requests and issues are welcome:
-        [github.com/pages-cms/pages-cms](https://github.com/pages-cms/pages-cms\
-        )."
-    - question: Do I have to host Pages CMS on Cloudflare Pages?
-      answer: "Not necessarily: Pages CMS is a single-page app with a handful of
-        serverless functions to facilitate the OAuth dance with GitHub. You
-        could easily run it on Netlify, Vercel, AWS, Render... You would just
-        need to make these 3 functions work on your platform of choice:
-        [github.com/pages-cms/pages-cms/tree/main/functions/auth](https://githu\
-        b.com/pages-cms/pages-cms/tree/main/functions/auth). With that being
-        said, Cloudflare has a generous free tier which works great in this
-        case."
+      answer: "Yes. Supposedly, we could add GitLab and Bitbucket support, but the assumption is the vast majority of users will be on GitHub. Pull requests and issues are welcome: [github.com/pages-cms/pages-cms](https://github.com/pages-cms/pages-cms)."
     - question: Why yet another CMS?
-      answer: I hear you, but I needed Pages CMS to exist. I love static site
-        generators, and while YAML front matter and Markdown aren't terribly
-        complicated, editing content and uploading images using GitHub.com or
-        Git isn't really user-friendly, especially if you're updating the site
-        with a whole team. For that reason, a lot of teams use a headless CMS
-        like Contentful, Sanity, or Strapi. That works, but it's one more
-        dependency and is overkill in most cases. You could also use something
-        like Decap CMS (formerly Netlify CMS). Really cool project, but I've
-        never been a fan of the user experience. And most importantly, I wanted
-        something as simple as possible. Back in 2018, I had built a lightweight
-        CMS ([Jekyll+](https://github.com/hunvreus/jekyllplus)) with the idea of
-        getting the CMS set up with a single configuration file. Pages CMS is
-        the next iteration of that idea.
-    - question: What's the "Pro" plan?
-      answer: "I haven't completely figured it out, but there are a few features I'm
-        working on that I believe would only be relevant to larger teams or
-        professional use. Things like real-time collaboration, advanced media
-        management (e.g., image manipulation), or S3 integration. This not only
-        requires a lot more work but also hosting costs. If you're interested,
-        drop me a line: [hunvreus@gmail.com](mailto:hunvreus@gmail.com)
-        ([@hunvreus](https://x.com/hunvreus))."
+      answer: I hear you, but I needed Pages CMS to exist. I love static site generators, and while YAML front matter and Markdown aren't terribly complicated, editing content and uploading images using GitHub.com or Git isn't really user-friendly, especially if you're updating the site with a whole team. For that reason, a lot of teams use a headless CMS like Contentful, Sanity, or Strapi. That works, but it's one more dependency and is overkill in most cases. You could also use something like Decap CMS (formerly Netlify CMS). Really cool project, but I've never been a fan of the user experience. And most importantly, I wanted something as simple as possible. Back in 2018, I had built a lightweight CMS ([Jekyll+](https://github.com/hunvreus/jekyllplus)) with the idea of getting the CMS set up with a single configuration file. Pages CMS is the next iteration of that idea.
     - question: Who made this? It sucks!
-      answer: "I did: [Ronan Berder](https://ronanberder.com)
-        ([@hunvreus](https://x.com/hunvreus)). I'm a half-decent developer, but
-        I sure could use some help to make this suck less:
-        [github.com/pages-cms/pages-cms](https://github.com/pages-cms/pages-cms\
-        )."
+      answer: "I did: [Ronan Berder](https://ronanberder.com) ([@hunvreus](https://x.com/hunvreus)). I'm a half-decent developer, but I sure could use some help to make this suck less: [github.com/pages-cms/pages-cms](https://github.com/pages-cms/pages-cms)."
 ---
 <div class="px-4 lg:px-8">
   <div class="max-w-xl mx-auto my-24 lg:my-28 text-center">
@@ -189,7 +141,7 @@ faq:
         <li class="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
           <div class="flex items-center gap-x-2">
             {% lucide feature.icon, { "class" : "h-5 w-5 stroke-[1.5]"} %}
-            {% if feature.pro %}<span class="ml-auto bg-muted text-xs font-medium text-opacity-0 h-6 flex items-center px-3 rounded-full float-right">Pro plan</span>{% endif %}
+            {% if feature.soon %}<span class="ml-auto bg-muted text-xs font-medium text-opacity-0 h-6 flex items-center px-3 rounded-full float-right">Soon</span>{% endif %}
           </div>
           <h3 class="font-medium mt-4">{{ feature.title }}</h3>
           <p class="mt-1">{{ feature.description }}</p>
