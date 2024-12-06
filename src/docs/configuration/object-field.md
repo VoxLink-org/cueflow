@@ -16,15 +16,15 @@ A list of nested fields. You can use [any of the fields defined for content](#fi
   type: object
   fields:
     - name: first_name
-      name: First name
+      label: First name
       type: string
     - name: last_name
-      name: Last name
+      label: Last name
       type: string
     - name: email
-      name: Email address
+      label: Email address
       type: string
     - name: phone
-      name: Phone number
+      label: Phone number
       type: string
 ```
