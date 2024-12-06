@@ -4,6 +4,8 @@ order: 2
 ---
 ## The .pages.yml file
 
+![Media](/media/screenshots/nextjs-settings-light@2x.png)
+
 To configure Pages CMS you just need to add a `.pages.yml` file to the repository (and branch) that hosts your content and media. If this file isn't there when you open your repository/branch in Pages CMS, you will be presented with a link to add one via the Pages CMS interface.
 
 You can have different configuration files on separate branches. The Pages CMS interface allows you to navigate between them (click on the name of repository at the top of the sidebar and then select the branch in the dropdown menu).
@@ -21,7 +23,7 @@ The `.pages.yml` file contains mainly 2 sections:
 
 With media, you can configure how to handle the files that can be embedded in or associated with the content: attachments, thumbnails, inline images...
 
-![Media](/media/screenshots/media-light@2x.png)
+![Media](/media/screenshots/nextjs-media-light@2x.png)
 
 ### Keys
 
@@ -71,7 +73,7 @@ media:
 
 Content managed by the users: collections (e.g. blog posts) and file types (e.g. the home page). The `content` key should be set as an array of content entries.
 
-![Collection view](/media/screenshots/collection-view-light@2x.png)
+![Collection view](/media/screenshots/nextjs-collection-light@2x.png)
 
 ### Keys
 

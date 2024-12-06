@@ -18,10 +18,10 @@ The easiest way to get started is to use [the online version of Pages CMS](https
 
 This online version runs the latest version from [the public repository](https://github.com/pages-cms/pages-cms).
 
-<a class="button !text-white !no-underline" href="https://app.pagescms.org">Sign in with GitHub</a>
+<a class="button !text-primary-foreground !no-underline" href="https://app.pagescms.org">Sign in with GitHub</a>
 
 ### Install or deploy your own version
 
 You can install your own version locally or deploy it (for free) on [Vercel](https://vercel.com) by [following the README](https://github.com/pages-cms/pages-cms/#install-and-deploy):
 
-<a class="button !text-white !no-underline" href="https://github.com/pages-cms/pages-cms/#README">Get the source code on GitHub</a>
+<a class="button !text-primary-foreground !no-underline" href="https://github.com/pages-cms/pages-cms/#README">Get the source code on GitHub</a>
