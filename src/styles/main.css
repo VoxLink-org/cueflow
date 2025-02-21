@@ -84,3 +84,7 @@
 .toc a {
   @apply text-primary underline hover:decoration-muted-foreground	 underline-offset-2;
 }
+
+.toc ol ol {
+  @apply pl-4;
+}
