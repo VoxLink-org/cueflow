@@ -64,3 +64,11 @@ li {
 .features li {
   color: #555;
 }
+
+.youtube-video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-bottom: 2rem; */
+  padding: 1rem;
+}

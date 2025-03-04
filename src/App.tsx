@@ -11,6 +11,10 @@ function App() {
           <button>Download Now</button>
         </a>
       </header>
+      <section className="youtube-video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/zuaUWxUuBdg" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen={true}></iframe>
+      </section>
+
       <section className="features">
         <h2>Features</h2>
         <ul>
@@ -19,6 +23,7 @@ function App() {
           <li>Realtime AI analysis & feedback</li>
         </ul>
       </section>
+
       </div>
       <footer>
         <p>&copy; 2025 VoxLink</p>
