@@ -17,7 +17,7 @@ A dropdown field that supports both static options and dynamic autocomplete thro
 | **`fetch.method`** | string | HTTP method (defaults to "GET"). |
 | **`fetch.query`** | string | The query parameter name for the search term. |
 | **`fetch.headers`** | object | Custom headers to send with the request. |
-| **`fetch.path`** | string | Dot notation path to the results array in the response. |
+| **`fetch.results`** | string | Dot notation path to the results array in the response. |
 | **`fetch.value`** | string | Field to use as option value from each result (defaults to "id"). |
 | **`fetch.label`** | string | Field to use as option label from each result (defaults to "name"). |
 | **`fetch.minlength`** | number | Minimum number of characters before triggering search. |
@@ -71,7 +71,7 @@ Search users through the GitHub API:
     fetch:
       url: https://api.github.com/search/users
       query: q
-      path: items
+      results: items
       value: login
       label: login
       minlength: 2
