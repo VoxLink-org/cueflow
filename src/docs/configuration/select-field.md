@@ -8,19 +8,19 @@ A dropdown field that supports both static options and dynamic autocomplete thro
 
 | Option | Type | Description |
 |--------|------|-------------|
-| **values** | array | For static options. Entries can be objects with `value` and `label` keys (e.g. `[{ value: "option_1", label: "Option 1" }]`) or strings (e.g. `["Option 1"]`). String entries will use the same value for both value and label. |
-| **multiple** | boolean | Allow selecting multiple values. |
-| **creatable** | boolean | Allow creating new options that aren't in the predefined list. |
-| **placeholder** | string | Custom placeholder text for the select input. |
-| **fetch** | object | Configuration for autocomplete functionality through an API endpoint. |
-| **fetch.url** | string | The API endpoint URL. |
-| **fetch.method** | string | HTTP method (defaults to "GET"). |
-| **fetch.query** | string | The query parameter name for the search term. |
-| **fetch.headers** | object | Custom headers to send with the request. |
-| **fetch.path** | string | Dot notation path to the results array in the response. |
-| **fetch.value** | string | Field to use as option value from each result (defaults to "id"). |
-| **fetch.label** | string | Field to use as option label from each result (defaults to "name"). |
-| **fetch.minlength** | number | Minimum number of characters before triggering search. |
+| **`values`** | array | For static options. Entries can be objects with `value` and `label` keys (e.g. `[{ value: option_1, label: 'Option 1' }]`) or strings (e.g. `['Option 1']`). String entries will use the same value for both value and label. |
+| **`multiple`** | boolean | Allow selecting multiple values. |
+| **`creatable`** | boolean | Allow creating new options that aren't in the predefined list. |
+| **`placeholder`** | string | Custom placeholder text for the select input. |
+| **`fetch`** | object | Configuration for autocomplete functionality through an API endpoint. |
+| **`fetch.url`** | string | The API endpoint URL. |
+| **`fetch.method`** | string | HTTP method (defaults to "GET"). |
+| **`fetch.query`** | string | The query parameter name for the search term. |
+| **`fetch.headers`** | object | Custom headers to send with the request. |
+| **`fetch.path`** | string | Dot notation path to the results array in the response. |
+| **`fetch.value`** | string | Field to use as option value from each result (defaults to "id"). |
+| **`fetch.label`** | string | Field to use as option label from each result (defaults to "name"). |
+| **`fetch.minlength`** | number | Minimum number of characters before triggering search. |
 
 ## Examples
 
@@ -76,7 +76,7 @@ Search users through the GitHub API:
       label: login
       minlength: 2
       headers:
-        Accept: application/vnd.github.v3+json
+        Authorization: Bearer ghp_5NW8k9YzF3xLmP2vQbT4cJdR7aHnE1iKoU6s
 ```
 
 Allow adding new tags while also showing existing ones:
