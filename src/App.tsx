@@ -3,31 +3,90 @@ import './App.css'
 function App() {
   return (
     <>
-    <div className='flex'>
-      <header>
-        <h1>VoxLink Realtime AI Assistant</h1>
-        <p>Welcome to the future of AI-powered assistance!</p>
-        <a href="https://github.com/VoxLink-org/webpage/releases" target="_blank" rel="noopener noreferrer" style={{ color: 'white' }}>
-          <button>Download Now</button>
-        </a>
-      </header>
-      <section className="youtube-video">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/zuaUWxUuBdg" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen={true}></iframe>
-      </section>
+      <div className='main'>
+        <header className="hero-section">
+          <div className="hero-content">
+            <h1>CueFlow</h1>
+            <h2 className="subtitle">Realtime AI Assistant</h2>
+            <p className="hero-description">提升你的工作效率，让 AI 成为你的得力助手</p>
+            <div className="cta-buttons">
+              <a href="https://github.com/VoxLink-org/webpage/releases" target="_blank" rel="noopener noreferrer">
+                <button className="primary-button">立即下载</button>
+              </a>
+              <a href="#features" className="secondary-button">了解更多</a>
+            </div>
+          </div>
+        </header>
 
-      <section className="features">
-        <h2>Features</h2>
-        <ul>
-          <li>Prepare everything before the task</li>
-          <li>Realtime transcription</li>
-          <li>Realtime AI analysis & feedback</li>
-        </ul>
-      </section>
+        <section className="youtube-video">
+          <div className="container">
+            <iframe 
+              width="100%" 
+              height="600" 
+              src="https://www.youtube.com/embed/zuaUWxUuBdg" 
+              title="YouTube video player" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowFullScreen={true}
+            ></iframe>
+          </div>
+        </section>
 
+        <section id="features" className="features">
+          <div className="container">
+            <h2>核心功能</h2>
+            <div className="features-grid">
+              <div className="feature-card">
+                <div className="feature-icon">🎙️</div>
+                <h3>本地语音转写</h3>
+                <p>完全离线的本地语音识别，数据绝不外传</p>
+              </div>
+              <div className="feature-card">
+                <div className="feature-icon">🤖</div>
+                <h3>实时 AI 建议</h3>
+                <p>智能助手实时分析对话，轻松应对各类高难度对话场景</p>
+              </div>
+              <div className="feature-card">
+                <div className="feature-icon">🔒</div>
+                <h3>超高隐私</h3>
+                <p>支持自定义大模型API，数据完全自主可控</p>
+              </div>
+              <div className="feature-card">
+                <div className="feature-icon">📝</div>
+                <h3>智能总结</h3>
+                <p>智能总结任务内容，高效整理</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="mac-help">
+          <div className="container">
+            <div className="help-card">
+              <h2>Mac 用户安装指南</h2>
+              <p>如果遇到 "CueFlow is damaged and can't be opened" 的提示，请在终端中运行：</p>
+              <div className="code-block">
+                <code>sudo xattr -rd com.apple.quarantine /Applications/CueFlow.app</code>
+                <button className="copy-button" onClick={() => navigator.clipboard.writeText('sudo xattr -rd com.apple.quarantine /Applications/CueFlow.app')}>
+                  复制
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
+
       <footer>
-        <p>&copy; 2025 VoxLink</p>
-        <a style={{ color: 'white' }} href="https://github.com/VoxLink-org/webpage" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+        <div className="container">
+          <div className="footer-content">
+            <p>&copy; 2025 VoxLink</p>
+            <div className="social-links">
+              <a href="https://github.com/VoxLink-org/webpage" target="_blank" rel="noopener noreferrer">
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
       </footer>
     </>
   )
