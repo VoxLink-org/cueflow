@@ -75,6 +75,8 @@ body {
   font-size: 1.1rem;
   cursor: pointer;
   transition: transform 0.2s;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .primary-button:hover {

@@ -8,12 +8,19 @@ function App() {
           <div className="hero-content">
             <h1>CueFlow</h1>
             <h2 className="subtitle">Realtime AI Assistant</h2>
-            <p className="hero-description">提升你的工作效率，让 AI 成为你的得力助手</p>
+            <p className="hero-description">实时对话分析，让你在每个重要谈话中都胸有成竹</p>
             <div className="cta-buttons">
-              <a href="https://github.com/VoxLink-org/webpage/releases" target="_blank" rel="noopener noreferrer">
-                <button className="primary-button">立即下载</button>
+              <a 
+                href="https://github.com/VoxLink-org/webpage/releases" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="primary-button"
+              >
+                立即下载
               </a>
-              <a href="#features" className="secondary-button">了解更多</a>
+              <a href="#features" className="secondary-button">
+                了解更多
+              </a>
             </div>
           </div>
         </header>
