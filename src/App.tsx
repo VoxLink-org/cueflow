@@ -21,8 +21,8 @@ function App() {
         <section className="youtube-video">
           <div className="container">
             <iframe 
-              width="100%" 
-              height="600" 
+              width="560" 
+              height="315" 
               src="https://www.youtube.com/embed/zuaUWxUuBdg" 
               title="YouTube video player" 
               frameBorder="0" 

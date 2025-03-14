@@ -142,36 +142,28 @@ body {
   background: linear-gradient(135deg, #232526 0%, #414345 100%);
 }
 
-/* 方案三：深邃蓝绿渐变 */
-.youtube-video-disabled {
-  padding: 4rem 0;
-  background: linear-gradient(135deg, #1f4037 0%, #203a43 100%);
-}
-
-/* 方案四：暗色科技风 */
-.youtube-video-disabled {
-  padding: 4rem 0;
-  background: linear-gradient(135deg, #16222a 0%, #283747 100%);
-}
-
 .youtube-video .container {
-  position: relative;
-  padding-bottom: 50%; /* 16:8 比例 */
-  height: 0;
-  overflow: hidden;
-  max-width: 800px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 313px;
 }
 
 .youtube-video iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  width: 560px;
+  height: 313px;
   border-radius: 12px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
+
+@media (max-width: 768px) {
+  .youtube-video iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 560/313;
+  }
+}
+
 
 .code-block {
   background: #1a1a1a;
