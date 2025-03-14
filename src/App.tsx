@@ -86,7 +86,7 @@ function App() {
       <footer>
         <div className="container">
           <div className="footer-content">
-            <p>&copy; 2025 VoxLink</p>
+            <p>&copy; 2025 CueFlow</p>
             <div className="social-links">
               <a href="https://github.com/VoxLink-org/webpage" target="_blank" rel="noopener noreferrer">
                 GitHub
