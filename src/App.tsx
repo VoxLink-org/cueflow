@@ -10,7 +10,7 @@ function App() {
             <p className="text-center text-gray-50 mt-4">实时对话分析，让你在每个重要谈话中都胸有成竹</p>
             <div className="flex justify-center mt-6 space-x-4">
               <a 
-                href="https://github.com/VoxLink-org/webpage/releases" 
+                href="https://github.com/VoxLink-org/cueflow/releases" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-gradient-to-r from-purple-500 to-blue-500 text-white py-2 px-6 rounded-full hover:from-blue-500 hover:to-purple-500 transition hover:text-black"
@@ -93,7 +93,7 @@ function App() {
             <p>&copy; 2025 CueFlow</p>
             <div>
               <a 
-                href="https://github.com/VoxLink-org/webpage" 
+                href="https://github.com/VoxLink-org/cueflow" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="hover:underline"
