@@ -2,9 +2,6 @@
 
 This project is a React application built with TypeScript and Vite.
 
-# CueFlow
-
-This project is a React application built with TypeScript and Vite.
 
 ## Mac 用户安装指南
 
