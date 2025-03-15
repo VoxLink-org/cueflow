@@ -28,7 +28,7 @@ function App() {
           <div className="w-full max-w-screen-xl mx-auto px-4">
             <iframe 
               className="w-full h-64 md:h-96 rounded-lg shadow-lg"
-              src="https://www.youtube.com/embed/zuaUWxUuBdg" 
+              src="https://www.youtube.com/embed/vhOU2Z7ke-g" 
               title="YouTube video player" 
               frameBorder="0" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
