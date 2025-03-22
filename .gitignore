@@ -26,3 +26,5 @@ demo1.mp4
 demo2.mp4
 voxlink-demo.mp4
 voxlink-demo(1).mp4
+*.mp4
+!public/*.mp4
