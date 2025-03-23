@@ -2,28 +2,60 @@
 title: Image field
 ---
 
-A field allowing users to upload and select images. By default, it uses [the media configuration](/docs/configuration#media), but can be overriden using the field's options.
+A field allowing users to upload and select images. By default, it uses [the media configuration](/docs/configuration#media), but can be customized using the field's options.
 
 ## Options
 
 | Option | Type | Description |
 | - | - | - |
-| **`input`**| `string` | The path to the media folder relative to the root of the repo (e.g. `src/files/media`). |
-| **`output`** | `string` | The path to the media folder relative to the root of the website (e.g. `files/media`). |
-| **`path`** | `string` | The default path when opening the file browser. |
-| **`extensions`** | `string` | An array of file extensions that should be displayed. If provided, any file with an extension not included in this list will not be shown to the user. |
-| **`categories`** | `string` | Similar to `media.extensions`, but using categories of files: `image` (`jpg`, `jpeg`, `png`, `gif`, `svg`, `bmp`, `tif`, `tiff`), `document` (`pdf`, `doc`, `docx`, `ppt`, `pptx`, `vxls`, `xlsx`, `txt`, `rtf`), `video` (`mp4`, `avi`, `mov`, `wmv`, `flv`), `audio` (`mp3`, `wav`, `aac`, `ogg`, `flac`) and `compressed` (`zip`, `rar`, `7z`, `tar`, `gz`, `tgz`). If both `media.extensions` and `media.categories` are provided, `media.categories` will be ignored. |
+| **`media`** | `string` | Name of the media configuration to use. If not specified, uses the first media configuration defined in your schema. |
+| **`path`** | `string` | The default path when opening the file browser. Must be within the configured media folder. |
+| **`multiple`** | `boolean` or `object` | Allow selecting multiple images. When set to `true`, allows unlimited images. When set to an object, can include `min` and `max` properties to constraint the number of images. |
+| **`multiple.min`** | `number` | Minimum number of images that can be selected when `multiple` is enabled. |
+| **`multiple.max`** | `number` | Maximum number of images that can be selected when `multiple` is enabled. |
+| **`extensions`** | `string[]` | An array of file extensions that should be allowed. Only files with these extensions will be shown or accepted for upload. |
+| **`categories`** | `string[]` | Similar to `extensions`, but using categories of files: `image` (`jpg`, `jpeg`, `png`, `gif`, `svg`, `bmp`, `tif`, `tiff`), `document` (`pdf`, `doc`, `docx`, `ppt`, `pptx`, `vxls`, `xlsx`, `txt`, `rtf`), `video` (`mp4`, `avi`, `mov`, `wmv`, `flv`), `audio` (`mp3`, `wav`, `aac`, `ogg`, `flac`) and `compressed` (`zip`, `rar`, `7z`, `tar`, `gz`, `tgz`). |
 
-## Example
+## Examples
 
-Assuming that the media folder is set to `src/media` and we want to let the user pick multiple JPEG or PNG images out of the screenshots subfolder (`src/media/screenshots`):
+A simple image field using the default media configuration:
 
 ```yaml
 - name: cover
-  label: Cover
+  label: Cover Image
   type: image
-  list: true
+```
+
+Allow selecting multiple images with a limit:
+
+```yaml
+- name: gallery
+  label: Image Gallery
+  type: image
   options:
-    path: src/media/screenshots
-    extensions: [ jpg, jpeg, png ]
+    multiple:
+      max: 6
+```
+
+Specify a custom path and limit file types:
+
+```yaml
+- name: screenshots
+  label: Screenshots
+  type: image
+  options:
+    path: screenshots
+    extensions: [jpg, png]
+```
+
+Use a specific media configuration and allow selecting SVG files using the category filter:
+
+```yaml
+- name: icon
+  label: Icon
+  type: image
+  options:
+    media: vector_assets
+    categories: [image]
+    extensions: [svg]
 ```
