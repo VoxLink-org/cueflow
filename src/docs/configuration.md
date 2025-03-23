@@ -21,7 +21,7 @@ The `.pages.yml` file contains mainly 2 sections:
 
 ## Media
 
-With media, you can configure how to handle the files that can be embedded in or associated with the content: attachments, thumbnails, inline images...
+With media, you can configure how to handle files you want to upload, attach to or embed in your content. `media` can be a string, a single object or an array of objects depending on whether you want a single or multiple media folders and configurations.
 
 ![Media](/media/screenshots/nextjs-media-light@2x.png)
 
@@ -29,6 +29,8 @@ With media, you can configure how to handle the files that can be embedded in or
 
 | Key | Type | Description |
 | - | - | - |
+| **`name`** | `string` | **Required if media is an array. Must be unique across the media array**. Machine name for the media entry. |
+| **`label`** | `string` | Display name for the media. This will be displayed in the main menu. |
 | **`input`**| `string` | The path to the media folder relative to the root of the repo (e.g. `src/files/media`). This path is what allows us to find the files in Pages CMS to manage content and media. |
 | **`output`** | `string` | The path to the media folder relative to the root of the website (e.g. `files/media`). This path will prefix all media saved in our content, which will be used by your static site generator. |
 | **`path`** | `string` | The default path to present the user (e.g. when opening the media browser on an [Image Field](/docs/configuration/image-field)). |
@@ -44,6 +46,8 @@ media:
   input: files/media
   output: /files/media
 ```
+
+If we want to define multiple media configurations, we can use an array (see examples below).
 
 ### Examples
 
@@ -67,6 +71,22 @@ Let's assume now that I'm hosting my website in a subfolder (e.g. hosted at `htt
 media:
   input: src/media
   output: /my-website/media
+```
+
+Now, if I want to use a `files/documents` folder only for document uploads (e.g. pdf, doc, ppt) and another `images` folder with my photos that must be in `.png` or `.webp` formats, we could do the following:
+
+```yaml
+media:
+  - name: files
+    label: Files
+    input: files/documents
+    output: /files/documents
+    categories: [ document ]
+  - label: images
+    label: Images
+    input: images
+    output: /images
+    extensions: [ png, webp ]
 ```
 
 ## Content
