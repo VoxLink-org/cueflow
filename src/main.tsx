@@ -2,14 +2,16 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import LiveStream from './cases/liveStream.tsx'
 import JobInterviewAssistantUserCasePage from './cases/jobInterview.tsx'
 // import BusinessNegotiationAssistantUserCasePage from './cases/businessNegotiation.tsx'
 
+// VITE_BASE
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter basename={VITE_BASE}>
+    <HashRouter >
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/live-stream-interaction" element={<LiveStream />} />
@@ -17,6 +19,6 @@ createRoot(document.getElementById('root')!).render(
         {/* <Route path="/business-negotiation" element={<BusinessNegotiationAssistantUserCasePage />} /> */}
         <Route path="*" element={<App />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   </StrictMode>
 )
