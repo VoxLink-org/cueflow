@@ -13,8 +13,8 @@ A field allowing users to upload and select images. By default, it uses [the med
 | **`multiple`** | `boolean` or `object` | Allow selecting multiple images. When set to `true`, allows unlimited images. When set to an object, can include `min` and `max` properties to constraint the number of images. |
 | **`multiple.min`** | `number` | Minimum number of images that can be selected when `multiple` is enabled. |
 | **`multiple.max`** | `number` | Maximum number of images that can be selected when `multiple` is enabled. |
-| **`extensions`** | `string[]` | An array of file extensions that should be allowed. Only files with these extensions will be shown or accepted for upload. |
-| **`categories`** | `string[]` | Similar to `extensions`, but using categories of files: `image` (`jpg`, `jpeg`, `png`, `gif`, `svg`, `bmp`, `tif`, `tiff`), `document` (`pdf`, `doc`, `docx`, `ppt`, `pptx`, `vxls`, `xlsx`, `txt`, `rtf`), `video` (`mp4`, `avi`, `mov`, `wmv`, `flv`), `audio` (`mp3`, `wav`, `aac`, `ogg`, `flac`) and `compressed` (`zip`, `rar`, `7z`, `tar`, `gz`, `tgz`). |
+| **`extensions`** | `string[]` | An array of file extensions that should be allowed. Only files with these extensions will be shown or accepted for upload. **Note**: this is on top of the allowed extensions/categories for the media selected for this field. |
+| **`categories`** | `string[]` | Similar to `extensions`, but using categories of files: `image` (`jpg`, `jpeg`, `png`, `gif`, `svg`, `bmp`, `tif`, `tiff`), `document` (`pdf`, `doc`, `docx`, `ppt`, `pptx`, `vxls`, `xlsx`, `txt`, `rtf`), `video` (`mp4`, `avi`, `mov`, `wmv`, `flv`), `audio` (`mp3`, `wav`, `aac`, `ogg`, `flac`) and `compressed` (`zip`, `rar`, `7z`, `tar`, `gz`, `tgz`). **Note**: this is on top of the allowed extensions/categories for the media selected for this field. |
 
 ## Examples
 
