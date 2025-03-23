@@ -2,30 +2,63 @@
 title: Rich-text field
 ---
 
-Rich-text editor powered by [TipTap (ProseMirror)](https://github.com/ueberdosis/tiptap).
+Rich-text editor powered by [TipTap (ProseMirror)](https://github.com/ueberdosis/tiptap), providing a powerful WYSIWYG experience with support for formatting, tables, images, and more.
 
 ## Options
 
 | Option | Type | Description |
 | - | - | - |
-| **`format`** | `string` | Format in which the field is saved, either `html` or `markdown`. Set to `markdown` by default. |
-| **`image`** | `object` | Options for the image feature. |
-| **`image.input`**| `string` | The path to the media folder relative to the root of the repo (e.g. `src/files/media`). |
-| **`image.output`** | `string` | The path to the media folder relative to the root of the website (e.g. `files/media`). |
-| **`image.path`** | `string` | The default path when opening the file browser. This also defines where files are uploaded when dropping images in the field. |
-| **`image.extensions`** | `string` | An array of file extensions that should be displayed. If provided, any file with an extension not included in this list will not be shown to the user. |
-| **`image.categories`** | `string` | Similar to `media.extensions`, but using categories of files: `image` (`jpg`, `jpeg`, `png`, `gif`, `svg`, `bmp`, `tif`, `tiff`), `document` (`pdf`, `doc`, `docx`, `ppt`, `pptx`, `vxls`, `xlsx`, `txt`, `rtf`), `video` (`mp4`, `avi`, `mov`, `wmv`, `flv`), `audio` (`mp3`, `wav`, `aac`, `ogg`, `flac`) and `compressed` (`zip`, `rar`, `7z`, `tar`, `gz`, `tgz`). If both `media.extensions` and `media.categories` are provided, `media.categories` will be ignored. |
+| **`media`** | `string` or `boolean` | Name of the media configuration to use for images. If not specified, uses the first media configuration defined in your schema. Set to `false` to disable image support. |
+| **`path`** | `string` | The default path when opening the file browser for images. Must be within the configured media folder. |
+| **`extensions`** | `string[]` | An array of file extensions that should be allowed for images. **Note**: These are intersected with the extensions defined in the media configuration, so only extensions allowed by both will be available. |
+
+## Features
+
+- **Text formatting**: Bold, italic, underline, strikethrough, code
+- **Block types**: Headings (1-3), paragraphs, bulleted lists, numbered lists, blockquotes, code blocks
+- **Text alignment**: Left, center, right, justify
+- **Tables**: Insert and edit tables with options to add/remove rows and columns
+- **Links**: Add, edit, and remove hyperlinks
+- **Images**: Insert images from media library with support for alt text
+- **Slash commands**: Type `/` to access quick commands for inserting various elements
 
 ## Examples
 
-Let's assume we want to have a rich-text editor for the body of our blog posts and make sure the user uploads only JPEG and PNG images to the `src/media/posts` subfolder:
+A simple rich-text field using the default media configuration:
 
 ```yaml
 - name: body
   label: Body
   type: rich-text
+```
+
+Specify a custom path for images and limit file types:
+
+```yaml
+- name: content
+  label: Content
+  type: rich-text
   options:
-    image:
-      path: src/media/posts
-      extensions: [ jpg, jpeg, png ]
+    path: blog-images
+    extensions: [jpg, jpeg, png]
+```
+
+Use a specific media configuration:
+
+```yaml
+- name: description
+  label: Description
+  type: rich-text
+  options:
+    media: product_images
+```
+
+Disable image support:
+
+```yaml
+- name: notes
+  label: Notes
+  type: rich-text
+  options:
+    media: false
 ```
