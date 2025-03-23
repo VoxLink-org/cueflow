@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import {
@@ -9,6 +10,7 @@ import {
   Github,
 } from 'lucide-react';
 import { cn } from "@/lib/utils"
+import LanguageSwitcher from './components/LanguageSwitcher';
 
 // Reusable animation variants
 const fadeInVariants = {
@@ -21,56 +23,69 @@ const slideInVariants = {
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeInOut' } },
 };
 
-const FeatureCard = ({ icon: Icon, title, description, className }: { icon: React.FC<React.SVGProps<SVGSVGElement>>, title: string, description: string, className?: string }) => (
+const FeatureCard = ({ icon: Icon, title, description, className }: { icon: React.FC<React.SVGProps<SVGSVGElement>>, title: string, description: string, className?: string }) => {
+  const { t } = useTranslation();
+  return (
     <motion.div
-        variants={slideInVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className={cn(
-          "bg-gradient-to-br from-gray-900 via-gray-800 to-black/90 bg-opacity-60 backdrop-blur-lg p-6 rounded-xl shadow-lg border border-gray-700 hover:shadow-blue-500/20 transition-all duration-300 hover:scale-[1.02]",
-          className
-        )}
+      variants={slideInVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className={cn(
+        "bg-gradient-to-br from-gray-900 via-gray-800 to-black/90 bg-opacity-60 backdrop-blur-lg p-6 rounded-xl shadow-lg border border-gray-700 hover:shadow-blue-500/20 transition-all duration-300 hover:scale-[1.02]",
+        className
+      )}
     >
-        <div className="text-4xl text-center text-blue-400 mb-4">
-            <Icon className="w-8 h-8 mx-auto" />
-        </div>
-        <h3 className="text-xl font-semibold text-center mt-4 text-white">{title}</h3>
-        <p className="text-center text-gray-300 mt-2">{description}</p>
+      <div className="text-4xl text-center text-blue-400 mb-4">
+        <Icon className="w-8 h-8 mx-auto" />
+      </div>
+      <h3 className="text-xl font-semibold text-center mt-4 text-white">{t(title)}</h3>
+      <p className="text-center text-gray-300 mt-2">{t(description)}</p>
     </motion.div>
-);
+  );
+};
 
-const UseCaseCard = ({ title, description, imageUrl, className }: { title: string, description: string, imageUrl: string, className?: string }) => (
+const UseCaseCard = ({ title, description, imageUrl, className }: { title: string, description: string, imageUrl: string, className?: string }) => {
+  const { t } = useTranslation();
+  return (
     <motion.div
-        variants={slideInVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className={cn(
-          "bg-gradient-to-br from-gray-900 via-gray-800 to-black/90 bg-opacity-60 backdrop-blur-lg p-6 rounded-xl shadow-lg border border-gray-700 hover:shadow-blue-500/20 transition-all duration-300 hover:scale-[1.02] flex flex-col items-center",
-          className
-        )}
+      variants={slideInVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className={cn(
+        "bg-gradient-to-br from-gray-900 via-gray-800 to-black/90 bg-opacity-60 backdrop-blur-lg p-6 rounded-xl shadow-lg border border-gray-700 hover:shadow-blue-500/20 transition-all duration-300 hover:scale-[1.02] flex flex-col items-center",
+        className
+      )}
     >
-        <div className="w-full rounded-lg overflow-hidden mb-4">
-          <img src={imageUrl} alt={title} className="w-full h-48 object-cover rounded-lg" />
-        </div>
-        <h3 className="text-xl font-semibold text-center mt-4 text-white">{title}</h3>
-        <p className="text-center text-gray-300 mt-2">{description}</p>
+      <div className="w-full rounded-lg overflow-hidden mb-4">
+        <img src={imageUrl} alt={title} className="w-full h-48 object-cover rounded-lg" />
+      </div>
+      <h3 className="text-xl font-semibold text-center mt-4 text-white">{t(title)}</h3>
+      <p className="text-center text-gray-300 mt-2">{t(description)}</p>
     </motion.div>
-);
+  );
+};
 
 const App = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="bg-gray-900 min-h-screen">
-      <header className="bg-gradient-to-b from-black to-gray-900 py-12">
+      <header className="bg-gradient-to-b from-black to-gray-900 py-16 md:py-12 ">
         <div className="w-full max-w-screen-xl mx-auto px-4 text-center">
+          {/* Include the LanguageSwitcher component here */}
+          <div className="absolute top-4 right-4 z-50">
+            <LanguageSwitcher />
+          </div>
+
           <motion.h1
             variants={fadeInVariants}
             initial="hidden"
             animate="visible"
             className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400"
           >
-            CueFlow
+            {t('CueFlow')}
           </motion.h1>
           <motion.h2
             variants={fadeInVariants}
@@ -79,7 +94,7 @@ const App = () => {
             transition={{ delay: 0.3 }}
             className="text-2xl text-gray-300 mt-4"
           >
-            Realtime AI Conversation Assistant
+            {t('Realtime AI Conversation Assistant')}
           </motion.h2>
           <motion.p
             variants={fadeInVariants}
@@ -88,8 +103,7 @@ const App = () => {
             transition={{ delay: 0.6 }}
             className="text-gray-400 mt-6 max-w-3xl mx-auto"
           >
-            Empowering your conversations with real-time AI insights. CueFlow analyzes dialogue, understands context, and provides timely assistance,
-            helping you navigate various scenarios with confidence.
+            {t('Empowering your conversations with real-time AI insights. CueFlow analyzes dialogue, understands context, and provides timely assistance, helping you navigate various scenarios with confidence.')}
           </motion.p>
           <motion.div
             variants={fadeInVariants}
@@ -102,21 +116,21 @@ const App = () => {
               asChild
               className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-2 rounded-full hover:from-blue-500 hover:to-purple-500 transition-all duration-300 shadow-lg hover:shadow-blue-500/30 w-full sm:w-auto"
             >
-                <a
-                  href="https://github.com/VoxLink-org/cueflow/releases"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Download Now
-                </a>
+              <a
+                href="https://github.com/VoxLink-org/cueflow/releases"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t('Download Now')}
+              </a>
             </Button>
             <Button
               asChild
               className="bg-gray-700 text-white px-6 py-2 rounded-full hover:bg-gray-600 transition-all duration-300 w-full sm:w-auto"
             >
-                <a href="#use-cases">
-                  Explore Use Cases
-                </a>
+              <a href="#use-cases">
+                {t('Explore Use Cases')}
+              </a>
             </Button>
           </motion.div>
         </div>
@@ -124,29 +138,29 @@ const App = () => {
 
       <section className="bg-gradient-to-br from-blue-900 via-purple-900 to-blue-900 py-16">
         <div className="w-full max-w-screen-xl mx-auto px-4">
-            <motion.div
-                variants={fadeInVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
+          <motion.div
+            variants={fadeInVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <video
+              className="w-full h-72 md:h-96 rounded-xl shadow-2xl border border-gray-800"
+              src="interview.mp4"
+              controls
+              preload="metadata"
+              playsInline
+              loop
             >
-                <video
-                  className="w-full h-72 md:h-96 rounded-xl shadow-2xl border border-gray-800"
-                  src="interview.mp4"
-                  controls
-                  preload="metadata"
-                  playsInline
-                  loop
-                >
-                  Your browser does not support the video tag.
-                </video>
-            </motion.div>
+              Your browser does not support the video tag.
+            </video>
+          </motion.div>
         </div>
       </section>
 
       <section id="features" className="bg-gray-900 py-16">
         <div className="w-full max-w-screen-xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-gray-100 mb-12">Key Features</h2>
+          <h2 className="text-3xl font-bold text-center text-gray-100 mb-12">{t('Key Features')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <FeatureCard
               icon={Mic}
@@ -174,9 +188,9 @@ const App = () => {
 
       <section id="use-cases" className="bg-gray-900 py-16">
         <div className="w-full max-w-screen-xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-gray-100 mb-12">Use Cases</h2>
+          <h2 className="text-3xl font-bold text-center text-gray-100 mb-12">{t('Use Cases')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                       <UseCaseCard
+            <UseCaseCard
               title="Live Stream Interaction"
               description="Analyze audience sentiment and provide insights to help hosts deliver engaging content and maximize audience engagement."
               imageUrl="https://images.unsplash.com/photo-1607968565043-36af90dde238?q=80&w=3269&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -217,9 +231,9 @@ const App = () => {
       <section className="bg-gradient-to-br from-purple-900 via-pink-900 to-purple-900 py-16">
         <div className="w-full max-w-screen-xl mx-auto px-4">
           <div className="bg-white/5 backdrop-blur-md p-8 rounded-xl shadow-lg border border-gray-800">
-            <h2 className="text-2xl font-bold text-center text-white mb-6">Mac Installation Guide</h2>
+            <h2 className="text-2xl font-bold text-center text-white mb-6">{t('Mac Installation Guide')}</h2>
             <p className="text-center text-gray-200 mb-4">
-              If you encounter the error "CueFlow is damaged and can't be opened," please run the following command in your terminal:
+              {t('If you encounter the error "CueFlow is damaged and can\'t be opened," please run the following command in your terminal:')}
             </p>
             <div className="flex justify-center items-center gap-4">
               <code className="bg-gray-800 text-gray-200 py-2 px-4 rounded-md font-mono text-sm">
@@ -231,7 +245,7 @@ const App = () => {
                 className="bg-blue-500/20 text-blue-300 hover:bg-blue-500/30 hover:text-blue-200 transition-colors duration-200 border-blue-500/30"
                 onClick={() => navigator.clipboard.writeText('sudo xattr -rd com.apple.quarantine /Applications/CueFlow.app')}
               >
-                Copy
+                {t('Copy')}
               </Button>
             </div>
           </div>
