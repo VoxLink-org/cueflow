@@ -7,10 +7,11 @@ import {
   BrainCircuit,
   ShieldCheck,
   FileText,
-  Github,
 } from 'lucide-react';
 import { cn } from "@/lib/utils"
 import LanguageSwitcher from './components/LanguageSwitcher';
+import Footer from './components/Footer';
+import { Link } from 'react-router-dom';
 
 // Reusable animation variants
 const fadeInVariants = {
@@ -19,8 +20,8 @@ const fadeInVariants = {
 };
 
 const slideInVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeInOut' } },
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeInOut' } },
 };
 
 const FeatureCard = ({ icon: Icon, title, description, className }: { icon: React.FC<React.SVGProps<SVGSVGElement>>, title: string, description: string, className?: string }) => {
@@ -190,12 +191,22 @@ const App = () => {
         <div className="w-full max-w-screen-xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-gray-100 mb-12">{t('Use Cases')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <UseCaseCard
-              title="Live Stream Interaction"
-              description="Analyze audience sentiment and provide insights to help hosts deliver engaging content and maximize audience engagement."
-              imageUrl="https://images.unsplash.com/photo-1607968565043-36af90dde238?q=80&w=3269&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              className="lg:scale-105 lg:shadow-lg lg:border-2 lg:border-blue-500/50"
-            />
+            <Link to="/live-stream-interaction" target='_blank'>
+              <UseCaseCard
+                title="Live Stream Interaction"
+                description="Analyze audience sentiment and provide insights to help hosts deliver engaging content and maximize audience engagement."
+                imageUrl="https://images.unsplash.com/photo-1607968565043-36af90dde238?q=80&w=3269&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                className="lg:scale-105 lg:shadow-lg lg:border-2 lg:border-blue-500/50"
+              />
+            </Link>
+            <Link to="/job-interview" target='_blank'>
+              <UseCaseCard
+                title="Job Interview"
+                description="Receive real-time suggestions for effective responses, understand interviewer questions, and improve your confidence."
+                imageUrl="https://images.unsplash.com/photo-1565688527174-775059ac429c?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                className="lg:scale-105 lg:shadow-lg lg:border-2 lg:border-blue-500/50"
+              />
+            </Link>
             <UseCaseCard
               title="Technical Discussion"
               description="Assist in technical conversations and programming interviews by providing code suggestions and explanations."
@@ -207,12 +218,7 @@ const App = () => {
               description="Analyze counterparty intentions, understand their emotional state, and make informed decisions."
               imageUrl="https://images.unsplash.com/photo-1573164574511-73c773193279?q=80&w=3269&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
-            <UseCaseCard
-              title="Job Interview"
-              description="Receive real-time suggestions for effective responses, understand interviewer questions, and improve your confidence."
-              imageUrl="https://images.unsplash.com/photo-1565688527174-775059ac429c?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              className="lg:scale-105 lg:shadow-lg lg:border-2 lg:border-blue-500/50"
-            />
+            
             <UseCaseCard
               title="Customer Communication"
               description="Understand customer needs and preferences to improve satisfaction and increase sales."
@@ -252,24 +258,7 @@ const App = () => {
         </div>
       </section>
 
-      <footer className="bg-gray-900 py-8">
-        <div className="w-full max-w-screen-xl mx-auto px-4 text-center text-gray-400">
-          <div className="flex justify-center items-center space-x-4">
-            <p>© {new Date().getFullYear()} CueFlow</p>
-            <a
-              href="https://github.com/VoxLink-org/cueflow"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-blue-400 transition-colors"
-            >
-              <div className="flex items-center gap-1">
-                <Github className="w-4 h-4" />
-                <span>GitHub</span>
-              </div>
-            </a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
