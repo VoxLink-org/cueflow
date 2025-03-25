@@ -1,5 +1,6 @@
 import 'react';
 import { Button } from '@/components/ui/button';
+import Vtuber, { VtuberRef, Emotion } from '@/components/vtuber';
 import { motion } from 'framer-motion';
 import {
   Mic,  // 麦克风
@@ -9,11 +10,33 @@ import {
 } from 'lucide-react';
 import Footer from '@/components/Footer';
 import { Link } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
 
 const LiveBroadcastAssistantUserCasePage = () => {
+
+  const vTubeRef = useRef<VtuberRef>(null);
+
+  const showIt = (t: Emotion = Emotion.NEUTRAL) => {
+    if (vTubeRef.current) {
+      vTubeRef.current.play(t);
+    }
+  };
+
+  useEffect(() => {
+    showIt();
+  }, []);
+
   const NAME = <div className='text-gray-400 inline mx-2'>YC-打工版</div>
+  let lastTime = 0;
   return (
-    <div className="bg-gray-900 text-white font-sans">
+    <div className="bg-gray-900 text-white font-sans" onClick={() => {
+      let randomEmotion = Math.floor(Math.random() * 4);
+      if (randomEmotion === lastTime) {
+        randomEmotion = Math.floor(Math.random() * 4);
+      }
+      lastTime = randomEmotion;
+      showIt(randomEmotion);
+    }}>
       {/* Section 1: Title and Introduction */}
       <header className="bg-gradient-to-b from-gray-900 to-black py-16 md:py-24 text-center">
         <motion.h1
@@ -56,15 +79,25 @@ const LiveBroadcastAssistantUserCasePage = () => {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-2xl font-semibold text-gray-100 mb-8 text-center">新人主播痛点</h2>
-          <div className="bg-white/5 backdrop-blur-md p-6 rounded-xl shadow-lg border border-gray-800">
+          <div className="bg-white/5 backdrop-blur-md p-6 rounded-xl shadow-lg border border-gray-800 flex gap-8 lg:flex-row flex-col">
+
             <ul className="list-disc list-inside space-y-4 text-gray-300">
               <li>OMG！害怕冷场，气氛尬到脚趾抠地</li>
               <li>心态崩了！面对黑粉和质疑，瞬间懵逼</li>
               <li>经验不足，直播节奏乱成麻</li>
               <li>害怕翻车！直播事故毁所有</li>
             </ul>
+            <Vtuber
+              neutralVideoSrc='/cueflow/close-eye-final.mp4'
+              angryVideoSrc='/cueflow/i-am-angry.mp4'
+              cryVideoSrc='/cueflow/crying.mp4'
+              className='md:w-[360px] md:h-[225px]  w-[240px] h-[150px]'
+              ref={vTubeRef}
+            />
           </div>
         </div>
+
+
       </section>
 
 
@@ -171,17 +204,13 @@ const LiveBroadcastAssistantUserCasePage = () => {
           </ul>
 
           {/* [插入 {NAME} 的直播间精彩片段视频，或与观众互动的录屏，增强说服力] */}
-          {/* <div className="mt-8">
-            <video
-              className="w-full h-64 md:h-96 rounded-xl shadow-2xl border border-gray-800"
-              src="https://interactive-examples.mdn.mozilla.net/media/{name}0-videos/flower.mp4" // 替换为实际视频URL
-              controls
-              preload="metadata"
-              playsInline
-              loop
-            >
-              Your browser does not support the video tag.
-            </video>
+          {/* <div className="mt-8" >
+            
+            <img
+              src="https://images.unsplash.com/photo-1522327646852-4e28586a40dd?q=80&w=3271&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt={`${NAME} 使用 CueFlow 直播场景`}
+              className="rounded-xl shadow-2xl border border-gray-800 w-full"
+            />
           </div> */}
         </div>
       </section>
