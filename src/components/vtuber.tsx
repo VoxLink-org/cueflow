@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import React, { useRef, useEffect, useImperativeHandle, forwardRef } from 'react';
+import { useRef, useEffect, useImperativeHandle, forwardRef } from 'react';
 
 export enum Emotion {
   NEUTRAL,
