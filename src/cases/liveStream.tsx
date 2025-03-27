@@ -29,10 +29,10 @@ const LiveBroadcastAssistantUserCasePage = () => {
   const NAME = <div className='text-gray-400 inline mx-2'>YC-打工版</div>
   let lastTime = 0;
   return (
-    <div className="bg-gray-900 text-white font-sans" onClick={() => {
-      let randomEmotion = Math.floor(Math.random() * 4);
+    <div className="bg-gray-900 text-white font-sans" onMouseDown={() => {
+      let randomEmotion = Math.floor(Math.random() * 5);
       if (randomEmotion === lastTime) {
-        randomEmotion = Math.floor(Math.random() * 4);
+        randomEmotion = Math.floor(Math.random() * 5);
       }
       lastTime = randomEmotion;
       showIt(randomEmotion);
@@ -88,6 +88,7 @@ const LiveBroadcastAssistantUserCasePage = () => {
               <li>害怕翻车！直播事故毁所有</li>
             </ul>
             <Vtuber
+              thinkingVideoSrc='/cueflow/thinking.mp4'
               neutralVideoSrc='/cueflow/close-eye-final.mp4'
               angryVideoSrc='/cueflow/i-am-angry.mp4'
               cryVideoSrc='/cueflow/crying.mp4'

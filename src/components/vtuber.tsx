@@ -5,12 +5,14 @@ export enum Emotion {
   NEUTRAL,
   ANGRY,
   CRY,
+  THINKING,
 }
 
 interface VtuberProps {
   neutralVideoSrc: string;
   angryVideoSrc: string;
   cryVideoSrc: string;
+  thinkingVideoSrc: string;
   className?: string;
 }
 
@@ -18,15 +20,16 @@ export interface VtuberRef {
   play: (emotion: Emotion) => void;
 }
 
-const Vtuber = forwardRef<VtuberRef, VtuberProps>(({ neutralVideoSrc, angryVideoSrc, cryVideoSrc, className }, ref) => {
+const Vtuber = forwardRef<VtuberRef, VtuberProps>(({ neutralVideoSrc, angryVideoSrc, cryVideoSrc, thinkingVideoSrc, className }, ref) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const neutralVideoRef = useRef<HTMLVideoElement>(null);
   const angryVideoRef = useRef<HTMLVideoElement>(null);
   const cryVideoRef = useRef<HTMLVideoElement>(null);
+  const thinkingVideoRef = useRef<HTMLVideoElement>(null);
 
   useImperativeHandle(ref, () => ({
     play: (emotion: Emotion) => {
-      if (!neutralVideoRef.current || !angryVideoRef.current || !cryVideoRef.current) return;
+      if (!neutralVideoRef.current || !angryVideoRef.current || !cryVideoRef.current || !thinkingVideoRef.current) return;
 
       let selectedVideo: HTMLVideoElement;
 
@@ -36,6 +39,9 @@ const Vtuber = forwardRef<VtuberRef, VtuberProps>(({ neutralVideoSrc, angryVideo
           break;
         case Emotion.CRY:
           selectedVideo = cryVideoRef.current;
+          break;
+        case Emotion.THINKING:
+          selectedVideo = thinkingVideoRef.current;
           break;
         case Emotion.NEUTRAL:
           selectedVideo = neutralVideoRef.current;
@@ -56,8 +62,9 @@ const Vtuber = forwardRef<VtuberRef, VtuberProps>(({ neutralVideoSrc, angryVideo
     const neutralVideo = neutralVideoRef.current;
     const angryVideo = angryVideoRef.current;
     const cryVideo = cryVideoRef.current;
+    const thinkingVideo = thinkingVideoRef.current;
 
-    if (!canvas || !neutralVideo || !angryVideo || !cryVideo) return;
+    if (!canvas || !neutralVideo || !angryVideo || !cryVideo || !thinkingVideo) return;
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
@@ -127,15 +134,18 @@ const Vtuber = forwardRef<VtuberRef, VtuberProps>(({ neutralVideoSrc, angryVideo
     neutralVideo.src = neutralVideoSrc;
     angryVideo.src = angryVideoSrc;
     cryVideo.src = cryVideoSrc;
+    thinkingVideo.src = thinkingVideoSrc;
 
     setupVideo(neutralVideo);
     setupVideo(angryVideo);
     setupVideo(cryVideo);
+    setupVideo(thinkingVideo);
 
     Promise.all([
       new Promise((resolve) => neutralVideo.addEventListener('loadeddata', resolve)),
       new Promise((resolve) => angryVideo.addEventListener('loadeddata', resolve)),
       new Promise((resolve) => cryVideo.addEventListener('loadeddata', resolve)),
+      new Promise((resolve) => thinkingVideo.addEventListener('loadeddata', resolve)),
     ]).then(() => {
       console.log('Videos preloaded');
     });
@@ -144,6 +154,7 @@ const Vtuber = forwardRef<VtuberRef, VtuberProps>(({ neutralVideoSrc, angryVideo
       neutralVideo.removeEventListener('play', () => processFrame(neutralVideo));
       angryVideo.removeEventListener('play', () => processFrame(angryVideo));
       cryVideo.removeEventListener('play', () => processFrame(cryVideo));
+      thinkingVideo.removeEventListener('play', () => processFrame(thinkingVideo));
     };
   }, [angryVideoSrc, neutralVideoSrc, cryVideoSrc]);
 
@@ -164,6 +175,12 @@ const Vtuber = forwardRef<VtuberRef, VtuberProps>(({ neutralVideoSrc, angryVideo
       <video
         ref={angryVideoRef}
         src={angryVideoSrc}
+        muted
+        className="opacity-0 absolute"
+      />
+      <video
+        ref={thinkingVideoRef}
+        src={thinkingVideoSrc}
         muted
         className="opacity-0 absolute"
       />
