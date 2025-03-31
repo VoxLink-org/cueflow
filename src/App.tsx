@@ -147,7 +147,7 @@ const App = () => {
           >
             <video
               className="w-full h-72 md:h-96 rounded-xl shadow-2xl border border-gray-800"
-              src="interview.mp4"
+              src="lesson.mp4"
               controls
               preload="metadata"
               playsInline
