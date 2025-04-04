@@ -8,7 +8,7 @@ import JobInterviewAssistantUserCasePage from './cases/jobInterview.tsx'
 // import BusinessNegotiationAssistantUserCasePage from './cases/businessNegotiation.tsx'
 
 // VITE_BASE
-console.log('new one');
+console.log('new domain');
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <HashRouter >

@@ -11,14 +11,6 @@
 
       gtag('config', 'G-4XEBMLVR4Y');
     </script>
-    <script>
-      function redirect(){
-        if (window.location.href.indexOf('//voxlink-org.github.io/cueflow') > -1) {
-          window.location.href = 'https://cuecueflow.com';
-        }
-      }
-      redirect();
-    </script>
     <link rel="icon" type="image/icon" href="/logo.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CueFlow - Realtime AI Conversation Assistant</title>
@@ -55,7 +47,10 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <p id="loader">CueFlow: Privacy-first AI assistant with local voice transcription</p>
+      <a href="https://github.com/VoxLink-org/cueflow">https://github.com/VoxLink-org/cueflow</a>
+    </div>
     <script type="module" src="/src/main.tsx" ></script>
   </body>
 </html>
