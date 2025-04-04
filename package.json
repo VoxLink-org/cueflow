@@ -1,7 +1,7 @@
 {
   "name": "webpage",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.17",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "npx gh-pages -d dist"
+    "deploy": "npx gh-pages -d dist -t webpage-$(node -p 'require(\"./package.json\").version')"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",
