@@ -1,7 +1,6 @@
-# CueFlow
+# CueFlow - Privacy-First AI Conversation Assistant
 
-This project is a React application built with TypeScript and Vite.
-
+CueFlow is an on-device AI assistant that provides real-time conversation suggestions while keeping your data private. Built with modern web technologies for performance and security.
 
 ## Mac 用户安装指南
 
@@ -12,3 +11,33 @@ This project is a React application built with TypeScript and Vite.
 ```bash
 sudo xattr -rd com.apple.quarantine /Applications/CueFlow.app
 ```
+
+## Mac Installation Guide
+
+If you encounter "*CueFlow* is damaged and can't be opened" error:
+
+Run in terminal:
+```bash
+sudo xattr -rd com.apple.quarantine /Applications/CueFlow.app
+```
+
+![screenshot](https://cuecueflow.com/screenshot-2.png)
+
+
+
+## Key Features
+- 🛡️ Privacy-first design - All processing happens on your device
+- 🎤 Real-time voice transcription
+- 💬 Context-aware conversation suggestions
+- 🌐 Multi-language support
+- ⚡ Fast performance with Vite and React
+
+## Usage Scenarios
+- Business negotiations
+- Job interviews
+- Live streaming
+- Language learning
+
+## Privacy Commitment
+CueFlow processes all audio and conversation data locally on your device. No voice recordings or transcripts are ever sent to external servers.
+
