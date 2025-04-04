@@ -3,14 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1YM4QM6KLF"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4XEBMLVR4Y"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-1YM4QM6KLF');
+
+      gtag('config', 'G-4XEBMLVR4Y');
     </script>
-    <link rel="icon" type="image/icon" href="/cueflow/logo.ico" />
+    <script>
+      function redirect(){
+        if (window.location.href.indexOf('//voxlink-org.github.io/cueflow') > -1) {
+          window.location.href = 'https://cuecueflow.com';
+        }
+      }
+      redirect();
+    </script>
+    <link rel="icon" type="image/icon" href="/logo.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CueFlow - Realtime AI Conversation Assistant</title>
     <meta name="description" content="CueFlow: Privacy-first AI conversation assistant with local voice transcription. All processing happens under your control - no data leaks. Get real-time suggestions while keeping conversations private." />
@@ -20,13 +29,13 @@
     <meta name="theme-color" content="#1a1a2e" />
     <meta property="og:title" content="CueFlow - Privacy-First AI Conversation Assistant" />
     <meta property="og:description" content="On-device AI assistant with local voice transcription. Your conversations voice never leave your computer - private, secure real-time suggestions." />
-    <meta property="og:image" content="https://voxlink-org.github.io/cueflow/screenshot-2.png" />
-    <meta property="og:url" content="https://voxlink-org.github.io/cueflow/" />
+    <meta property="og:image" content="https://cuecueflow.com/screenshot-2.png" />
+    <meta property="og:url" content="https://cuecueflow.com/" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="CueFlow - Privacy-First AI Conversation Assistant" />
     <meta name="twitter:description" content="Local voice transcription &amp; on-device processing keeps your conversations private. Get real-time AI suggestions without compromising security." />
-    <meta name="twitter:image" content="https://voxlink-org.github.io/cueflow/screenshot-2.png" />
-    <link rel="canonical" href="https://voxlink-org.github.io/cueflow/" />
+    <meta name="twitter:image" content="https://cuecueflow.com/screenshot-2.png" />
+    <link rel="canonical" href="https://cuecueflow.com/" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -41,11 +50,11 @@
       },
       "description": "Privacy-first AI conversation assistant with local voice transcription",
       "featureList": "Local processing, On-device transcription, Real-time suggestions, Privacy focused",
-      "softwareHelp": "https://voxlink-org.github.io/cueflow/docs"
+      "softwareHelp": "https://cuecueflow.com/"
     }
     </script>
-    <script type="module" crossorigin src="/cueflow/assets/index-T37oFfoF.js"></script>
-    <link rel="stylesheet" crossorigin href="/cueflow/assets/index-BYFwRzEE.css">
+    <script type="module" crossorigin src="/assets/index-_2jJUDmJ.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BYFwRzEE.css">
   </head>
   <body>
     <div id="root"></div>
