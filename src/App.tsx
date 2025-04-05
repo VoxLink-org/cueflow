@@ -7,6 +7,7 @@ import {
   BrainCircuit,
   ShieldCheck,
   FileText,
+  HelpCircle,
 } from 'lucide-react';
 import { cn } from "@/lib/utils"
 import LanguageSwitcher from './components/LanguageSwitcher';
@@ -73,11 +74,21 @@ const App = () => {
 
   return (
     <div className="bg-gray-900 min-h-screen">
-      <header className="bg-gradient-to-b from-black to-gray-900 py-16 md:py-12 ">
+      <header className="bg-gradient-to-b from-black to-gray-900 md:py-16 py-20">
         <div className="w-full max-w-screen-xl mx-auto px-4 text-center">
           {/* Include the LanguageSwitcher component here */}
-          <div className="absolute top-4 right-4 z-50">
+          <div className="absolute top-4 right-4 z-50 flex items-center gap-2">
             <LanguageSwitcher />
+            <Button
+              variant="outline"
+              size="icon"
+              className="bg-gray-800 text-white hover:bg-gray-700 border-gray-700"
+              asChild
+            >
+              <a href="https://github.com/VoxLink-org/cueflow/wiki" target="_blank" rel="noopener noreferrer">
+                <HelpCircle className="w-4 h-4" />
+              </a>
+            </Button>
           </div>
 
           <motion.h1
