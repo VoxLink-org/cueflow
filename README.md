@@ -2,6 +2,8 @@
 
 CueFlow is an on-device AI assistant that provides real-time conversation suggestions while keeping your data private. Built with modern web technologies for performance and security.
 
+Check our wiki for getting help! https://github.com/VoxLink-org/cueflow/wiki
+
 ## Mac 用户安装指南
 
 如果遇到 "*CueFlow*已损坏，无法打开。 您应该弹出此磁盘映像" 或者 "CueFlow is damaged and can't be opened" 的提示。
