@@ -36,7 +36,8 @@ Welcome to our Discord, We will help you if you have any usage issues.
 
 ![screenshot](https://cuecueflow.com/screenshot-2.png)
 
-
+## Roadmap
+[Check the roadmap](https://github.com/orgs/VoxLink-org/projects/1)
 
 ## Key Features
 - 🛡️ Privacy-first design - All audio processing happens on your device
