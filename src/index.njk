@@ -45,7 +45,7 @@ demo:
       description: "Review and summarize conversations post-task for improved retention."
       video: /media/videos/cueflow-video-8.mp4
     - title: Flexible Audio Source
-      description: "Seamlessly integrates with any applications like Zoom, Google Meet, and more."
+      description: "Powered by modern speech-to-text models, CueFlow seamlessly integrates with any applications like Zoom, Google Meet, and more."
       image: /media/features/applications.svg
     - title: Versatile Applications
       description: "Ideal for meetings, interviews, lectures, and professional scenarios."
@@ -66,6 +66,10 @@ faq:
       answer: CueFlow is currently in public beta and offers limited-time free access. The built-in service includes a free usage quota, and you can use it completely free by connecting your own LLM.
     - question: Where can I get the help?
       answer: You can find help and support on our GitHub repository or join our community on Discord.
+    - question: Why does my audio not work on macOS?
+      answer: Make sure your screen capture permissions are enabled. You can do this by going to System Preferences > Security & Privacy > Privacy > Screen Capture. After granting access, restart the CueFlow. Check our help doc for more details.
+    - question: Why does my audio not work on Windows?
+      answer: Make sure your audio stereo mixer are enabled and selected. Check our help doc for more details.
 ---
 <div class="px-4 lg:px-8">
   <div class="max-w-xl mx-auto my-24 lg:my-28 text-center">
@@ -151,7 +155,7 @@ faq:
     <a class="button !text-base !h-12 !px-8 bg-purple-500" href="https://github.com/VoxLink-org/cueflow/releases" target="_blank">Download</a>
   </div>
 
-  <div class="max-w-2xl mx-auto my-24 lg:my-28">
+  <div class="max-w-2xl mx-auto my-24 lg:my-28" id="faq">
     <h2 class="font-semibold tracking-tight text-3xl lg:text-4xl mb-12 text-center">{{ faq.title }}</h2>
     <dl class="border-b">
       {% for entry in faq.entries %}
