@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  x-data="{
+    darkMode: localStorage.getItem('dark') ? localStorage.getItem('dark') === 'true' : window.matchMedia('(prefers-color-scheme: dark)').matches
+  }"
+  x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
+  x-bind:class="{ 'dark': darkMode }">
+<head>
+  <meta charset="UTF-8"/>
+  <title>File field - CueFlow - Privacy-first AI Realtime Assistant</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="description" content="CueFlow: Privacy-first AI realtime assistant with local voice transcription. Get real-time analysis and suggestions while keeping data private."/>
+  <link rel="stylesheet" type="text/css" href="/styles.css?build=1745516729627"/>
+  <link rel="icon" type="image/x-icon" href="/media/assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/media/assets/logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/media/assets/logo.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/media/assets/logo.png">
+  <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg"> -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="File field - CueFlow - Privacy-first AI Realtime Assistant"/>
+  <meta property="og:description" content="CueFlow: Privacy-first AI realtime assistant with local voice transcription. Get real-time analysis and suggestions while keeping data private."/>
+  <meta property="og:url" content="https://cuecueflow.com//docs/configuration/file-field/"/>
+  <meta property="og:image" content="https://cuecueflow.com//cover@2x.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <!-- <meta name="twitter:site" content="@pagescms"/> -->
+  <meta name="twitter:url" content="https://cuecueflow.com//docs/configuration/file-field/"/>
+  <meta name="twitter:title" content="File field - CueFlow - Privacy-first AI Realtime Assistant"/>
+  <meta name="twitter:description" content="CueFlow: Privacy-first AI realtime assistant with local voice transcription. Get real-time analysis and suggestions while keeping data private."/>
+  <meta name="twitter:image" content="https://cuecueflow.com//cover@2x.png"/>
+  <script src="/js/alpine.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4XEBMLVR4Y"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-4XEBMLVR4Y');
+</script>
+
+</head>
+<body class="bg-background antialiased font-inter">
+  <header class="border-b flex items-center gap-x-4 py-2 px-4 lg:py-3 lg:px-6 mx-auto sticky top-0 w-full bg-background z-50">
+  <a class="inline-flex items-center" href="/">
+    <!-- <svg class="max-sm:h-4 max-sm:w-4 h-5 w-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 4.8C0 2.14903 2.14903 0 4.8 0H12.0118C13.2848 0 14.5057 0.505713 15.4059 1.40589L22.5941 8.59411C23.4943 9.49429 24 10.7152 24 11.9882V19.2C24 21.851 21.851 24 19.2 24H4.8C2.14903 24 0 21.851 0 19.2V4.8Z"/>
+    </svg> -->
+    <img class="max-sm:h-4 max-sm:w-4 h-5 w-5" src="/media/assets/logo.png" alt="CueFlow Logo">
+    <span class="hidden sm:inline-block ml-2 text-sm font-semibold">CueFlow</span>
+  </a>
+  <a class="ml-auto text-sm font-medium text-muted-foreground hover:text-primary " href="/#faq">
+    About
+  </a>
+  <!-- <a class="text-sm font-medium text-muted-foreground hover:text-primary !text-primary" href="/docs">
+    Docs
+  </a> -->
+  <!-- <a class="flex gap-x-1 items-center text-sm font-medium text-muted-foreground hover:text-primary" href="https://github.com/VoxLink-org/cueflow" target="_blank">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+  </a> -->
+  <a class="flex gap-x-1 items-center text-sm font-medium text-muted-foreground hover:text-primary" href="https://discord.gg/bHEBpnuhyr" target="_blank">
+    Discord
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+  </a>
+  <a class="flex gap-x-1 items-center text-sm font-medium text-muted-foreground hover:text-primary" href="https://github.com/VoxLink-org/cueflow/wiki" target="_blank">
+    Help
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+  </a>
+  
+  
+  <!-- <a class="button-outline !h-8" href="https://app.pagescms.org">
+    Sign in
+  </a> -->
+</header>
+
+  <div class="flex max-md:flex-col max-w-7xl mx-auto px-4 my-8 lg:px-8 lg:my-12 gap-x-8">
+  <div class="md:w-80 max-md:mb-4">
+    <div class="navigation md:pr-8 md:border-r" x-data="{ showNav: false }">
+      <button @click="showNav = !showNav" class="button-outline flex items-center gap-x-2 w-full md:hidden mb-2">
+        <span x-text="showNav ? 'Hide navigation' : 'Show navigation'"></span>
+        <template x-if="!showNav"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-auto h-4 w-4"><path d="m7 15 5 5 5-5" /><path d="m7 9 5-5 5 5" /></svg></template>
+        <template x-if="showNav"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-auto h-4 w-4"><path d="m7 20 5-5 5 5" /><path d="m7 4 5 5 5-5" /></svg></template>
+      </button>
+      <div class="max-md:max-h-0 overflow-hidden duration-200 transition-all" :style="showNav ? 'max-height: ' + $refs.navigation.offsetHeight + 'px' : ''">
+        <div x-ref="navigation" class="max-md:border max-md:rounded-md max-md:p-4 max-md:text-sm">
+          
+
+
+  <ul class="flex flex-col gap-y-4">
+    
+      <li x-data="{ open: true }">
+        <div class="flex gap-x-2 items-center">
+          <a href="/docs/" class="flex items-center rounded-lg font-mdedium text-sm text-muted-foreground hover:text-primary outline-none">
+            Getting started
+          </a>
+          
+        </div>
+        
+      </li>
+    
+      <li x-data="{ open: true }">
+        <div class="flex gap-x-2 items-center">
+          <a href="/docs/configuration/" class="flex items-center rounded-lg font-mdedium text-sm text-muted-foreground hover:text-primary outline-none">
+            Configuration
+          </a>
+          
+            <button class="ml-auto text-muted-foreground hover:text-inherit transition-all duration-200" @click="open = !open" :class="open ? 'rotate-90' : ''">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0"><path d="m9 18 6-6-6-6" /></svg>
+            </button>
+          
+        </div>
+                    
+          <div class="max-h-0 overflow-hidden duration-200 transition-all" :style="open ? 'max-height: ' + $el.scrollHeight + 'px' : ''" style="max-height: 100%;">
+            
+              
+  <ul class="flex flex-col gap-y-4">
+    
+      <li x-data="{ open: false }">
+        <div class="flex gap-x-2 items-center">
+          <a href="/docs/configuration/boolean-field/" class="flex items-center rounded-lg font-mdedium text-sm text-muted-foreground hover:text-primary outline-none">
+            Boolean field
+          </a>
+          
+        </div>
+        
+      </li>
+    
+      <li x-data="{ open: false }">
+        <div class="flex gap-x-2 items-center">
+          <a href="/docs/configuration/code-field/" class="flex items-center rounded-lg font-mdedium text-sm text-muted-foreground hover:text-primary outline-none">
+            Code field
+          </a>
+          
+        </div>
+        
+      </li>
+    
+      <li x-data="{ open: false }">
+        <div class="flex gap-x-2 items-center">
+          <a href="/docs/configuration/date-field/" class="flex items-center rounded-lg font-mdedium text-sm text-muted-foreground hover:text-primary outline-none">
+            Date field
+          </a>
+          
+        </div>
+        
+      </li>
+    
+      <li x-data="{ open: true }">
+        <div class="flex gap-x-2 items-center">
+          <a href="/docs/configuration/file-field/" class="flex items-center rounded-lg font-mdedium text-sm text-muted-foreground hover:text-primary outline-none text-primary font-medium">
+            File field
+          </a>
+          
+        </div>
+        
+      </li>
+    
+      <li x-data="{ open: false }">
+        <div class="flex gap-x-2 items-center">
+          <a href="/docs/configuration/image-field/" class="flex items-center rounded-lg font-mdedium text-sm text-muted-foreground hover:text-primary outline-none">
+            Image field
+          </a>
+          
+        </div>
+        
+      </li>
+    
+      <li x-data="{ open: false }">
+        <div class="flex gap-x-2 items-center">
+          <a href="/docs/configuration/number-field/" class="flex items-center rounded-lg font-mdedium text-sm text-muted-foreground hover:text-primary outline-none">
+            Number field
+          </a>
+          
+        </div>
+        
+      </li>
+    
+      <li x-data="{ open: false }">
+        <div class="flex gap-x-2 items-center">
+          <a href="/docs/configuration/object-field/" class="flex items-center rounded-lg font-mdedium text-sm text-muted-foreground hover:text-primary outline-none">
+            Object field
+          </a>
+          
+        </div>
+        
+      </li>
+    
+      <li x-data="{ open: false }">
+        <div class="flex gap-x-2 items-center">
+          <a href="/docs/configuration/reference-field/" class="flex items-center rounded-lg font-mdedium text-sm text-muted-foreground hover:text-primary outline-none">
+            Reference field
+          </a>
+          
+        </div>
+        
+      </li>
+    
+      <li x-data="{ open: false }">
+        <div class="flex gap-x-2 items-center">
+          <a href="/docs/configuration/rich-text-field/" class="flex items-center rounded-lg font-mdedium text-sm text-muted-foreground hover:text-primary outline-none">
+            Rich-text field
+          </a>
+          
+        </div>
+        
+      </li>
+    
+      <li x-data="{ open: false }">
+        <div class="flex gap-x-2 items-center">
+          <a href="/docs/configuration/select-field/" class="flex items-center rounded-lg font-mdedium text-sm text-muted-foreground hover:text-primary outline-none">
+            Select field
+          </a>
+          
+        </div>
+        
+      </li>
+    
+      <li x-data="{ open: false }">
+        <div class="flex gap-x-2 items-center">
+          <a href="/docs/configuration/string-field/" class="flex items-center rounded-lg font-mdedium text-sm text-muted-foreground hover:text-primary outline-none">
+            String field
+          </a>
+          
+        </div>
+        
+      </li>
+    
+      <li x-data="{ open: false }">
+        <div class="flex gap-x-2 items-center">
+          <a href="/docs/configuration/text-field/" class="flex items-center rounded-lg font-mdedium text-sm text-muted-foreground hover:text-primary outline-none">
+            Text field
+          </a>
+          
+        </div>
+        
+      </li>
+    
+      <li x-data="{ open: false }">
+        <div class="flex gap-x-2 items-center">
+          <a href="/docs/configuration/uuid-field/" class="flex items-center rounded-lg font-mdedium text-sm text-muted-foreground hover:text-primary outline-none">
+            UUID field
+          </a>
+          
+        </div>
+        
+      </li>
+    
+  </ul>
+
+            
+          </div>
+        
+      </li>
+    
+      <li x-data="{ open: false }">
+        <div class="flex gap-x-2 items-center">
+          <a href="/docs/examples/" class="flex items-center rounded-lg font-mdedium text-sm text-muted-foreground hover:text-primary outline-none">
+            Examples
+          </a>
+          
+        </div>
+        
+      </li>
+    
+      <li x-data="{ open: false }">
+        <div class="flex gap-x-2 items-center">
+          <a href="/docs/custom-fields/" class="flex items-center rounded-lg font-mdedium text-sm text-muted-foreground hover:text-primary outline-none">
+            Custom fields
+          </a>
+          
+        </div>
+        
+      </li>
+    
+  </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="w-full">
+    <div class="prose">
+      <h1 class="!mb-8">File field</h1>
+      <p>A field allowing users to upload and select any type of file. By default, it uses <a href="/docs/configuration#media">the media configuration</a>, but can be customized using the field's options.</p>
+<h2 id="options">Options</h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>media</code></strong></td>
+<td><code>string</code></td>
+<td>Name of the media configuration to use. If not specified, uses the first media configuration defined in your schema.</td>
+</tr>
+<tr>
+<td><strong><code>path</code></strong></td>
+<td><code>string</code></td>
+<td>The default path when opening the file browser. Must be within the configured media folder.</td>
+</tr>
+<tr>
+<td><strong><code>multiple</code></strong></td>
+<td><code>boolean</code> or <code>object</code></td>
+<td>Allow selecting multiple files. When set to <code>true</code>, allows unlimited files. When set to an object, can include <code>min</code> and <code>max</code> properties to constraint the number of files.</td>
+</tr>
+<tr>
+<td><strong><code>multiple.min</code></strong></td>
+<td><code>number</code></td>
+<td>Minimum number of files that must be selected when <code>multiple</code> is enabled.</td>
+</tr>
+<tr>
+<td><strong><code>multiple.max</code></strong></td>
+<td><code>number</code></td>
+<td>Maximum number of files that can be selected when <code>multiple</code> is enabled.</td>
+</tr>
+<tr>
+<td><strong><code>extensions</code></strong></td>
+<td><code>string[]</code></td>
+<td>An array of file extensions that should be allowed. <strong>Note</strong>: this is on top of the allowed extensions/categories for the media selected for this field.</td>
+</tr>
+<tr>
+<td><strong><code>categories</code></strong></td>
+<td><code>string[]</code></td>
+<td>Filter files by category: <code>image</code> (<code>jpg</code>, <code>jpeg</code>, <code>png</code>, <code>gif</code>, <code>svg</code>, <code>bmp</code>, <code>tif</code>, <code>tiff</code>), <code>document</code> (<code>pdf</code>, <code>doc</code>, <code>docx</code>, <code>ppt</code>, <code>pptx</code>, <code>vxls</code>, <code>xlsx</code>, <code>txt</code>, <code>rtf</code>), <code>video</code> (<code>mp4</code>, <code>avi</code>, <code>mov</code>, <code>wmv</code>, <code>flv</code>), <code>audio</code> (<code>mp3</code>, <code>wav</code>, <code>aac</code>, <code>ogg</code>, <code>flac</code>), <code>compressed</code> (<code>zip</code>, <code>rar</code>, <code>7z</code>, <code>tar</code>, <code>gz</code>, <code>tgz</code>), <code>code</code> (various programming languages), <code>font</code> (font files), and <code>spreadsheet</code> (spreadsheet files). <strong>Note</strong>: this is on top of the allowed extensions/categories for the media selected for this field</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>A simple file field using the default media configuration:</p>
+<pre><code class="language-yaml">- name: attachment
+  label: Attachment
+  type: file
+</code></pre>
+<p>Allow selecting multiple files with a limit:</p>
+<pre><code class="language-yaml">- name: documents
+  label: Documents
+  type: file
+  options:
+    multiple:
+      max: 5
+</code></pre>
+<p>Specify a custom path and limit file types to PDFs:</p>
+<pre><code class="language-yaml">- name: resources
+  label: Resources
+  type: file
+  options:
+    path: downloads
+    extensions: [pdf]
+</code></pre>
+<p>Allow only document files using the category filter:</p>
+<pre><code class="language-yaml">- name: resources
+  label: Resources
+  type: file
+  options:
+    categories: [document]
+</code></pre>
+<p>Allow uploading compressed archives:</p>
+<pre><code class="language-yaml">- name: downloads
+  label: Downloads
+  type: file
+  options:
+    multiple: true
+    categories: [compressed]
+</code></pre>
+
+    </div>
+    
+  
+  
+  
+  
+    <footer class="flex gap-x-4 mt-8 pt-4 border-t">
+      
+        <a href="/docs/configuration/date-field/" class="button-outline flex items-center gap-x-2 truncate">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0"><path d="m15 18-6-6 6-6" /></svg>
+          <span class="max-w-1/2 truncate">Date field</span>
+        </a>
+      
+      
+        <a href="/docs/configuration/image-field/" class="button-outline flex items-center gap-x-2 ml-auto truncate">
+          <span class="max-w-1/2 truncate">Image field</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0"><path d="m9 18 6-6-6-6" /></svg>
+        </a>
+      
+      </footer>
+  
+
+  </div>
+  
+  <div class="w-64 max-lg:hidden">
+    <div class="sticky top-16 text-sm">
+      <h2 class="font-semibold track-tight">On this page</h2>
+      <nav class="toc" >
+        <ol><li><a href="#options">Options</a></li><li><a href="#examples">Examples</a></li></ol>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<link x-bind:href="darkMode ? 'https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/github-dark.min.css' : 'https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/github.min.css'" rel="stylesheet">
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/yaml.min.js"></script>
+<script>document.addEventListener('DOMContentLoaded', function() { hljs.highlightAll(); });</script>
+  <footer class="flex items-center gap-x-3 p-4 lg:p-6 text-xs text-muted-foreground">
+  <span>© <a class="hover:text-primary" href="https://github.com/VoxLink-org">VoxLink-org</a></span>
+  <span>Powered by Pages CMS</span>
+  <a class="hover:text-primary" href="/terms">Terms</a>
+  <a class="hover:text-primary" href="/privacy">Privacy</a>
+
+  <a class="ml-auto hover:text-primary" href="https://github.com/VoxLink-org/cueflow" target="_blank">
+    <svg fill="currentColor" class="h-4 w-4" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+  </a>
+  <!-- <a class="hover:text-primary" href="#" >
+    <svg class="h-4 w-4" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+  </a> -->
+  <button class="hover:text-primary h-4 w-4" @click="darkMode = !darkMode">
+    <template x-if="darkMode"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><circle cx="12" cy="12" r="4" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" /></svg></template>
+    <template x-if="!darkMode"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></svg></template>
+  </button>
+</footer>
+</body>
+</html>
