@@ -28,3 +28,11 @@ voxlink-demo.mp4
 voxlink-demo(1).mp4
 *.mp4
 !public/*.mp4
+!src/media/**/*.mp4
+node_modules
+_site
+package-lock.json
+.*
+!.gitignore
+!.eleventy.js
+dist

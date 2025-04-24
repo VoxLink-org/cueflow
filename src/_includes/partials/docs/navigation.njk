@@ -1,0 +1,27 @@
+{% macro renderMenu(items) %}
+  <ul class="flex flex-col gap-y-4">
+    {% for item in items %}
+      <li x-data="{ open: {{ 'true' if page.url.startsWith(item.url) else 'false' }} }">
+        <div class="flex gap-x-2 items-center">
+          <a href="{{ item.url }}" class="flex items-center rounded-lg font-mdedium text-sm text-muted-foreground hover:text-primary outline-none{{ ' text-primary font-medium' if item.url == page.url }}">
+            {{ item.title }}
+          </a>
+          {% if item.children.length %}
+            <button class="ml-auto text-muted-foreground hover:text-inherit transition-all duration-200" @click="open = !open" :class="open ? 'rotate-90' : ''">
+              {% lucide "chevron-right", { "class" : "h-4 w-4 shrink-0" } %}
+            </button>
+          {% endif %}
+        </div>
+        {% if item.children.length %}            
+          <div class="max-h-0 overflow-hidden duration-200 transition-all" :style="open ? 'max-height: ' + $el.scrollHeight + 'px' : ''" style="{{ 'max-height: 100%;' if page.url.startsWith(item.url) }}">
+            {% if item.children %}
+              {{ renderMenu(item.children) }}
+            {% endif %}
+          </div>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+{{ renderMenu(collections.menu) }}

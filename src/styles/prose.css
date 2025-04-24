@@ -1,0 +1,124 @@
+.prose > * {
+  @apply first:!mt-0 last:!mb-0;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  @apply font-semibold tracking-tight scroll-m-16;
+}
+
+.prose h1,
+.prose h2,
+.prose h3 {
+  @apply my-6;
+}
+
+.prose h1 {
+  @apply text-3xl lg:text-4xl;
+}
+
+.prose h2 {
+  @apply text-xl lg:text-2xl;
+}
+
+.prose h3 {
+  @apply text-base lg:text-lg;
+}
+
+.prose h4,
+.prose h5,
+.prose h6 {
+  @apply text-base my-4;
+}
+
+.prose p,
+.prose blockquote,
+.prose ul,
+.prose ol {
+  @apply my-6 first:mt-0;
+}
+
+.prose code {
+  @apply text-[90%] bg-muted rounded-sm py-1 px-1.5;
+}
+
+.prose pre code {
+  @apply p-2 block break-words whitespace-pre-wrap;
+}
+
+.prose ul,
+.prose ol {
+  @apply pl-5 mb-4;
+}
+
+.prose ul li,
+.prose ol li {
+  @apply my-2 last:mb-0 first:mt-0;
+}
+
+.prose ul li > p,
+.prose ol li > p {
+  @apply m-0;
+}
+
+.prose ul li ul,
+.prose ul li ol,
+.prose ol li ul,
+.prose ol li ol {
+  @apply my-2;
+}
+
+.prose ul {
+  @apply list-disc;
+}
+
+.prose ol {
+  @apply list-decimal;
+}
+
+.prose a {
+  @apply text-primary underline hover:decoration-muted-foreground	 underline-offset-2;
+}
+
+.prose blockquote {
+  @apply pl-4 ml-1 border-l-2;
+}
+
+.prose img,
+.prose svg,
+.prose video,
+.prose canvas,
+.prose audio,
+.prose iframe,
+.prose embed,
+.prose object {
+  @apply inline-block;
+}
+
+.prose table {
+  @apply table text-sm;
+}
+
+.prose table tr {
+  @apply border-b;
+}
+
+.prose table th {
+  @apply text-muted-foreground text-xs font-medium text-left align-middle px-3 first:pl-0 last:pr-0 h-12;
+}
+
+.prose table td {
+  @apply align-middle px-3 py-3 first:pl-0 last:pr-0;
+}
+
+.prose table td strong code {
+  @apply font-medium text-[#005cc5];
+}
+
+html.dark .prose table td strong code {
+  @apply font-medium text-[#79c0ff];
+}

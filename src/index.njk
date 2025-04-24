@@ -1,0 +1,174 @@
+---
+layout: layouts/base.njk
+promotion:
+  text: CueFlow is public beta! 🔥
+  url: https://github.com/VoxLink-org/cueflow/issues/2
+title: CueFlow
+description: "Privacy-first AI realtime assistant with local voice transcription. Get real-time analysis and suggestions while keeping data private."
+features:
+  title: Key Features
+  entries:
+    - title: Private First
+      description: Strong emphasis on data privacy, particularly through local voice transcription which prevents privacy leakage by processing audio locally.
+      icon: lock
+      soon: false
+    - title: Real-time AI Assistance
+      description: Provides real-time AI suggestions and contextual hints during conversations.
+      icon: sparkle
+      soon: false
+    - title: Versatile Application
+      description: Useful in a variety of scenarios, including meetings, lectures, user calls, candidate screening, and interview preparation.
+      icon: boxes
+      soon: false
+    - title: Post-Conversation Review
+      description: Facilitates meeting review and analysis after the conversation concludes.
+      icon: file-text
+      soon: false
+    - title: Multi-language Support
+      description: Supports multiple languages, including Chinese, English, and French.
+      icon: languages
+      soon: false
+    - title: Flexible LLM Configuration
+      description: Allows users to flexibly configure their preferred LLM providers.
+      icon: settings-2
+      soon: false
+
+instructions:
+  title: Mac Installation Guide
+  description: "If you encounter the error \"CueFlow is damaged and can't be opened,\" please run the following command in your terminal:"
+  command: "sudo xattr -rd com.apple.quarantine /Applications/CueFlow.app"
+
+
+demo:
+  entries:
+    - title: Post-task Review
+      description: "Review and summarize conversations post-task for improved retention."
+      video: /media/videos/cueflow-video-8.mp4
+    - title: Flexible Audio Source
+      description: "Powered by modern speech-to-text models, CueFlow seamlessly integrates with any applications like Zoom, Google Meet, and more."
+      image: /media/features/applications.svg
+    - title: Versatile Applications
+      description: "Ideal for meetings, interviews, lectures, and professional scenarios."
+      image: /media/features/versatile-application.png
+    - title: Work with your own LLM
+      description: "Set up your own LLM provider with CueFlow's local voice transcription. Process data under your control, ensuring no data leaks."
+      image: /media/features/work-with-your-own-llm.png
+faq:
+  title: Frequently asked questions
+  entries:
+    - question: What is CueFlow?
+      answer: CueFlow is a privacy-first AI conversation assistant that provides real-time suggestions and helps with post-conversation review. It uses local voice transcription to ensure your data stays private.
+    - question: How does CueFlow ensure privacy?
+      answer: CueFlow processes audio locally on your device using local voice transcription. This means your conversations never leave your computer, preventing privacy leakage.
+    - question: What use cases does CueFlow support?
+      answer: CueFlow is highly versatile and can significantly enhance productivity in numerous scenarios. It's ideal for professional settings like business meetings, client calls, and sales pitches, providing real-time insights and post-call analysis. Educators can use it for lectures and seminars to capture key points and generate summaries. It's also invaluable for recruitment processes, aiding in candidate screening and interview preparation by analyzing conversations and providing feedback. Additionally, it's useful for personal development, such as practicing presentations or improving communication skills.
+    - question: Is CueFlow free?
+      answer: CueFlow is currently in public beta and offers limited-time free access. The built-in service includes a free usage quota, and you can use it completely free by connecting your own LLM.
+    - question: Where can I get the help?
+      answer: You can find help and support on our GitHub repository or join our community on Discord.
+    - question: Why does my audio not work on macOS?
+      answer: Make sure your screen capture permissions are enabled. You can do this by going to System Preferences > Security & Privacy > Privacy > Screen Capture. After granting access, restart the CueFlow. Check our help doc for more details.
+    - question: Why does my audio not work on Windows?
+      answer: Make sure your audio stereo mixer are enabled and selected. Check our help doc for more details.
+---
+<div class="px-4 lg:px-8">
+  <div class="max-w-xl mx-auto my-24 lg:my-28 text-center">
+    {% if promotion.text %}
+      <a class="rounded-full bg-muted text-sm h-8 px-4 inline-flex items-center mb-4 hover:underline underline-offset-2" href="{{ promotion.url }}" target="_blank">
+        {{ promotion.text | markdown | safe }}
+        {% lucide "arrow-right", { "class" : "h-3 w-3 shrink-0 ml-1" } %}
+      </a>
+    {% endif %}
+    <div class="space-y-8">
+      <h1 class="font-semibold tracking-tight text-4xl lg:text-6xl">{{ title }}</h1>
+      <p class="text-muted-foreground md:text-lg">{{ description }}</p>
+      <div class="flex max-md:flex-col md:gap-x-4 max-md:gap-y-4 justify-center">
+        <a class="button-purple !text-base !h-12 !px-8" href="https://github.com/VoxLink-org/cueflow/releases" target="_blank">Download</a>
+        <a class="button-outline !text-base !h-12 !px-8" href="#features">Learn more</a>
+      </div>
+    </div>
+  </div>
+
+  <a href="#features" class="rounded-2xl overflow-hidden max-w-3xl mx-auto block relative group bg-neutral-950 mb-12 cursor-pointer border ">
+    <video class="w-full group-hover:opacity-90 transition-opacity block" autoplay loop muted playsinline>
+      <source src="/media/videos/cueflow-video-4.mp4" type="video/mp4">
+    </video>
+    <div class="button flex gap-x-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 !rounded-full group-hover:scale-105 duration-1000 !transition-transform invisible group-hover:visible">
+      {% lucide "circle-play", { "class" : "h-5 w-5 shrink-0 -ml-1" } %}
+      <span class="max-sm:hidden">Check the features</span>
+      <span class="sm:hidden">Features</span>
+    </div>
+  </a>
+
+  </div>
+
+  <div class="max-w-5xl mx-auto my-24 lg:my-28" id="features">
+    <h2 class="font-semibold tracking-tight text-3xl lg:text-4xl mb-12 text-center">{{ features.title }}</h2>
+    <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+      {% for feature in features.entries %}
+        <li class="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
+          <div class="flex items-center gap-x-2">
+            {% lucide feature.icon, { "class" : "h-5 w-5 stroke-[1.5]"} %}
+            {% if feature.soon %}<span class="ml-auto bg-muted text-xs font-medium text-opacity-0 h-6 flex items-center px-3 rounded-full float-right">Soon</span>{% endif %}
+          </div>
+          <h3 class="font-medium mt-4">{{ feature.title }}</h3>
+          <p class="mt-1">{{ feature.description }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+<div class="max-w-5xl mx-auto my-24 lg:my-28">
+    <h2 class="font-semibold tracking-tight text-3xl lg:text-4xl mb-8 text-center">{{ instructions.title }}</h2>
+    <p class="text-muted-foreground md:text-lg text-center mb-8">{{ instructions.description }}</p>
+    <div class="flex justify-center items-center gap-4" x-data="{ copied: false, command: '{{ instructions.command }}' }">
+      <code class="bg-gray-800 text-gray-200 py-2 px-4 rounded-md font-mono text-sm">{{ instructions.command }}</code>
+      <button class="button-outline "
+              @click="navigator.clipboard.writeText(command); copied = true; setTimeout(() => copied = false, 2000)"
+              x-text="copied ? 'Copied!' : 'Copy'">Copy</button>
+    </div>
+  </div>
+
+
+  
+  {% for case in demo.entries %}
+  <div class="max-w-5xl mx-auto my-24 lg:my-28">
+      <h2 class="font-semibold tracking-tight text-3xl lg:text-4xl mb-8 text-center">{{ case.title }}</h2>
+      <p class="text-muted-foreground md:text-lg text-center mb-8">{{ case.description }}</p>
+      {% if case.image %}
+        <div class="rounded-xl overflow-hidden border max-w-xl mx-auto">
+          <img src="{{ case.image }}" alt="{{ case.title }}" class="w-full">
+        </div>
+      {% elif case.video %}
+        <div class="rounded-xl overflow-hidden border max-w-xl mx-auto">
+          <video class="w-full group-hover:opacity-90 transition-opacity block" autoplay loop muted playsinline>
+            <source src="{{ case.video }}" type="video/mp4"> {# Assuming MP4 format, adjust if needed #}
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      {% endif %}
+  </div>
+  {% endfor %}
+
+  <div class="max-w-2xl mx-auto my-24 lg:my-28 text-center">
+    <h2 class="font-semibold tracking-tight text-3xl lg:text-4xl mb-8">Experience privacy-first AI assistance with CueFlow.</h2>
+    <a class="button !text-base !h-12 !px-8 bg-purple-500" href="https://github.com/VoxLink-org/cueflow/releases" target="_blank">Download</a>
+  </div>
+
+  <div class="max-w-2xl mx-auto my-24 lg:my-28" id="faq">
+    <h2 class="font-semibold tracking-tight text-3xl lg:text-4xl mb-12 text-center">{{ faq.title }}</h2>
+    <dl class="border-b">
+      {% for entry in faq.entries %}
+        <div class="border-t py-4" x-data="{ open: false }">
+          <dt class="flex font-medium cursor-pointer group items-center" @click="open = !open">
+            <span class="text-base lg:text-lg">{{ entry.question }}</span>
+            <span class="ml-auto text-muted-foreground group-hover:text-inherit transition-all duration-200" :class="open ? 'rotate-180' : ''">{% lucide "chevron-down", { "class" : "h-4" } %}</span>
+          </dt>
+          <dd class="max-h-0 overflow-hidden transition-all duration-200" :style="open ? 'max-height: ' + $refs.answer{{ loop.index }}.offsetHeight + 'px' : ''">
+            <div class="pt-6 inline-block prose" x-ref="answer{{ loop.index }}">{{ entry.answer | markdown | safe }}</div>
+          </dd>
+        </div>
+      {% endfor %}
+    </dl>
+  </div>
+</div>

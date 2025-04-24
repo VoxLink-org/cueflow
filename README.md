@@ -30,7 +30,7 @@ sudo xattr -rd com.apple.quarantine /Applications/CueFlow.app
 
 Welcome to our Discord, We will help you if you have any usage issues.
 
-[https://discord.gg/SF8WtZJM](https://discord.gg/SF8WtZJM)
+[https://discord.gg/bHEBpnuhyr](https://discord.gg/bHEBpnuhyr)
 
 
 
