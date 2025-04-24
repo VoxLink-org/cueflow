@@ -34,3 +34,4 @@ package-lock.json
 .*
 !.gitignore
 !.eleventy.js
+dist
