@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  x-data="{
+    darkMode: localStorage.getItem('dark') ? localStorage.getItem('dark') === 'true' : window.matchMedia('(prefers-color-scheme: dark)').matches
+  }"
+  x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
+  x-bind:class="{ 'dark': darkMode }">
+<head>
+  <meta charset="UTF-8"/>
+  <title>CueFlow - Privacy-first AI Realtime Assistant: CueFlow</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="description" content="Privacy-first AI realtime assistant with local voice transcription. Get real-time analysis and suggestions while keeping data private."/>
+  <link rel="stylesheet" type="text/css" href="/styles.css?build=1745516729585"/>
+  <link rel="icon" type="image/x-icon" href="/media/assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/media/assets/logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/media/assets/logo.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/media/assets/logo.png">
+  <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg"> -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="CueFlow - Privacy-first AI Realtime Assistant: CueFlow"/>
+  <meta property="og:description" content="Privacy-first AI realtime assistant with local voice transcription. Get real-time analysis and suggestions while keeping data private."/>
+  <meta property="og:url" content="https://cuecueflow.com//"/>
+  <meta property="og:image" content="https://cuecueflow.com//cover@2x.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <!-- <meta name="twitter:site" content="@pagescms"/> -->
+  <meta name="twitter:url" content="https://cuecueflow.com//"/>
+  <meta name="twitter:title" content="CueFlow - Privacy-first AI Realtime Assistant: CueFlow"/>
+  <meta name="twitter:description" content="Privacy-first AI realtime assistant with local voice transcription. Get real-time analysis and suggestions while keeping data private."/>
+  <meta name="twitter:image" content="https://cuecueflow.com//cover@2x.png"/>
+  <script src="/js/alpine.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4XEBMLVR4Y"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-4XEBMLVR4Y');
+</script>
+
+</head>
+<body class="bg-background antialiased font-inter">
+  <header class="border-b flex items-center gap-x-4 py-2 px-4 lg:py-3 lg:px-6 mx-auto sticky top-0 w-full bg-background z-50">
+  <a class="inline-flex items-center" href="/">
+    <!-- <svg class="max-sm:h-4 max-sm:w-4 h-5 w-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 4.8C0 2.14903 2.14903 0 4.8 0H12.0118C13.2848 0 14.5057 0.505713 15.4059 1.40589L22.5941 8.59411C23.4943 9.49429 24 10.7152 24 11.9882V19.2C24 21.851 21.851 24 19.2 24H4.8C2.14903 24 0 21.851 0 19.2V4.8Z"/>
+    </svg> -->
+    <img class="max-sm:h-4 max-sm:w-4 h-5 w-5" src="/media/assets/logo.png" alt="CueFlow Logo">
+    <span class="hidden sm:inline-block ml-2 text-sm font-semibold">CueFlow</span>
+  </a>
+  <a class="ml-auto text-sm font-medium text-muted-foreground hover:text-primary !text-primary font-medium" href="/#faq">
+    About
+  </a>
+  <!-- <a class="text-sm font-medium text-muted-foreground hover:text-primary " href="/docs">
+    Docs
+  </a> -->
+  <!-- <a class="flex gap-x-1 items-center text-sm font-medium text-muted-foreground hover:text-primary" href="https://github.com/VoxLink-org/cueflow" target="_blank">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+  </a> -->
+  <a class="flex gap-x-1 items-center text-sm font-medium text-muted-foreground hover:text-primary" href="https://discord.gg/bHEBpnuhyr" target="_blank">
+    Discord
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+  </a>
+  <a class="flex gap-x-1 items-center text-sm font-medium text-muted-foreground hover:text-primary" href="https://github.com/VoxLink-org/cueflow/wiki" target="_blank">
+    Help
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+  </a>
+  
+  
+  <!-- <a class="button-outline !h-8" href="https://app.pagescms.org">
+    Sign in
+  </a> -->
+</header>
+
+  <div class="px-4 lg:px-8">
+  <div class="max-w-xl mx-auto my-24 lg:my-28 text-center">
+    
+      <a class="rounded-full bg-muted text-sm h-8 px-4 inline-flex items-center mb-4 hover:underline underline-offset-2" href="https://github.com/VoxLink-org/cueflow/issues/2" target="_blank">
+        <p>CueFlow is public beta! 🔥</p>
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3 shrink-0 ml-1"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+      </a>
+    
+    <div class="space-y-8">
+      <h1 class="font-semibold tracking-tight text-4xl lg:text-6xl">CueFlow</h1>
+      <p class="text-muted-foreground md:text-lg">Privacy-first AI realtime assistant with local voice transcription. Get real-time analysis and suggestions while keeping data private.</p>
+      <div class="flex max-md:flex-col md:gap-x-4 max-md:gap-y-4 justify-center">
+        <a class="button-purple !text-base !h-12 !px-8" href="https://github.com/VoxLink-org/cueflow/releases" target="_blank">Download</a>
+        <a class="button-outline !text-base !h-12 !px-8" href="#features">Learn more</a>
+      </div>
+    </div>
+  </div>
+
+  <a href="#features" class="rounded-2xl overflow-hidden max-w-3xl mx-auto block relative group bg-neutral-950 mb-12 cursor-pointer border ">
+    <video class="w-full group-hover:opacity-90 transition-opacity block" autoplay loop muted playsinline>
+      <source src="/media/videos/cueflow-video-4.mp4" type="video/mp4">
+    </video>
+    <div class="button flex gap-x-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 !rounded-full group-hover:scale-105 duration-1000 !transition-transform invisible group-hover:visible">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 shrink-0 -ml-1"><circle cx="12" cy="12" r="10" /><polygon points="10 8 16 12 10 16 10 8" /></svg>
+      <span class="max-sm:hidden">Check the features</span>
+      <span class="sm:hidden">Features</span>
+    </div>
+  </a>
+
+  </div>
+
+  <div class="max-w-5xl mx-auto my-24 lg:my-28" id="features">
+    <h2 class="font-semibold tracking-tight text-3xl lg:text-4xl mb-12 text-center">Key Features</h2>
+    <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+      
+        <li class="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
+          <div class="flex items-center gap-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 stroke-[1.5]"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
+            
+          </div>
+          <h3 class="font-medium mt-4">Private First</h3>
+          <p class="mt-1">Strong emphasis on data privacy, particularly through local voice transcription which prevents privacy leakage by processing audio locally.</p>
+        </li>
+      
+        <li class="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
+          <div class="flex items-center gap-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 stroke-[1.5]"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" /></svg>
+            
+          </div>
+          <h3 class="font-medium mt-4">Real-time AI Assistance</h3>
+          <p class="mt-1">Provides real-time AI suggestions and contextual hints during conversations.</p>
+        </li>
+      
+        <li class="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
+          <div class="flex items-center gap-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 stroke-[1.5]"><path d="M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 2.06 0L12 19v-5.5l-5-3-4.03 2.42Z" /><path d="m7 16.5-4.74-2.85" /><path d="m7 16.5 5-3" /><path d="M7 16.5v5.17" /><path d="M12 13.5V19l3.97 2.38a2 2 0 0 0 2.06 0l3-1.8a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71L17 10.5l-5 3Z" /><path d="m17 16.5-5-3" /><path d="m17 16.5 4.74-2.85" /><path d="M17 16.5v5.17" /><path d="M7.97 4.42A2 2 0 0 0 7 6.13v4.37l5 3 5-3V6.13a2 2 0 0 0-.97-1.71l-3-1.8a2 2 0 0 0-2.06 0l-3 1.8Z" /><path d="M12 8 7.26 5.15" /><path d="m12 8 4.74-2.85" /><path d="M12 13.5V8" /></svg>
+            
+          </div>
+          <h3 class="font-medium mt-4">Versatile Application</h3>
+          <p class="mt-1">Useful in a variety of scenarios, including meetings, lectures, user calls, candidate screening, and interview preparation.</p>
+        </li>
+      
+        <li class="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
+          <div class="flex items-center gap-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 stroke-[1.5]"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></svg>
+            
+          </div>
+          <h3 class="font-medium mt-4">Post-Conversation Review</h3>
+          <p class="mt-1">Facilitates meeting review and analysis after the conversation concludes.</p>
+        </li>
+      
+        <li class="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
+          <div class="flex items-center gap-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 stroke-[1.5]"><path d="m5 8 6 6" /><path d="m4 14 6-6 2-3" /><path d="M2 5h12" /><path d="M7 2h1" /><path d="m22 22-5-10-5 10" /><path d="M14 18h6" /></svg>
+            
+          </div>
+          <h3 class="font-medium mt-4">Multi-language Support</h3>
+          <p class="mt-1">Supports multiple languages, including Chinese, English, and French.</p>
+        </li>
+      
+        <li class="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
+          <div class="flex items-center gap-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 stroke-[1.5]"><path d="M20 7h-9" /><path d="M14 17H5" /><circle cx="17" cy="17" r="3" /><circle cx="7" cy="7" r="3" /></svg>
+            
+          </div>
+          <h3 class="font-medium mt-4">Flexible LLM Configuration</h3>
+          <p class="mt-1">Allows users to flexibly configure their preferred LLM providers.</p>
+        </li>
+      
+    </ul>
+  </div>
+
+<div class="max-w-5xl mx-auto my-24 lg:my-28">
+    <h2 class="font-semibold tracking-tight text-3xl lg:text-4xl mb-8 text-center">Mac Installation Guide</h2>
+    <p class="text-muted-foreground md:text-lg text-center mb-8">If you encounter the error &quot;CueFlow is damaged and can&#39;t be opened,&quot; please run the following command in your terminal:</p>
+    <div class="flex justify-center items-center gap-4" x-data="{ copied: false, command: 'sudo xattr -rd com.apple.quarantine /Applications/CueFlow.app' }">
+      <code class="bg-gray-800 text-gray-200 py-2 px-4 rounded-md font-mono text-sm">sudo xattr -rd com.apple.quarantine /Applications/CueFlow.app</code>
+      <button class="button-outline "
+              @click="navigator.clipboard.writeText(command); copied = true; setTimeout(() => copied = false, 2000)"
+              x-text="copied ? 'Copied!' : 'Copy'">Copy</button>
+    </div>
+  </div>
+
+
+  
+  
+  <div class="max-w-5xl mx-auto my-24 lg:my-28">
+      <h2 class="font-semibold tracking-tight text-3xl lg:text-4xl mb-8 text-center">Post-task Review</h2>
+      <p class="text-muted-foreground md:text-lg text-center mb-8">Review and summarize conversations post-task for improved retention.</p>
+      
+        <div class="rounded-xl overflow-hidden border max-w-xl mx-auto">
+          <video class="w-full group-hover:opacity-90 transition-opacity block" autoplay loop muted playsinline>
+            <source src="/media/videos/cueflow-video-8.mp4" type="video/mp4"> 
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      
+  </div>
+  
+  <div class="max-w-5xl mx-auto my-24 lg:my-28">
+      <h2 class="font-semibold tracking-tight text-3xl lg:text-4xl mb-8 text-center">Flexible Audio Source</h2>
+      <p class="text-muted-foreground md:text-lg text-center mb-8">Powered by modern speech-to-text models, CueFlow seamlessly integrates with any applications like Zoom, Google Meet, and more.</p>
+      
+        <div class="rounded-xl overflow-hidden border max-w-xl mx-auto">
+          <img src="/media/features/applications.svg" alt="Flexible Audio Source" class="w-full">
+        </div>
+      
+  </div>
+  
+  <div class="max-w-5xl mx-auto my-24 lg:my-28">
+      <h2 class="font-semibold tracking-tight text-3xl lg:text-4xl mb-8 text-center">Versatile Applications</h2>
+      <p class="text-muted-foreground md:text-lg text-center mb-8">Ideal for meetings, interviews, lectures, and professional scenarios.</p>
+      
+        <div class="rounded-xl overflow-hidden border max-w-xl mx-auto">
+          <img src="/media/features/versatile-application.png" alt="Versatile Applications" class="w-full">
+        </div>
+      
+  </div>
+  
+  <div class="max-w-5xl mx-auto my-24 lg:my-28">
+      <h2 class="font-semibold tracking-tight text-3xl lg:text-4xl mb-8 text-center">Work with your own LLM</h2>
+      <p class="text-muted-foreground md:text-lg text-center mb-8">Set up your own LLM provider with CueFlow&#39;s local voice transcription. Process data under your control, ensuring no data leaks.</p>
+      
+        <div class="rounded-xl overflow-hidden border max-w-xl mx-auto">
+          <img src="/media/features/work-with-your-own-llm.png" alt="Work with your own LLM" class="w-full">
+        </div>
+      
+  </div>
+  
+
+  <div class="max-w-2xl mx-auto my-24 lg:my-28 text-center">
+    <h2 class="font-semibold tracking-tight text-3xl lg:text-4xl mb-8">Experience privacy-first AI assistance with CueFlow.</h2>
+    <a class="button !text-base !h-12 !px-8 bg-purple-500" href="https://github.com/VoxLink-org/cueflow/releases" target="_blank">Download</a>
+  </div>
+
+  <div class="max-w-2xl mx-auto my-24 lg:my-28" id="faq">
+    <h2 class="font-semibold tracking-tight text-3xl lg:text-4xl mb-12 text-center">Frequently asked questions</h2>
+    <dl class="border-b">
+      
+        <div class="border-t py-4" x-data="{ open: false }">
+          <dt class="flex font-medium cursor-pointer group items-center" @click="open = !open">
+            <span class="text-base lg:text-lg">What is CueFlow?</span>
+            <span class="ml-auto text-muted-foreground group-hover:text-inherit transition-all duration-200" :class="open ? 'rotate-180' : ''"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4"><path d="m6 9 6 6 6-6" /></svg></span>
+          </dt>
+          <dd class="max-h-0 overflow-hidden transition-all duration-200" :style="open ? 'max-height: ' + $refs.answer1.offsetHeight + 'px' : ''">
+            <div class="pt-6 inline-block prose" x-ref="answer1"><p>CueFlow is a privacy-first AI conversation assistant that provides real-time suggestions and helps with post-conversation review. It uses local voice transcription to ensure your data stays private.</p>
+</div>
+          </dd>
+        </div>
+      
+        <div class="border-t py-4" x-data="{ open: false }">
+          <dt class="flex font-medium cursor-pointer group items-center" @click="open = !open">
+            <span class="text-base lg:text-lg">How does CueFlow ensure privacy?</span>
+            <span class="ml-auto text-muted-foreground group-hover:text-inherit transition-all duration-200" :class="open ? 'rotate-180' : ''"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4"><path d="m6 9 6 6 6-6" /></svg></span>
+          </dt>
+          <dd class="max-h-0 overflow-hidden transition-all duration-200" :style="open ? 'max-height: ' + $refs.answer2.offsetHeight + 'px' : ''">
+            <div class="pt-6 inline-block prose" x-ref="answer2"><p>CueFlow processes audio locally on your device using local voice transcription. This means your conversations never leave your computer, preventing privacy leakage.</p>
+</div>
+          </dd>
+        </div>
+      
+        <div class="border-t py-4" x-data="{ open: false }">
+          <dt class="flex font-medium cursor-pointer group items-center" @click="open = !open">
+            <span class="text-base lg:text-lg">What use cases does CueFlow support?</span>
+            <span class="ml-auto text-muted-foreground group-hover:text-inherit transition-all duration-200" :class="open ? 'rotate-180' : ''"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4"><path d="m6 9 6 6 6-6" /></svg></span>
+          </dt>
+          <dd class="max-h-0 overflow-hidden transition-all duration-200" :style="open ? 'max-height: ' + $refs.answer3.offsetHeight + 'px' : ''">
+            <div class="pt-6 inline-block prose" x-ref="answer3"><p>CueFlow is highly versatile and can significantly enhance productivity in numerous scenarios. It's ideal for professional settings like business meetings, client calls, and sales pitches, providing real-time insights and post-call analysis. Educators can use it for lectures and seminars to capture key points and generate summaries. It's also invaluable for recruitment processes, aiding in candidate screening and interview preparation by analyzing conversations and providing feedback. Additionally, it's useful for personal development, such as practicing presentations or improving communication skills.</p>
+</div>
+          </dd>
+        </div>
+      
+        <div class="border-t py-4" x-data="{ open: false }">
+          <dt class="flex font-medium cursor-pointer group items-center" @click="open = !open">
+            <span class="text-base lg:text-lg">Is CueFlow free?</span>
+            <span class="ml-auto text-muted-foreground group-hover:text-inherit transition-all duration-200" :class="open ? 'rotate-180' : ''"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4"><path d="m6 9 6 6 6-6" /></svg></span>
+          </dt>
+          <dd class="max-h-0 overflow-hidden transition-all duration-200" :style="open ? 'max-height: ' + $refs.answer4.offsetHeight + 'px' : ''">
+            <div class="pt-6 inline-block prose" x-ref="answer4"><p>CueFlow is currently in public beta and offers limited-time free access. The built-in service includes a free usage quota, and you can use it completely free by connecting your own LLM.</p>
+</div>
+          </dd>
+        </div>
+      
+        <div class="border-t py-4" x-data="{ open: false }">
+          <dt class="flex font-medium cursor-pointer group items-center" @click="open = !open">
+            <span class="text-base lg:text-lg">Where can I get the help?</span>
+            <span class="ml-auto text-muted-foreground group-hover:text-inherit transition-all duration-200" :class="open ? 'rotate-180' : ''"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4"><path d="m6 9 6 6 6-6" /></svg></span>
+          </dt>
+          <dd class="max-h-0 overflow-hidden transition-all duration-200" :style="open ? 'max-height: ' + $refs.answer5.offsetHeight + 'px' : ''">
+            <div class="pt-6 inline-block prose" x-ref="answer5"><p>You can find help and support on our GitHub repository or join our community on Discord.</p>
+</div>
+          </dd>
+        </div>
+      
+        <div class="border-t py-4" x-data="{ open: false }">
+          <dt class="flex font-medium cursor-pointer group items-center" @click="open = !open">
+            <span class="text-base lg:text-lg">Why does my audio not work on macOS?</span>
+            <span class="ml-auto text-muted-foreground group-hover:text-inherit transition-all duration-200" :class="open ? 'rotate-180' : ''"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4"><path d="m6 9 6 6 6-6" /></svg></span>
+          </dt>
+          <dd class="max-h-0 overflow-hidden transition-all duration-200" :style="open ? 'max-height: ' + $refs.answer6.offsetHeight + 'px' : ''">
+            <div class="pt-6 inline-block prose" x-ref="answer6"><p>Make sure your screen capture permissions are enabled. You can do this by going to System Preferences &gt; Security &amp; Privacy &gt; Privacy &gt; Screen Capture. After granting access, restart the CueFlow. Check our help doc for more details.</p>
+</div>
+          </dd>
+        </div>
+      
+        <div class="border-t py-4" x-data="{ open: false }">
+          <dt class="flex font-medium cursor-pointer group items-center" @click="open = !open">
+            <span class="text-base lg:text-lg">Why does my audio not work on Windows?</span>
+            <span class="ml-auto text-muted-foreground group-hover:text-inherit transition-all duration-200" :class="open ? 'rotate-180' : ''"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4"><path d="m6 9 6 6 6-6" /></svg></span>
+          </dt>
+          <dd class="max-h-0 overflow-hidden transition-all duration-200" :style="open ? 'max-height: ' + $refs.answer7.offsetHeight + 'px' : ''">
+            <div class="pt-6 inline-block prose" x-ref="answer7"><p>Make sure your audio stereo mixer are enabled and selected. Check our help doc for more details.</p>
+</div>
+          </dd>
+        </div>
+      
+    </dl>
+  </div>
+</div>
+
+  <footer class="flex items-center gap-x-3 p-4 lg:p-6 text-xs text-muted-foreground">
+  <span>© <a class="hover:text-primary" href="https://github.com/VoxLink-org">VoxLink-org</a></span>
+  <span>Powered by Pages CMS</span>
+  <a class="hover:text-primary" href="/terms">Terms</a>
+  <a class="hover:text-primary" href="/privacy">Privacy</a>
+
+  <a class="ml-auto hover:text-primary" href="https://github.com/VoxLink-org/cueflow" target="_blank">
+    <svg fill="currentColor" class="h-4 w-4" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+  </a>
+  <!-- <a class="hover:text-primary" href="#" >
+    <svg class="h-4 w-4" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+  </a> -->
+  <button class="hover:text-primary h-4 w-4" @click="darkMode = !darkMode">
+    <template x-if="darkMode"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><circle cx="12" cy="12" r="4" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" /></svg></template>
+    <template x-if="!darkMode"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></svg></template>
+  </button>
+</footer>
+</body>
+</html>
