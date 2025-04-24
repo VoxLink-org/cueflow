@@ -27,11 +27,6 @@
         </url>
     
         <url>
-            <loc>https://cuecueflow.com//404.html</loc>
-            <lastmod>2025-04-24T13:30:37.558Z</lastmod>
-        </url>
-    
-        <url>
             <loc>https://cuecueflow.com//docs/configuration/</loc>
             <lastmod>2025-04-24T13:30:37.566Z</lastmod>
         </url>
@@ -102,8 +97,13 @@
         </url>
     
         <url>
+            <loc>https://cuecueflow.com//404.html</loc>
+            <lastmod>2025-04-24T17:52:13.380Z</lastmod>
+        </url>
+    
+        <url>
             <loc>https://cuecueflow.com//</loc>
-            <lastmod>2025-04-24T14:55:11.507Z</lastmod>
+            <lastmod>2025-04-24T17:52:13.386Z</lastmod>
         </url>
     
 </urlset>
