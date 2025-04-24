@@ -25,7 +25,7 @@ features:
       icon: file-text
       soon: false
     - title: Multi-language Support
-      description: Supports multiple languages.
+      description: Supports multiple languages, including Chinese, English, and French.
       icon: languages
       soon: false
     - title: Flexible LLM Configuration
@@ -41,19 +41,18 @@ instructions:
 
 demo:
   entries:
-    - title: Versatile Applications
-      description: "Ideal for meetings, interviews, lectures, and professional scenarios."
-      media: /media/features/versatile-application.png
-    - title: Flexible Audio Source
-      description: "Seamlessly integrates with any applications like Zoom, Google Meet, and more."
-      media: /media/features/applications.svg
-    - title: Work with your own LLM
-      description: "Set up your own LLM provider with CueFlow's local voice transcription. Process data under your control, ensuring no data leaks."
-      media: /media/features/work-with-your-own-llm.png
     - title: Post-task Review
       description: "Review and summarize conversations post-task for improved retention."
-      media: /media/features/review-and-summarize-after-task.png
-
+      video: /media/videos/cueflow-video-8.mp4
+    - title: Flexible Audio Source
+      description: "Seamlessly integrates with any applications like Zoom, Google Meet, and more."
+      image: /media/features/applications.svg
+    - title: Versatile Applications
+      description: "Ideal for meetings, interviews, lectures, and professional scenarios."
+      image: /media/features/versatile-application.png
+    - title: Work with your own LLM
+      description: "Set up your own LLM provider with CueFlow's local voice transcription. Process data under your control, ensuring no data leaks."
+      image: /media/features/work-with-your-own-llm.png
 faq:
   title: Frequently asked questions
   entries:
@@ -132,9 +131,16 @@ faq:
   <div class="max-w-5xl mx-auto my-24 lg:my-28">
       <h2 class="font-semibold tracking-tight text-3xl lg:text-4xl mb-8 text-center">{{ case.title }}</h2>
       <p class="text-muted-foreground md:text-lg text-center mb-8">{{ case.description }}</p>
-      {% if case.media %}
+      {% if case.image %}
         <div class="rounded-xl overflow-hidden border max-w-xl mx-auto">
-          <img src="{{ case.media }}" alt="{{ case.title }}" class="w-full">
+          <img src="{{ case.image }}" alt="{{ case.title }}" class="w-full">
+        </div>
+      {% elif case.video %}
+        <div class="rounded-xl overflow-hidden border max-w-xl mx-auto">
+          <video class="w-full group-hover:opacity-90 transition-opacity block" autoplay loop muted playsinline>
+            <source src="{{ case.video }}" type="video/mp4"> {# Assuming MP4 format, adjust if needed #}
+            Your browser does not support the video tag.
+          </video>
         </div>
       {% endif %}
   </div>
