@@ -7,7 +7,7 @@
     "clean": "rm -rf _site",
     "dev": "eleventy --serve & npx tailwindcss -i ./src/styles/main.css -o ./_site/styles.css --watch",
     "build": "ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production npx tailwindcss -i ./src/styles/main.css -o ./_site/styles.css --minify",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build && cp CNAME _site",
     "deploy": "gh-pages -d _site"
   },
   "repository": {
