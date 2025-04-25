@@ -34,7 +34,7 @@ Welcome to our Discord, We will help you if you have any usage issues.
 
 
 
-![screenshot](https://cuecueflow.com/media/gif/cueflow.gif)
+![screenshot](https://cuecueflow.com/media/screenshots/cueflow-screenshot.png)
 
 ## Roadmap
 [Check the roadmap](https://github.com/orgs/VoxLink-org/projects/1)
